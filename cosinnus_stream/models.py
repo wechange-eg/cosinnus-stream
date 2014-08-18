@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 from cosinnus.models.tagged import BaseTaggableObjectModel
 from django.core.urlresolvers import reverse
+from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
 class Stream(BaseTaggableObjectModel):
@@ -9,6 +10,8 @@ class Stream(BaseTaggableObjectModel):
     class Meta(BaseTaggableObjectModel.Meta):
         verbose_name = _('Stream')
         verbose_name_plural = _('Streams')
+        
+    models = models.CharField(_('Models'), blank=True, null=True, max_length=255)
     
     def get_absolute_url(self):
         kwargs = {'slug': self.slug}

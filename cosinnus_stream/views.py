@@ -95,6 +95,11 @@ class StreamDetailView(DetailView):
         # [u'cosinnus_etherpad.Etherpad', u'cosinnus_event.Event', u'cosinnus_file.FileEntry', 'cosinnus_todo.TodoEntry']
         for registered_model in aor:
             Renderer = aor[registered_model]
+            
+            # filter out unwanted model types if set in the Stream
+            if stream and stream.models and registered_model not in stream.models.split(','):
+                continue
+            
             app_label, model_name = registered_model.split('.')
             model_class = get_model(app_label, model_name)
             
