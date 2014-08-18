@@ -126,6 +126,10 @@ class StreamDetailView(DetailView):
         if stream is None:
             self.user_group_ids = getattr(self, 'user_group_ids', CosinnusGroup.objects.get_for_user_pks(self.request.user))
             queryset = queryset.filter(group__pk__in=self.user_group_ids)
+        else:
+            if stream.group:
+                queryset = queryset.filter(group__pk=stream.group.pk)
+        
         return queryset
     
     def get_context_data(self, **kwargs):
