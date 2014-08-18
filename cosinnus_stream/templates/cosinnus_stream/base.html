@@ -2,8 +2,7 @@
 {% load i18n static %}
 
 {% block breadcrumb %}
-    {{ block.super }}
-    <li><a class="active" href="{% url 'cosinnus:my_stream' %}">{% trans "Stream" %}</a></li>
+    <li><a class="active" href="{% url 'cosinnus:my_stream' %}">{% trans "Streams" %}</a></li>
 {% endblock breadcrumb %}
 
 {% block extrahead %}

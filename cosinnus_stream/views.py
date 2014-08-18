@@ -2,7 +2,9 @@
 from __future__ import unicode_literals
 from copy import copy
 
+from django.core.exceptions import PermissionDenied
 from django.db.models import get_model
+from django.utils.translation import ugettext_lazy as _
 from django.views.generic.detail import DetailView
 
 from cosinnus.core.registries import attached_object_registry as aor
@@ -26,10 +28,23 @@ class StreamDetailView(DetailView):
             return super(StreamDetailView, self).get_object(queryset)
         return None
     
+    def get_streams(self):
+        if not self.request.user.is_authenticated():
+            return self.model._default_manager.none()
+        qs = self.model._default_manager.filter(creator__id=self.request.user.id)
+        return qs
+    
+    def check_permissions(self):
+        if self.object and not self.object.creator == self.request.user:
+            raise PermissionDenied(_('You do not have permission to access this stream.'))
+        
     def get(self, request, *args, **kwargs):
         self.object = self.get_object()
+        self.check_permissions()
+        
         self.querysets = self.get_querysets_for_stream(self.object)
         self.objects = self.get_objectset()
+        self.streams = self.get_streams()
         context = self.get_context_data(object=self.object)
         return self.render_to_response(context)
     
@@ -125,13 +140,20 @@ class StreamDetailView(DetailView):
     
     def filter_queryset_for_stream(self, queryset, stream=None):
         """ Filter a BaseTaggableObjectModel-queryset depending on the settings 
-            of the current stream """
+            of the current stream.
+            Called during the getting of the querysets and before objects are extracted.
+        """
         
-        # objects only from user-groups for My-Stream
         if stream is None:
-            self.user_group_ids = getattr(self, 'user_group_ids', CosinnusGroup.objects.get_for_user_pks(self.request.user))
-            queryset = queryset.filter(group__pk__in=self.user_group_ids)
+            # objects only from user-groups for My-Stream
+            if self.request.user.is_authenticated():
+                self.user_group_ids = getattr(self, 'user_group_ids', CosinnusGroup.objects.get_for_user_pks(self.request.user))
+                queryset = queryset.filter(group__pk__in=self.user_group_ids)
+            else:
+                # objects from public groups for Public Stream
+                queryset = queryset.filter(group__public=True)
         else:
+            # filter by group if set in stream
             if stream.group:
                 queryset = queryset.filter(group__pk=stream.group.pk)
         
@@ -141,6 +163,7 @@ class StreamDetailView(DetailView):
         kwargs.update({
             'stream': self.object,
             'stream_objects': self.objects,
+            'streams': self.streams,
         })
         return super(StreamDetailView, self).get_context_data(**kwargs)
 
