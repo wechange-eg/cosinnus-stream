@@ -4,7 +4,7 @@ from copy import copy
 
 from django.core.exceptions import PermissionDenied
 from django.db.models import get_model
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext_lazy as _, pgettext_lazy
 from django.views.generic.detail import DetailView
 
 from cosinnus.core.registries import attached_object_registry as aor
@@ -12,6 +12,13 @@ from cosinnus.models.tagged import BaseHierarchicalTaggableObjectModel
 from cosinnus.utils.permissions import get_tagged_object_filter_for_user
 from cosinnus.models.group import CosinnusGroup
 from cosinnus_stream.models import Stream
+from cosinnus.views.mixins.group import RequireWriteMixin
+from cosinnus.views.mixins.user import UserFormKwargsMixin
+from cosinnus_stream.forms import StreamForm
+from django.contrib import messages
+from django.views.generic.edit import CreateView
+from django.http.response import HttpResponseRedirect
+from django.core.urlresolvers import reverse_lazy
 
 
 class StreamDetailView(DetailView):
@@ -168,3 +175,61 @@ class StreamDetailView(DetailView):
         return super(StreamDetailView, self).get_context_data(**kwargs)
 
 stream_detail = StreamDetailView.as_view()
+
+
+class StreamCreateView(UserFormKwargsMixin, CreateView):
+
+    form_class = StreamForm
+    model = Stream
+    template_name = 'cosinnus_stream/stream_form.html'
+    form_view = "add"
+    
+    message_success = _('Your stream was added successfully.')
+    
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_authenticated():
+            messages.error(request, _('Please log in to access this page.'))
+            return HttpResponseRedirect(reverse_lazy('login') + '?next=' + request.path)
+        return super(StreamCreateView, self).dispatch(request, *args, **kwargs)
+    
+    def post(self, request, *args, **kwargs):
+        #import ipdb; ipdb.set_trace();
+        print ">>post:", request.POST
+        return super(StreamCreateView, self).post(request, *args, **kwargs)
+    
+    def get_streams(self):
+        if not self.request.user.is_authenticated():
+            return self.model._default_manager.none()
+        qs = self.model._default_manager.filter(creator__id=self.request.user.id)
+        return qs
+    
+    def get_context_data(self, **kwargs):
+        context = super(StreamCreateView, self).get_context_data(**kwargs)
+        
+        model_selection = []
+        for model_name in aor:
+            # label for the checkbox is the app identifier translation
+            app = model_name.split('.')[0].split('_')[-1]
+            model_selection.append({
+                'model_name': model_name,
+                'app': app,
+                'label': pgettext_lazy('the_app', app),
+                'checked': True if (not self.object or self.object.models) else model_name in self.object.models,
+            })
+            
+        context.update({
+            'stream_model_selection': model_selection,
+            'streams': self.get_streams(),
+            'form_view': self.form_view,
+        })
+        return context
+
+    def form_valid(self, form):
+        form.instance.creator = self.request.user
+        messages.success(self.request, self.message_success)
+        return super(StreamCreateView, self).form_valid(form)
+    
+    def get_success_url(self):
+        return self.object.get_absolute_url()
+
+stream_create = StreamCreateView.as_view()

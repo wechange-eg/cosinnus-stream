@@ -8,7 +8,7 @@ cosinnus_root_patterns = patterns('',
                                    
     url(r'^stream/(?P<slug>[^/]+)/$', 'cosinnus_stream.views.stream_detail', name='stream'),
     url(r'^stream/$', 'cosinnus_stream.views.stream_detail', name='my_stream'),
-                                                                    
+    url(r'^stream/create$', 'cosinnus_stream.views.stream_create', name='create_stream'),
 )
 
 
