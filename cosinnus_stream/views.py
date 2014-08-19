@@ -188,7 +188,6 @@ class StreamDetailView(DetailView):
                     geo_range = 0.22 # 0.22 lat/lon ~= 20km radius
                     lat_range = (stream.media_tag.location_lat-geo_range, stream.media_tag.location_lat+geo_range)
                     lon_range = (stream.media_tag.location_lon-geo_range, stream.media_tag.location_lon+geo_range)
-                    print ">> lat_lon", lat_range, lon_range
                     queryset = queryset.filter(media_tag__location_lat__range=lat_range, media_tag__location_lon__range=lon_range)
                     
         return queryset
