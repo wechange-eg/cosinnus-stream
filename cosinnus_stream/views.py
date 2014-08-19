@@ -181,7 +181,16 @@ class StreamDetailView(DetailView):
                 if stream.media_tag.persons.count() > 0:
                     ids = stream.media_tag.persons.values_list('id', flat=True)
                     queryset = queryset.filter(creator__id__in=ids).distinct()
-                
+                # filter location by range search of lat/lon
+                if stream.media_tag.location_lat and stream.media_tag.location_lon:
+                    # 1 latitude == 111 km
+                    # 1 longitude at europe ~= 108 km 
+                    geo_range = 0.22 # 0.22 lat/lon ~= 20km radius
+                    lat_range = (stream.media_tag.location_lat-geo_range, stream.media_tag.location_lat+geo_range)
+                    lon_range = (stream.media_tag.location_lon-geo_range, stream.media_tag.location_lon+geo_range)
+                    print ">> lat_lon", lat_range, lon_range
+                    queryset = queryset.filter(media_tag__location_lat__range=lat_range, media_tag__location_lon__range=lon_range)
+                    
         return queryset
     
     def get_context_data(self, **kwargs):
