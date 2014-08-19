@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 from copy import copy
 
 from django.core.exceptions import PermissionDenied
-from django.db.models import get_model
+from django.db.models import get_model, Q
 from django.utils.translation import ugettext_lazy as _, pgettext_lazy
 from django.views.generic.detail import DetailView
 
@@ -163,6 +163,16 @@ class StreamDetailView(DetailView):
             # filter by group if set in stream
             if stream.group:
                 queryset = queryset.filter(group__pk=stream.group.pk)
+            if stream.media_tag:
+                if stream.media_tag.topics:
+                    q = None
+                    # beware: this simple filter works because topics are built on a comma-separated
+                    # integer field and have only ids from 1 to 9. as soon as there would be ids like
+                    # id=12, id=1 would match that as well!
+                    for topic in stream.media_tag.topics.split(','):
+                        newq = Q(media_tag__topics__contains=topic)
+                        q = q and q|newq or newq
+                    queryset = queryset.filter(q) 
         
         return queryset
     
