@@ -172,8 +172,12 @@ class StreamDetailView(DetailView):
                     for topic in stream.media_tag.topics.split(','):
                         newq = Q(media_tag__topics__contains=topic)
                         q = q and q|newq or newq
-                    queryset = queryset.filter(q) 
-        
+                    queryset = queryset.filter(q)
+                # filter for tags (this is the only way to handle this with taggit!)
+                if stream.media_tag.tags.count() > 0:
+                    ids = stream.media_tag.tags.values_list('id', flat=True)
+                    queryset = queryset.filter(media_tag__tagged_items__tag__in=ids).distinct()
+                
         return queryset
     
     def get_context_data(self, **kwargs):
