@@ -5,13 +5,15 @@
     {% if form_view == "add" %}
       {% trans "Create Stream" %}
     {% elif form_view == "edit" %}
-      {% trans "Edit" %} {{ stream.title }}
+      {% blocktrans with stream_name=stream.title %}Edit stream "{{ stream_name }}"{% endblocktrans %}
     {% endif %}
 {% endblock page_title %}
 
 {% block breadcrumb %}
     {{ block.super }}
-    <li class="active">{% trans "Create Stream" %}</li>
+    <li class="active"
+	    >{% if form_view == "add" %}{% trans "Create Stream" %}{% elif form_view == "edit" %}{% blocktrans with stream_name=stream.title %}Edit stream "{{ stream_name }}"{% endblocktrans %}{% endif %}
+    </li>
 {% endblock %}
 
 {% block leftnav %}

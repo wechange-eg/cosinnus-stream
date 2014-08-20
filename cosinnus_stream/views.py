@@ -16,9 +16,11 @@ from cosinnus.views.mixins.group import RequireWriteMixin
 from cosinnus.views.mixins.user import UserFormKwargsMixin
 from cosinnus_stream.forms import StreamForm
 from django.contrib import messages
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView
 from django.http.response import HttpResponseRedirect
 from django.core.urlresolvers import reverse_lazy
+from cosinnus.templatetags.cosinnus_tags import has_write_access
+from cosinnus.core.decorators.views import redirect_to_403
 
 
 class StreamDetailView(DetailView):
@@ -215,25 +217,12 @@ class StreamDetailView(DetailView):
 stream_detail = StreamDetailView.as_view()
 
 
-class StreamCreateView(UserFormKwargsMixin, CreateView):
-
+class StreamFormMixin(object):
+    
     form_class = StreamForm
     model = Stream
     template_name = 'cosinnus_stream/stream_form.html'
-    form_view = "add"
     
-    message_success = _('Your stream was added successfully.')
-    
-    def dispatch(self, request, *args, **kwargs):
-        if not request.user.is_authenticated():
-            messages.error(request, _('Please log in to access this page.'))
-            return HttpResponseRedirect(reverse_lazy('login') + '?next=' + request.path)
-        return super(StreamCreateView, self).dispatch(request, *args, **kwargs)
-    
-    def post(self, request, *args, **kwargs):
-        #import ipdb; ipdb.set_trace();
-        print ">>post:", request.POST
-        return super(StreamCreateView, self).post(request, *args, **kwargs)
     
     def get_streams(self):
         if not self.request.user.is_authenticated():
@@ -242,7 +231,7 @@ class StreamCreateView(UserFormKwargsMixin, CreateView):
         return qs
     
     def get_context_data(self, **kwargs):
-        context = super(StreamCreateView, self).get_context_data(**kwargs)
+        context = super(StreamFormMixin, self).get_context_data(**kwargs)
         
         model_selection = []
         for model_name in aor:
@@ -252,7 +241,7 @@ class StreamCreateView(UserFormKwargsMixin, CreateView):
                 'model_name': model_name,
                 'app': app,
                 'label': pgettext_lazy('the_app', app),
-                'checked': True if (not self.object or self.object.models) else model_name in self.object.models,
+                'checked': True if (not self.object or not self.object.models) else model_name in self.object.models,
             })
             
         context.update({
@@ -261,13 +250,48 @@ class StreamCreateView(UserFormKwargsMixin, CreateView):
             'form_view': self.form_view,
         })
         return context
-
+    
     def form_valid(self, form):
         form.instance.creator = self.request.user
         messages.success(self.request, self.message_success)
-        return super(StreamCreateView, self).form_valid(form)
+        return super(StreamFormMixin, self).form_valid(form)
     
     def get_success_url(self):
         return self.object.get_absolute_url()
+    
+
+class StreamCreateView(UserFormKwargsMixin, StreamFormMixin, CreateView):
+
+    form_view = "add"
+    message_success = _('Your stream was added successfully.')
+    
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_authenticated():
+            messages.error(request, _('Please log in to access this page.'))
+            return HttpResponseRedirect(reverse_lazy('login') + '?next=' + request.path)
+        return super(StreamCreateView, self).dispatch(request, *args, **kwargs)
+    
 
 stream_create = StreamCreateView.as_view()
+
+
+class StreamUpdateView(UserFormKwargsMixin, StreamFormMixin, UpdateView):
+
+    form_view = "edit"
+    message_success = _('Your stream was updated successfully.')
+    
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_authenticated():
+            messages.error(request, _('Please log in to access this page.'))
+            return HttpResponseRedirect(reverse_lazy('login') + '?next=' + request.path)
+        if not has_write_access(request.user, self.get_object()):
+            return redirect_to_403(request)
+        return super(StreamUpdateView, self).dispatch(request, *args, **kwargs)
+    
+    def get_object(self, queryset=None):
+        if hasattr(self, 'object'):
+            return self.object
+        return super(StreamUpdateView, self).get_object(queryset)
+
+stream_update = StreamUpdateView.as_view()
+
