@@ -1,18 +1,23 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-from cosinnus.models.tagged import BaseTaggableObjectModel
+
 from django.core.urlresolvers import reverse
-from django.db import models
+from django.db import models as django_models
 from django.utils.translation import ugettext_lazy as _
 
+from cosinnus.models.tagged import BaseTaggableObjectModel
+from cosinnus_stream.mixins import StreamManagerMixin
 
-class Stream(BaseTaggableObjectModel):
+
+class Stream(StreamManagerMixin, BaseTaggableObjectModel):
     
     class Meta(BaseTaggableObjectModel.Meta):
         verbose_name = _('Stream')
         verbose_name_plural = _('Streams')
-        
-    models = models.CharField(_('Models'), blank=True, null=True, max_length=255)
+    
+    models = django_models.CharField(_('Models'), blank=True, null=True, max_length=255)
+    is_my_stream = django_models.BooleanField(default=False)
+    
     
     def get_absolute_url(self):
         kwargs = {'slug': self.slug}

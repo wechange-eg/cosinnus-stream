@@ -4,10 +4,10 @@
 
 {% block breadcrumb %}
     {{ block.super }}
-    {% if stream %}
-        <li class="active">{{ stream.title }}</li>
-    {% else %}
+    {% if stream.is_my_stream %}
         <li class="active">{% if user.is_authenticated %}{% trans "My Stream" %}{% else %}{% trans "Public Stream" %}{% endif %}</li>
+    {% elif stream %}
+        <li class="active">{{ stream.title }}</li>
     {% endif %}
 {% endblock %}
 
