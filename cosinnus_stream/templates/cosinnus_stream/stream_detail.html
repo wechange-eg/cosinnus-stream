@@ -26,4 +26,11 @@
         {% endfor %}
     
     </div><!-- content-box -->
+    
+    {% if has_more == True %}
+	    <div class="content-box">
+	        Und {{ has_more_count }} weitere...
+	    </div>
+    {% endif %}
+    
 {% endblock %}

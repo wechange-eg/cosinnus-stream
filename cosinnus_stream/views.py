@@ -70,9 +70,17 @@ class StreamDetailView(DetailView):
             We slice the querysets to reduce database hits during this sampling and only
             evaluate a new slice as soon as we need to access older items from that queryset """
         
+        self.total_count = 0
+        
         # build iterator setlist to split-iterate over querysets
         setlist = {}
         for queryset in self.querysets:
+            # build total count and ignore queryset if empty
+            qs_count = queryset.count()
+            if qs_count <= 0:
+                continue
+            
+            self.total_count += qs_count
             setlist[queryset.model.__name__] = {
                 'qs': queryset,
                 'objs': [],
@@ -108,6 +116,7 @@ class StreamDetailView(DetailView):
             
             count = len(objects)
         
+        self.has_more = count < self.total_count
         return objects
     
     def get_querysets_for_stream(self, stream):
@@ -194,6 +203,9 @@ class StreamDetailView(DetailView):
     
     def get_context_data(self, **kwargs):
         kwargs.update({
+            'total_count': self.total_count,
+            'has_more': self.has_more,
+            'has_more_count': max(0, self.total_count - len(self.objects)),
             'stream': self.object,
             'stream_objects': self.objects,
             'streams': self.streams,
