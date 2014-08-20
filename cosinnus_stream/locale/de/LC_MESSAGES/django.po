@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-18 14:41+0200\n"
+"POT-Creation-Date: 2014-08-20 17:05+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,9 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\cosinnus_app.py:13 .\models.py:10
-#: .\templates\cosinnus_stream\base.html.py:6
-#: .\templates\cosinnus_stream\base.html.py:13
+#: .\cosinnus_app.py:13 .\models.py:35
 msgid "Stream"
 msgstr "Stream"
 
@@ -28,10 +26,70 @@ msgctxt "the_app"
 msgid "stream"
 msgstr "Streams"
 
-#: .\models.py:11
+#: .\dashboard.py:27
+msgid "My Streams"
+msgstr "Meine Streams"
+
+#: .\models.py:36 .\templates\cosinnus_stream\base.html.py:5
+#: .\templates\cosinnus_stream\base.html.py:12
 msgid "Streams"
 msgstr "Streams"
 
-#: .\templates\cosinnus_stream\stream_detail.html.py:11
+#: .\models.py:39
+msgid "Models"
+msgstr "Datentypen"
+
+#: .\models.py:41
+msgid "Last seen"
+msgstr "Zuletzt angesehen"
+
+#: .\views.py:49
+msgid "You do not have permission to access this stream."
+msgstr "Du hast keine Berechtigung diesen Stream anzuschauen."
+
+#: .\views.py:128
+msgid "Your stream was added successfully."
+msgstr "Dein Stream wurde erfolgreich hinzugefügt."
+
+#: .\views.py:132 .\views.py:147
+msgid "Please log in to access this page."
+msgstr "Bitte log dich ein um diese Seite aufzurufen!"
+
+#: .\views.py:143
+msgid "Your stream was updated successfully."
+msgstr "Dein Stream wurde erfolgreich geändert."
+
+#: .\templates\cosinnus_stream\leftnav.html.py:6
+#: .\templates\cosinnus_stream\stream_detail.html.py:8
+#: .\templates\cosinnus_stream\widgets\my_streams.html.py:11
 msgid "My Stream"
 msgstr "Mein Stream"
+
+#: .\templates\cosinnus_stream\leftnav.html.py:6
+#: .\templates\cosinnus_stream\stream_detail.html.py:8
+msgid "Public Stream"
+msgstr "Öffentlicher Stream"
+
+#: .\templates\cosinnus_stream\leftnav.html.py:25
+#: .\templates\cosinnus_stream\stream_form.html.py:6
+#: .\templates\cosinnus_stream\stream_form.html.py:15
+msgid "Create Stream"
+msgstr "Stream erstellen"
+
+#: .\templates\cosinnus_stream\stream_form.html.py:8
+#: .\templates\cosinnus_stream\stream_form.html.py:15
+#, python-format
+msgid "Edit stream \"%(stream_name)s\""
+msgstr "\"%(stream_name)s\" bearbeiten"
+
+#: .\templates\cosinnus_stream\stream_form.html.py:39
+msgid "Enter a title for the stream."
+msgstr "Gib einen Titel für den Stream ein"
+
+#: .\templates\cosinnus_stream\stream_form.html.py:79
+msgid "Create"
+msgstr "Erstellen"
+
+#: .\templates\cosinnus_stream\stream_form.html.py:81
+msgid "Edit"
+msgstr "Bearbeiten"
