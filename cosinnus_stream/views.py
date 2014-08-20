@@ -89,7 +89,7 @@ class StreamFormMixin(object):
     def get_streams(self):
         if not self.request.user.is_authenticated():
             return self.model._default_manager.none()
-        qs = self.model._default_manager.filter(creator__id=self.request.user.id)
+        qs = self.model._default_manager.filter(creator__id=self.request.user.id, is_my_stream__exact=False)
         return qs
     
     def get_context_data(self, **kwargs):
