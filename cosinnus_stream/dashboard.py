@@ -34,6 +34,7 @@ class MyStreamsWidget(DashboardWidget):
         if not self.model:
             raise ImproperlyConfigured('%s must define a model', self.__class__.__name__)
         qs = self.model._default_manager.filter(**self.get_queryset_filter())
+        qs = qs.filter(is_my_stream__exact=False)
         return qs
 
     def get_data(self, offset=0):
@@ -45,6 +46,7 @@ class MyStreamsWidget(DashboardWidget):
         
         data = {
             'user': self.request.user,
+            'my_stream_unread': Stream.objects.my_stream_unread_count(self.request.user),
             'streams':qs,
         }
         return (render_to_string('cosinnus_stream/widgets/my_streams.html', data), 0, False)

@@ -6,7 +6,8 @@
 	{% captureas label %}{% if user.is_authenticated %}{% trans "My Stream" %}{% else %}{% trans "Public Stream" %}{% endif %}{% endcaptureas %}
 	{% captureas active %}{% if request.path == my_stream_url %}True{% endif %}{% endcaptureas %}
 	{% captureas classes %}{% if all_streams %}fine-space{% else %}regular-space{% endif %}{% endcaptureas %}
-	{% include "cosinnus/leftnav_button.html" with extra_classes=classes active=active icon="fa-paper-plane-o" label=label href=href %}
+    {% if user.is_authenticated %}{% captureas unseen_count %}{{ COSINNUS_STREAM_UNSEEN_COUNT }}{% endcaptureas %}{% endif %}
+	{% include "cosinnus/leftnav_button.html" with extra_classes=classes active=active icon="fa-paper-plane-o" icon_content=unseen_count label=label href=href %}
 	
 	{% for stream in all_streams %}
 	    {% url 'cosinnus:stream' slug=stream.slug as stream_url %}
@@ -14,7 +15,8 @@
 		{% captureas label %}{{ stream.title }}{% endcaptureas %}
 		{% captureas active %}{% if request.path == stream_url %}True{% endif %}{% endcaptureas %}
 		{% captureas classes %}{% if forloop.last %}regular-space{% else %}fine-space{% endif %}{% endcaptureas %}
-		{% include "cosinnus/leftnav_button.html" with extra_classes=classes active=active icon="fa-paper-plane-o" label=label href=href %}
+		{% captureas unseen_count %}{{ stream.unread_count }}{% endcaptureas %}
+		{% include "cosinnus/leftnav_button.html" with extra_classes=classes active=active icon_content=unseen_count label=label href=href %}
     {% endfor %}
 {% endwith %}
 

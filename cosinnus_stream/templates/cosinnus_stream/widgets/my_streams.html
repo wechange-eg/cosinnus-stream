@@ -1,13 +1,25 @@
 {% load i18n static thumbnail cosinnus_tags %}
 
 
+<button type="button" class="btn btn-emphasized w100" href="{% url 'cosinnus:my_stream' %}">
+    <ul class="media-list {% if streams and not forloop.last %}fine-space{% endif %}">
+        <li class="media">
+            <a class="pull-left" href="#">
+                {{ my_stream_unread }}
+            </a>
+            <div class="media-body">
+                {% trans "My Stream" %}
+            </div>
+        </li>
+    </ul>
+</button><!-- btn -->
 
 {% for stream in streams %}
     <button type="button" class="btn btn-emphasized w100" href="{{ stream.get_absolute_url }}">
         <ul class="media-list {% if not forloop.last %}fine-space{% endif %}">
             <li class="media">
                 <a class="pull-left" href="#">
-                    <i class="fa fa-paper-plane-o"></i>
+                    {{ stream.unread_count }}
                 </a>
                 <div class="media-body">
                     {{ stream.title }}

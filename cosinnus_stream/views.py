@@ -35,11 +35,7 @@ class StreamDetailView(DetailView):
             if not self.request.user.is_authenticated():
                 self.object = self.model(is_my_stream=True)
             else:
-                # try to find the user's MyStream, if not existing, create it
-                try:
-                    self.object = self.model._default_manager.get(creator=self.request.user, is_my_stream__exact=True)
-                except self.model.DoesNotExist:
-                    self.object = self.model._default_manager.create(creator=self.request.user, title="_my_stream", slug="_my_stream", is_my_stream=True)
+                self.object = self.model._default_manager.get_my_stream_for_user(self.request.user)
         return self.object
     
     def get_streams(self):
@@ -58,6 +54,12 @@ class StreamDetailView(DetailView):
         
         self.objects = self.object.get_stream_objects_for_user(self.request.user)
         self.streams = self.get_streams()
+        
+        # save last_seen date and set it to current
+        self.last_seen = self.object.last_seen_safe
+        if request.user.is_authenticated():
+            self.object.set_last_seen()
+        
         context = self.get_context_data(object=self.object)
         return self.render_to_response(context)
     
@@ -67,6 +69,7 @@ class StreamDetailView(DetailView):
             'total_count': self.object.total_count,
             'has_more': self.object.has_more,
             'has_more_count': max(0, self.object.total_count - len(self.objects)),
+            'last_seen': self.last_seen,
             'stream': self.object,
             'stream_objects': self.objects,
             'streams': self.streams,

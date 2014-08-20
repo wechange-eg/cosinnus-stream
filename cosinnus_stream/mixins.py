@@ -165,3 +165,19 @@ class StreamManagerMixin(object):
             self.stream_querysets = self._get_querysets_for_stream(self, user)
             self.stream_objects = self._get_stream_objectset(self.stream_querysets)
         return self.stream_objects
+    
+    def unread_count(self):
+        if not hasattr(self, 'creator'):
+            return 0
+        if hasattr(self, 'last_unread_count'):
+            return self.last_unread_count
+        if not hasattr(self, 'stream_querysets'):
+            self.stream_querysets = self._get_querysets_for_stream(self, self.creator)
+        
+        total_count = 0
+        for queryset in self.stream_querysets:
+            count = queryset.filter(created__gte=self.last_seen_safe).count()
+            total_count += count
+        
+        self.last_unread_count = total_count
+        return total_count
