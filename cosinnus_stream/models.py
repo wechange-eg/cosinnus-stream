@@ -42,8 +42,11 @@ class Stream(StreamManagerMixin, BaseTaggableObjectModel):
     
     objects = StreamManager()
     
-    def set_last_seen(self, when=now()):
-        self.last_seen = when
+    def set_last_seen(self, when=None):
+        """ Set the last seen datetime for this stream. 
+            Sets the datetime to now() if no argument is passed.
+        """
+        self.last_seen = when or now()
         if self.pk:
             self.save()
     
