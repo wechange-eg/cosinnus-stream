@@ -1,0 +1,20 @@
+{% load i18n static thumbnail cosinnus_tags %}
+
+
+
+{% for stream in streams %}
+    <button type="button" class="btn btn-emphasized w100" href="{{ stream.get_absolute_url }}">
+        <ul class="media-list {% if not forloop.last %}fine-space{% endif %}">
+            <li class="media">
+                <a class="pull-left" href="#">
+                    <i class="fa fa-paper-plane-o"></i>
+                </a>
+                <div class="media-body">
+                    {{ stream.title }}
+                </div>
+            </li>
+        </ul>
+    </button><!-- btn -->
+
+{% endfor %}
+

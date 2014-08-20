@@ -14,7 +14,7 @@ def register():
     #attached_object_registry.register('cosinnus_file.FileEntry',
     #                         'cosinnus_file.utils.renderer.FileEntryRenderer')
     url_registry.register_urlconf('cosinnus_stream', 'cosinnus_stream.urls')
-    #widget_registry.register('file'd, 'cosinnus_file.dashboard.Latest')
+    widget_registry.register('stream', 'cosinnus_stream.dashboard.MyStreamsWidget')
 
     # makemessages replacement protection
     name = pgettext_lazy("the_app", "stream")
