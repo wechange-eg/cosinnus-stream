@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-01 18:17+0200\n"
+"POT-Creation-Date: 2014-09-01 18:53+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -51,13 +51,21 @@ msgstr "Du hast keine Berechtigung diesen Stream anzuschauen."
 msgid "Your stream was added successfully."
 msgstr "Dein Stream wurde erfolgreich hinzugefügt."
 
-#: .\views.py:132 .\views.py:147
+#: .\views.py:132 .\views.py:147 .\views.py:169
 msgid "Please log in to access this page."
 msgstr "Bitte log dich ein um diese Seite aufzurufen!"
 
 #: .\views.py:143
 msgid "Your stream was updated successfully."
 msgstr "Dein Stream wurde erfolgreich geändert."
+
+#: .\views.py:165
+msgid "Your stream was deleted successfully."
+msgstr "Der Stream wurde erfolgreich gelöscht."
+
+#: .\views.py:177
+msgid "You cannot delete the default stream!"
+msgstr "Du kannst den Standard-Stream nicht löschen!"
 
 #: .\templates\cosinnus_stream\leftnav.html.py:6
 #: .\templates\cosinnus_stream\stream_detail.html.py:8
@@ -70,7 +78,19 @@ msgstr "Mein Stream"
 msgid "Public Stream"
 msgstr "Öffentlicher Stream"
 
-#: .\templates\cosinnus_stream\leftnav.html.py:25
+#: .\templates\cosinnus_stream\leftnav.html.py:26
+msgid "Delete this Stream"
+msgstr "Diesen Stream löschen"
+
+#: .\templates\cosinnus_stream\leftnav.html.py:29
+msgid "Do you really want to delete this stream?"
+msgstr "Willst du diesen Stream wirklich löschen?"
+
+#: .\templates\cosinnus_stream\leftnav.html.py:30
+msgid "Stream löschen"
+msgstr "Stream löschen"
+
+#: .\templates\cosinnus_stream\leftnav.html.py:38
 #: .\templates\cosinnus_stream\stream_form.html.py:6
 #: .\templates\cosinnus_stream\stream_form.html.py:15
 #: .\templates\cosinnus_stream\widgets\my_streams.html.py:40

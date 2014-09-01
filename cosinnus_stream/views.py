@@ -10,9 +10,9 @@ from cosinnus_stream.models import Stream
 from cosinnus.views.mixins.user import UserFormKwargsMixin
 from cosinnus_stream.forms import StreamForm
 from django.contrib import messages
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.http.response import HttpResponseRedirect
-from django.core.urlresolvers import reverse_lazy
+from django.core.urlresolvers import reverse_lazy, reverse
 from cosinnus.templatetags.cosinnus_tags import has_write_access
 from cosinnus.core.decorators.views import redirect_to_403
 
@@ -156,4 +156,32 @@ class StreamUpdateView(UserFormKwargsMixin, StreamFormMixin, UpdateView):
         return super(StreamUpdateView, self).get_object(queryset)
 
 stream_update = StreamUpdateView.as_view()
+
+
+
+class StreamDeleteView(UserFormKwargsMixin, DeleteView):
+
+    model = Stream
+    message_success = _('Your stream was deleted successfully.')
+    
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_authenticated():
+            messages.error(request, _('Please log in to access this page.'))
+            return HttpResponseRedirect(reverse_lazy('login') + '?next=' + request.path)
+        
+        self.object = self.get_object()
+        if not has_write_access(request.user, self.object):
+            return redirect_to_403(request)
+        
+        if self.object.is_my_stream:
+            messages.error(request, _('You cannot delete the default stream!'))
+            return HttpResponseRedirect(reverse('cosinnus:my_stream'))
+        
+        return super(StreamDeleteView, self).dispatch(request, *args, **kwargs)
+    
+    def get_success_url(self):
+        messages.success(self.request, self.message_success)
+        return reverse('cosinnus:my_stream')
+
+stream_delete = StreamDeleteView.as_view()
 

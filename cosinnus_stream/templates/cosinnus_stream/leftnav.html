@@ -14,11 +14,24 @@
 		{% captureas href %}{{ stream_url }}{% add_current_params %}{% endcaptureas %}
 		{% captureas label %}{{ stream.title }}{% endcaptureas %}
 		{% captureas active %}{% if request.path == stream_url %}True{% endif %}{% endcaptureas %}
-		{% captureas classes %}{% if forloop.last %}regular-space{% else %}fine-space{% endif %}{% endcaptureas %}
+		{% captureas classes %}{% if forloop.last %}large-space{% else %}fine-space{% endif %}{% endcaptureas %}
 		{% captureas unseen_count %}{{ stream.unread_count }}{% endcaptureas %}
 		{% include "cosinnus/leftnav_button.html" with extra_classes=classes active=active icon_content=unseen_count label=label href=href %}
     {% endfor %}
 {% endwith %}
+
+{% if stream and user|has_write_access:stream and not stream.is_my_stream %}
+    {% captureas modal_id %}deleteStreamModal_{{object.slug}}{% endcaptureas %}
+    {% captureas extra_atts %}data-toggle="modal" data-target="#{{modal_id}}"{% endcaptureas %}
+    {% captureas label %}{% trans "Delete this Stream" %}{% endcaptureas %}
+    {% include "cosinnus/leftnav_button.html" with extra_classes="regular-space" icon="fa-eraser" extra_atts=extra_atts label=label href="" %}
+        
+    {% captureas label %}{% trans "Do you really want to delete this stream?" %}{% endcaptureas %}
+    {% captureas title %}{% trans "Stream löschen" %}{% endcaptureas %}
+    {% captureas action %}{% url 'cosinnus:delete_stream' slug=stream.slug %}{% endcaptureas %}
+    {% include "cosinnus/modal_box.html" with id=modal_id label=label title=title form_action=action %}
+
+{% endif %}
 
 {% if request.user.is_authenticated %}
 	{% url 'cosinnus:create_stream' as create_stream_url %}
