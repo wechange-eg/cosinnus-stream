@@ -8,7 +8,7 @@ from cosinnus.core.registries import attached_object_registry as aor
 from cosinnus.models.group import CosinnusGroup
 from cosinnus.models.tagged import BaseHierarchicalTaggableObjectModel,\
     BaseTagObject
-from cosinnus.utils.permissions import get_tagged_object_filter_for_user
+from cosinnus.utils.permissions import filter_tagged_object_queryset_for_user
 
 
 class StreamManagerMixin(object):
@@ -35,7 +35,7 @@ class StreamManagerMixin(object):
                 queryset = model_class._default_manager.all()
             
             # filter for read permissions for user
-            queryset = queryset.filter(get_tagged_object_filter_for_user(user))
+            queryset = filter_tagged_object_queryset_for_user(queryset, user)
             # filter for stream
             queryset = self._filter_queryset_for_stream(queryset, stream, user)
             # sorting
