@@ -176,7 +176,7 @@ class StreamManagerMixin(object):
         
         total_count = 0
         for queryset in self.stream_querysets:
-            count = queryset.filter(created__gte=self.last_seen_safe).count()
+            count = queryset.queryset = queryset.exclude(creator=self.creator).filter(created__gte=self.last_seen_safe).count()
             total_count += count
         
         self.last_unread_count = total_count

@@ -22,11 +22,11 @@
     <div class="content-box">
         
         {% for obj in stream_objects %}
-            {% if obj.created.date > last_seen.date or obj.created.date == last_seen.date and obj.created.time > last_seen.time %}
+            {% if not obj.creator == user and obj.created.date > last_seen.date or not obj.creator == user and obj.created.date == last_seen.date and obj.created.time > last_seen.time %}
                 <div class="indented">
             {% endif %}
             {% cosinnus_render_single_object obj %}
-            {% if obj.created.date > last_seen.date or obj.created.date == last_seen.date and obj.created.time > last_seen.time %}
+            {% if not obj.creator == user and obj.created.date > last_seen.date or not obj.creator == user and obj.created.date == last_seen.date and obj.created.time > last_seen.time %}
                 </div>
             {% endif %}
         {% endfor %}
