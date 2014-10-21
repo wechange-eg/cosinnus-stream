@@ -16,7 +16,4 @@ class _StreamForm(UserKwargModelFormMixin, BaseTaggableObjectForm):
         models = self.data.getlist('models')
         return ','.join(models)
 
-#: A django-multiform :class:`MultiModelForm`. Includs support for `group` and
-#: `attached_objects_querysets` arguments being passed to the underlying main
-#: form (:class:`_NoteForm`)
 StreamForm = get_form(_StreamForm)
