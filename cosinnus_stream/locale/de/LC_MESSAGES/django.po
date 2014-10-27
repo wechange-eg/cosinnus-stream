@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-13 13:29+0200\n"
+"POT-Creation-Date: 2014-10-27 15:31+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -87,7 +87,7 @@ msgid "Do you really want to delete this stream?"
 msgstr "Willst du diesen Stream wirklich löschen?"
 
 #: .\templates\cosinnus_stream\leftnav.html.py:30
-msgid "Stream löschen"
+msgid "Delete Stream"
 msgstr "Stream löschen"
 
 #: .\templates\cosinnus_stream\leftnav.html.py:38
@@ -114,3 +114,6 @@ msgstr "Erstellen"
 #: .\templates\cosinnus_stream\stream_form.html.py:81
 msgid "Edit"
 msgstr "Bearbeiten"
+
+#~ msgid "Stream löschen"
+#~ msgstr "Stream löschen"

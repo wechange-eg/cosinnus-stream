@@ -27,7 +27,7 @@
     {% include "cosinnus/leftnav_button.html" with extra_classes="regular-space" icon="fa-eraser" extra_atts=extra_atts label=label href="" %}
         
     {% captureas label %}{% trans "Do you really want to delete this stream?" %}{% endcaptureas %}
-    {% captureas title %}{% trans "Stream löschen" %}{% endcaptureas %}
+    {% captureas title %}{% trans "Delete Stream" %}{% endcaptureas %}
     {% captureas action %}{% url 'cosinnus:delete_stream' slug=stream.slug %}{% endcaptureas %}
     {% include "cosinnus/modal_box.html" with id=modal_id label=label title=title form_action=action %}
 
