@@ -25,7 +25,8 @@
     <!-- a box with semi transparent background -->
     <div class="content-box">
        <form method="POST" action="">{% csrf_token %}
-            <div type="button" class="btn btn-default w100">
+            
+            <div type="button" class="btn btn-default w100 regular-space">
                 <ul class="media-list">
                     <li class="media">
                         <a class="pull-left btn-emphasized" href="#">
@@ -48,43 +49,65 @@
                 </ul>
             </div>
             
-            <div class="indented">
-                {% include 'cosinnus/media_tags.html' %}
-            </div>
-            
-            <div class="indented">
-                <ol class="input-area">
-				    <li class= "w100" style="white-space:normal;">
-				        {% for model_option in stream_model_selection %}
-				            {% captureas cosinnus_css_class %}{% if model_option.app == 'todo' %}app-todos{% elif model_option.app == 'note' %}app-main{% elif model_option.app == 'file' %}app-files{% elif model_option.app == 'event' %}app-calendar{% elif model_option.app %}app-{{ model_option.app }}{% else %}app-main{% endif %}{% endcaptureas %}
-				            <span class="pull-left inline-list nowrap {{ cosinnus_css_class }}">
-						        <a class="app-background small-padding"><input id="checkbox_{{ model_option.app }}" type="checkbox" name="models" {% if model_option.checked == True %}checked="true"{% endif %} value="{{ model_option.model_name }}" /></a
-						        ><span class="app-background-light dark-color small-padding" onclick="$('#checkbox_{{ model_option.app }}').prop('checked', !($('#checkbox_{{ model_option.app }}').prop('checked')));">
-						            {{ model_option.label }}
-						        </span>
-						    </span>
-				        {% endfor %}
-				    </li>
-				</ol>
-            </div>
-            
-            <button type="submit" class="btn btn-emphasized" id="createDoodleButton">
-                <ul class="media-list">
-                    <li class="media">
-                        <a class="pull-left" href="#">
-                            <i class="fa fa-pencil"></i>
-                        </a>
-                        <div class="media-body">
-                            {% if form_view == "add" %}
-                              {% trans "Create" %}
-                            {% elif form_view == "edit" %}
-                              {% trans "Edit" %}
-                            {% endif %}
-                        </div>
-                    </li>
-                </ul>
-            </button>
-       
+            <fieldset>
+                <legend>{% trans "Apply filters for the stream" %}</legend>
+	       
+	            <label>{% trans "Filter by Group/Project?" %}</label>
+	            <div type="button" class="btn btn-default regular-space w100">
+	                <ul class="media-list">
+	                    <li class="media">
+	                        <a class="pull-left" href="#">
+	                            <i class="fa fa-globe"></i>
+	                        </a>
+	                        <div class="media-body media-body-form-control">
+	                            {{ form.forms.obj.group.errors }}
+	                            {% captureas placeholder %}{% trans "Select Group/Project" %}{% endcaptureas %}
+	                            {% render_field form.forms.obj.group class+="form-control w100" placeholder=placeholder %}
+	                        </div>
+	                    </li>
+	                </ul>
+	            </div>
+	            
+	            <label>{% trans "Filter by authors, tags or other tagged properties?" %}</label>
+	            <div class="regular-space">
+	                {% include 'cosinnus/media_tags.html' with show_all=True %}
+	            </div>
+	            
+	            <label>{% trans "Filter by item types?" %}</label>
+	            <div class="regular-space">
+	                <ol class="input-area">
+					    <li class= "w100" style="white-space:normal;">
+					        {% for model_option in stream_model_selection %}
+					            {% captureas cosinnus_css_class %}{% if model_option.app == 'todo' %}app-todos{% elif model_option.app == 'note' %}app-main{% elif model_option.app == 'file' %}app-files{% elif model_option.app == 'event' %}app-calendar{% elif model_option.app %}app-{{ model_option.app }}{% else %}app-main{% endif %}{% endcaptureas %}
+					            <span class="pull-left inline-list nowrap {{ cosinnus_css_class }}">
+							        <a class="app-background small-padding"><input id="checkbox_{{ model_option.app }}" type="checkbox" name="models" {% if model_option.checked == True %}checked="true"{% endif %} value="{{ model_option.model_name }}" /></a
+							        ><span class="app-background-light dark-color small-padding" onclick="$('#checkbox_{{ model_option.app }}').prop('checked', !($('#checkbox_{{ model_option.app }}').prop('checked')));">
+							            {{ model_option.label }}
+							        </span>
+							    </span>
+					        {% endfor %}
+					    </li>
+					</ol>
+	            </div>
+	            
+	            <button type="submit" class="btn btn-emphasized" id="createDoodleButton">
+	                <ul class="media-list">
+	                    <li class="media">
+	                        <a class="pull-left" href="#">
+	                            <i class="fa fa-pencil"></i>
+	                        </a>
+	                        <div class="media-body">
+	                            {% if form_view == "add" %}
+	                              {% trans "Create" %}
+	                            {% elif form_view == "edit" %}
+	                              {% trans "Edit" %}
+	                            {% endif %}
+	                        </div>
+	                    </li>
+	                </ul>
+	            </button>
+	            
+            </fieldset>
         </form>
     
     </div><!-- content-box -->
