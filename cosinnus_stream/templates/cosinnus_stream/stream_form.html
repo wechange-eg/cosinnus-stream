@@ -59,10 +59,14 @@
 	                        <a class="pull-left" href="#">
 	                            <i class="fa fa-globe"></i>
 	                        </a>
-	                        <div class="media-body media-body-form-control">
-	                            {{ form.forms.obj.group.errors }}
-	                            {% captureas placeholder %}{% trans "Select Group/Project" %}{% endcaptureas %}
-	                            {% render_field form.forms.obj.group class+="form-control w100" placeholder=placeholder %}
+	                        <div class="media-body">
+	                            
+	                            <select id="id_group" name="group" class="w100 user-selector" data-placeholder="{% trans "Select Group/Project" %}">
+                                    <option value="" default>-------</option>
+                                    {% for group in form.forms.obj.group.field.choices.queryset %}
+                                       <option {% if form.forms.obj.group.value == group.pk %}selected{% endif %} value="{{ group.pk }}">{{ group.name }}</option>
+                                    {% endfor %}
+                                </select>
 	                        </div>
 	                    </li>
 	                </ul>
