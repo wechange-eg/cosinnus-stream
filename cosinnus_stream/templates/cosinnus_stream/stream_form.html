@@ -51,7 +51,7 @@
             
             <fieldset>
                 <legend>{% trans "Apply filters for the stream" %}</legend>
-	       
+	                        
 	            <label>{% trans "Filter by Group/Project?" %}</label>
 	            <div type="button" class="btn btn-default regular-space w100">
 	                <ul class="media-list">
@@ -70,7 +70,7 @@
 	            
 	            <label>{% trans "Filter by authors, tags or other tagged properties?" %}</label>
 	            <div class="regular-space">
-	                {% include 'cosinnus/media_tags.html' with show_all=True %}
+	                {% include 'cosinnus/media_tags.html' %}
 	            </div>
 	            
 	            <label>{% trans "Filter by item types?" %}</label>

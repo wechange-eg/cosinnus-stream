@@ -21,6 +21,10 @@
 {% endwith %}
 
 {% if stream and user|has_write_access:stream and not stream.is_my_stream %}
+    {% captureas label %}{% trans "Edit this Stream" %}{% endcaptureas %}
+    {% captureas href %}{% url 'cosinnus:edit_stream' slug=stream.slug %}{% endcaptureas %}
+    {% include "cosinnus/leftnav_button.html" with extra_classes="fine-space" icon="fa-pencil" label=label href=href %}
+
     {% captureas modal_id %}deleteStreamModal_{{object.slug}}{% endcaptureas %}
     {% captureas delete_extra_atts %}data-toggle="modal" data-target="#{{modal_id}}"{% endcaptureas %}
     {% captureas label %}{% trans "Delete this Stream" %}{% endcaptureas %}
