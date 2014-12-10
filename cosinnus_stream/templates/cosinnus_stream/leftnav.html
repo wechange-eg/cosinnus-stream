@@ -41,5 +41,5 @@
 	{% url 'cosinnus:create_stream' as create_stream_url %}
 	{% captureas label %}{% trans "Create Stream" %}{% endcaptureas %}
 	{% captureas active %}{% if request.path == create_stream_url %}True{% endif %}{% endcaptureas %}
-	{% include "cosinnus/leftnav_button.html" with extra_classes="regular-space" active=active icon="fa-plus" label=label href=create_stream_url %}
+	{% include "cosinnus/leftnav_button.html" with extra_classes="large-space" active=active icon="fa-plus" label=label href=create_stream_url %}
 {% endif %}

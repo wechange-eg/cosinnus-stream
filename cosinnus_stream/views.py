@@ -16,14 +16,30 @@ from django.core.urlresolvers import reverse_lazy, reverse
 from cosinnus.templatetags.cosinnus_tags import has_write_access
 from cosinnus.core.decorators.views import redirect_to_403
 from cosinnus.models.group import CosinnusGroup
+from cosinnus.views.widget import DashboardWidgetMixin
 
 
-class StreamDetailView(DetailView):
+class StreamDetailView(DashboardWidgetMixin, DetailView):
     model = Stream
     template_name = 'cosinnus_stream/stream_detail.html'
     
+    # any 'app_name.widget_name' entries in here will be filtered out of the context_data
+    disallowed_widgets = ['stream.my_streams', 'note.detailed_news_list', 'etherpad.latest', 'cosinnus.group_members']
+    
+    default_widget_order = ['todo.mine', 'event.upcoming']
+    
+    
     def dispatch(self, request, *args, **kwargs):
         return super(StreamDetailView, self).dispatch(request, *args, **kwargs)
+    
+    def get_filter(self):
+        """ Submit the user id so queryset elements can be filtered for that user. """
+        
+        # anonymous users do not see any widgets
+        if not self.request.user.is_authenticated():
+            return {'id': -1}
+        
+        return {'user_id': self.request.user.pk}
     
     def get_object(self, queryset=None):
         """ Allow queries without slug or pk """
