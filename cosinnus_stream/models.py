@@ -31,6 +31,8 @@ class StreamManager(django_models.Manager):
 
 class Stream(StreamManagerMixin, BaseTaggableObjectModel):
     
+    AUTO_RENAME_SLUG_ON_SAVE = False
+    
     class Meta(BaseTaggableObjectModel.Meta):
         verbose_name = _('Stream')
         verbose_name_plural = _('Streams')
