@@ -17,6 +17,7 @@ from cosinnus.templatetags.cosinnus_tags import has_write_access
 from cosinnus.core.decorators.views import redirect_to_403
 from cosinnus.models.group import CosinnusGroup
 from cosinnus.views.widget import DashboardWidgetMixin
+from django.shortcuts import get_object_or_404
 
 
 class StreamDetailView(DashboardWidgetMixin, DetailView):
@@ -46,9 +47,9 @@ class StreamDetailView(DashboardWidgetMixin, DetailView):
         if self.request.user.is_authenticated() and self.pk_url_kwarg in self.kwargs or self.slug_url_kwarg in self.kwargs:
             queryset = queryset or self.model.objects.all()
             if self.pk_url_kwarg in self.kwargs:
-                self.object = queryset.get(id=self.kwargs.get(self.pk_url_kwarg))
+                self.object = get_object_or_404(self.model, id=self.kwargs.get(self.pk_url_kwarg))
             if self.slug_url_kwarg in self.kwargs:
-                self.object = queryset.get(slug=self.kwargs.get(self.slug_url_kwarg), creator=self.request.user)
+                self.object = get_object_or_404(self.model, slug=self.kwargs.get(self.slug_url_kwarg), creator=self.request.user)
             
         if not hasattr(self, 'object'):
             # no object supplied means we want to access the "MyStream"
