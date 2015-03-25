@@ -43,9 +43,13 @@ class StreamDetailView(DashboardWidgetMixin, DetailView):
     
     def get_object(self, queryset=None):
         """ Allow queries without slug or pk """
-        if self.pk_url_kwarg in self.kwargs or self.slug_url_kwarg in self.kwargs:
-            self.object = super(StreamDetailView, self).get_object(queryset)
-        
+        if self.request.user.is_authenticated() and self.pk_url_kwarg in self.kwargs or self.slug_url_kwarg in self.kwargs:
+            queryset = queryset or self.model.objects.all()
+            if self.pk_url_kwarg in self.kwargs:
+                self.object = queryset.get(id=self.kwargs.get(self.pk_url_kwarg))
+            if self.slug_url_kwarg in self.kwargs:
+                self.object = queryset.get(slug=self.kwargs.get(self.slug_url_kwarg), creator=self.request.user)
+            
         if not hasattr(self, 'object'):
             # no object supplied means we want to access the "MyStream"
             # for guests, return a virtual stream

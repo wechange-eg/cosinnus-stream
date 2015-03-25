@@ -35,6 +35,7 @@ class Stream(StreamManagerMixin, BaseTaggableObjectModel):
         verbose_name = _('Stream')
         verbose_name_plural = _('Streams')
         ordering = ['created']
+        unique_together = (('creator', 'slug'),)
     
     models = django_models.CharField(_('Models'), blank=True, null=True, max_length=255)
     is_my_stream = django_models.BooleanField(default=False)
