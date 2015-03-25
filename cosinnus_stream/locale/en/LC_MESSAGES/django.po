@@ -23,7 +23,7 @@ msgstr ""
 #: .\cosinnus_app.py:20
 msgctxt "the_app"
 msgid "stream"
-msgstr ""
+msgstr "Streams"
 
 #: .\dashboard.py:27
 msgid "My Streams"
