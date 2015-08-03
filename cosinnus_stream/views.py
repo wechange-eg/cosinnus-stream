@@ -177,7 +177,7 @@ class StreamUpdateView(UserFormKwargsMixin, StreamFormMixin, UpdateView):
         if not request.user.is_authenticated():
             messages.error(request, _('Please log in to access this page.'))
             return HttpResponseRedirect(reverse_lazy('login') + '?next=' + request.path)
-        if not has_write_access(request.user, self.get_object()):
+        elif not has_write_access(request.user, self.get_object()):
             return redirect_to_403(request)
         return super(StreamUpdateView, self).dispatch(request, *args, **kwargs)
     
