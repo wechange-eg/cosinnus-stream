@@ -13,7 +13,7 @@ from cosinnus.utils.permissions import filter_tagged_object_queryset_for_user
 
 class StreamManagerMixin(object):
     
-    def _get_querysets_for_stream(self, stream, user):
+    def _get_querysets_for_stream(self, stream, user, include_public=False):
         """ Returns all (still-lazy) querysets for models that will appear 
             in the current stream """
         querysets = []
@@ -37,7 +37,7 @@ class StreamManagerMixin(object):
             # filter for read permissions for user
             queryset = filter_tagged_object_queryset_for_user(queryset, user)
             # filter for stream
-            queryset = self._filter_queryset_for_stream(queryset, stream, user)
+            queryset = self._filter_queryset_for_stream(queryset, stream, user, include_public=include_public)
             # sorting
             queryset = self._sort_queryset(queryset, stream)
             querysets.append(queryset)
@@ -113,17 +113,24 @@ class StreamManagerMixin(object):
         queryset = queryset.order_by('-created')
         return queryset
     
-    def _filter_queryset_for_stream(self, queryset, stream, user):
+    def _filter_queryset_for_stream(self, queryset, stream, user, include_public=False):
         """ Filter a BaseTaggableObjectModel-queryset depending on the settings 
             of the current stream.
             Called during the getting of the querysets and before objects are extracted.
         """
+        # always filter for portals
+        if stream.portals:
+            queryset = queryset.filter(group__portal__id__in=stream.portal_list)
         
         if stream.is_my_stream:
             # objects only from user-groups for My-Stream
             if user.is_authenticated():
                 self.stream_user_group_ids = getattr(self, 'user_group_ids', CosinnusGroup.objects.get_for_user_pks(user))
-                queryset = queryset.filter(group__pk__in=self.stream_user_group_ids)
+                filter_q = Q(group__pk__in=self.stream_user_group_ids)
+                # if the switch is on, also include public posts from all portals
+                if include_public:
+                    filter_q = filter_q | Q(media_tag__visibility=BaseTagObject.VISIBILITY_ALL)
+                queryset = queryset.filter(filter_q)
             else:
                 # public objects for Public Stream
                 queryset = queryset.filter(media_tag__visibility=BaseTagObject.VISIBILITY_ALL)
@@ -160,10 +167,12 @@ class StreamManagerMixin(object):
                     
         return queryset
     
-    def get_stream_objects_for_user(self, user):
+    def get_stream_objects_for_user(self, user, include_public=False):
         if not hasattr(self, 'stream_objects'):
-            self.stream_querysets = self._get_querysets_for_stream(self, user)
+            self.stream_querysets = self._get_querysets_for_stream(self, user, include_public=include_public)
             self.stream_objects = self._get_stream_objectset(self.stream_querysets)
+            # TODO: fixme: this should be called to fully cache this stream, but Etherpad is not pickleable
+            #self.update_cache(user)
         return self.stream_objects
     
     def unread_count(self):
@@ -180,4 +189,6 @@ class StreamManagerMixin(object):
             total_count += count
         
         self.last_unread_count = total_count
+        # TODO: fixme: this should be called to fully cache this stream, but Etherpad is not pickleable
+        #self.update_cache(self.creator)
         return total_count

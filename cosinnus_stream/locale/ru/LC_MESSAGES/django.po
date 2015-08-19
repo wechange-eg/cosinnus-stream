@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wechange RU\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-19 16:07+0200\n"
+"POT-Creation-Date: 2015-08-19 18:56+0200\n"
 "PO-Revision-Date: 2015-08-12 16:10+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -19,7 +19,7 @@ msgstr ""
 "Language: ru\n"
 "X-Generator: Poedit 1.8.4\n"
 
-#: .\cosinnus_app.py:13 .\models.py:35
+#: .\cosinnus_app.py:13 .\models.py:46
 msgid "Stream"
 msgstr "деятельность"
 
@@ -32,41 +32,45 @@ msgstr "деятельность"
 msgid "My Streams"
 msgstr "деятельность"
 
-#: .\models.py:36 .\templates\cosinnus_stream\base.html.py:5
+#: .\models.py:47 .\templates\cosinnus_stream\base.html.py:5
 #: .\templates\cosinnus_stream\base.html.py:12
 #: .\templates\cosinnus_stream\stream_detail.html.py:15
 msgid "Streams"
 msgstr "деятельность Потоки"
 
-#: .\models.py:40
+#: .\models.py:51
 msgid "Models"
 msgstr "Модели"
 
-#: .\models.py:42
+#: .\models.py:53
+msgid "Portal IDs"
+msgstr ""
+
+#: .\models.py:55
 msgid "Last seen"
 msgstr "Недавно просмотренные"
 
-#: .\views.py:71
+#: .\views.py:77
 msgid "You do not have permission to access this stream."
 msgstr "У Вас нет разрешения для доступа к этому потоку."
 
-#: .\views.py:159
+#: .\views.py:166
 msgid "Your stream was added successfully."
 msgstr "Ваш поток был успешно добавлен."
 
-#: .\views.py:163 .\views.py:178 .\views.py:200
+#: .\views.py:170 .\views.py:185 .\views.py:207
 msgid "Please log in to access this page."
 msgstr "Пожалуйста, войдите, чтобы открыть эту страницу."
 
-#: .\views.py:174
+#: .\views.py:181
 msgid "Your stream was updated successfully."
 msgstr "Ваш поток был успешно обновлен."
 
-#: .\views.py:196
+#: .\views.py:203
 msgid "Your stream was deleted successfully."
 msgstr "Ваш поток был успешно удален."
 
-#: .\views.py:208
+#: .\views.py:215
 msgid "You cannot delete the default stream!"
 msgstr "Поток по умолчанию удалить нельзя!"
 
@@ -79,30 +83,42 @@ msgstr "деятельность"
 #: .\templates\cosinnus_stream\leftnav.html.py:6
 #: .\templates\cosinnus_stream\stream_detail.html.py:17
 msgid "Public Stream"
-msgstr "Публичный деятельность Поток"
+msgstr "Публичный деятельность"
 
-#: .\templates\cosinnus_stream\leftnav.html.py:24
+#: .\templates\cosinnus_stream\leftnav.html.py:14
+msgid "My Stream in all Portals"
+msgstr "деятельность (all Portals)"
+
+#: .\templates\cosinnus_stream\leftnav.html.py:14
+msgid "Public Stream in all Portals"
+msgstr "Публичный деятельность (all Portals)"
+
+#: .\templates\cosinnus_stream\leftnav.html.py:33
 msgid "Edit this Stream"
 msgstr "Редактировать этот поток"
 
-#: .\templates\cosinnus_stream\leftnav.html.py:30
+#: .\templates\cosinnus_stream\leftnav.html.py:39
 msgid "Delete this Stream"
 msgstr "Удалить этот поток"
 
-#: .\templates\cosinnus_stream\leftnav.html.py:33
+#: .\templates\cosinnus_stream\leftnav.html.py:42
 msgid "Do you really want to delete this stream?"
 msgstr "Вы действительно хотите удалить этот поток?"
 
-#: .\templates\cosinnus_stream\leftnav.html.py:34
+#: .\templates\cosinnus_stream\leftnav.html.py:43
 msgid "Delete Stream"
 msgstr "Удалить Поток"
 
-#: .\templates\cosinnus_stream\leftnav.html.py:42
+#: .\templates\cosinnus_stream\leftnav.html.py:51
 #: .\templates\cosinnus_stream\stream_form.html.py:6
 #: .\templates\cosinnus_stream\stream_form.html.py:15
 #: .\templates\cosinnus_stream\widgets\my_streams.html.py:40
 msgid "Create Stream"
 msgstr "Создать Поток"
+
+#: .\templates\cosinnus_stream\stream_detail.html.py:45
+msgid "Include public items outside of your groups"
+msgstr ""
 
 #: .\templates\cosinnus_stream\stream_form.html.py:8
 #: .\templates\cosinnus_stream\stream_form.html.py:15

@@ -8,25 +8,36 @@ from django.db import models as django_models
 from django.utils.translation import ugettext_lazy as _
 from django.utils.timezone import now
 
+from cosinnus.conf import settings
 from cosinnus.models.tagged import BaseTaggableObjectModel
 from cosinnus_stream.mixins import StreamManagerMixin
+from django.core.cache import cache
+from cosinnus.models.group import CosinnusPortal
+
+USER_STREAM_SHORT_CACHE_KEY = 'cosinnus/stream/portals_%s/user/%d/short_stream'
 
 class StreamManager(django_models.Manager):
     
     def my_stream_unread_count(self, user):
         if not user.is_authenticated:
             return 0
-        stream = self.get_my_stream_for_user(user)
+        stream = self.get_my_stream_for_user(user, portals=str(CosinnusPortal.get_current().id))
         return stream.unread_count()
     
-    def get_my_stream_for_user(self, user):
-        # try to find the user's MyStream, if not existing, create it
-        stream = None
-        try:
-            stream = self.model._default_manager.get(creator=user, is_my_stream__exact=True)
-        except self.model.DoesNotExist:
-            stream = self.model._default_manager.create(creator=user, title="_my_stream", slug="_my_stream", is_my_stream=True)
-        return stream    
+    def get_my_stream_for_user(self, user, portals=""):
+        # 10 second user based cache for stream
+        stream = cache.get(USER_STREAM_SHORT_CACHE_KEY % (portals, user.id))
+        if stream is None:
+            # try to find the user's MyStream, if not existing, create it
+            try:
+                stream = self.model._default_manager.get(creator=user, is_my_stream__exact=True, portals__exact=portals)
+            except self.model.DoesNotExist:
+                portal_str = portals.replace(',','_')
+                stream = self.model._default_manager.create(creator=user, 
+                            title="_my_stream_%s" % portal_str, slug="_my_stream_%s" % portal_str,
+                            is_my_stream=True, portals=portals)
+            stream.update_cache(user)
+        return stream
 
 
 class Stream(StreamManagerMixin, BaseTaggableObjectModel):
@@ -39,9 +50,15 @@ class Stream(StreamManagerMixin, BaseTaggableObjectModel):
     
     models = django_models.CharField(_('Models'), blank=True, null=True, max_length=255)
     is_my_stream = django_models.BooleanField(default=False)
+    portals = django_models.CommaSeparatedIntegerField(_('Portal IDs'), 
+       blank=True, null=False, max_length=255, default="") 
     last_seen = django_models.DateTimeField(_('Last seen'), default=None, blank=True, null=True)
     
     objects = StreamManager()
+    
+    @property
+    def portal_list(self):
+        return map(lambda portal_str: int(portal_str.strip()), [portal for portal in self.portals.split(',') if portal])
     
     def set_last_seen(self, when=None):
         """ Set the last seen datetime for this stream. 
@@ -59,6 +76,10 @@ class Stream(StreamManagerMixin, BaseTaggableObjectModel):
     def get_absolute_url(self):
         kwargs = {'slug': self.slug}
         return reverse('cosinnus:stream', kwargs=kwargs)
+    
+    def update_cache(self, user):
+        cache.set(USER_STREAM_SHORT_CACHE_KEY % (self.portals, user.id if user.is_authenticated() else 0), \
+                      self, settings.COSINNUS_STREAM_SHORT_CACHE_TIMEOUT)
     
     # def unread_count() is in the StreamManagerMixin!
     

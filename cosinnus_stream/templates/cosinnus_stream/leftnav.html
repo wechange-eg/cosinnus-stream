@@ -5,9 +5,18 @@
 	{% captureas href %}{{ my_stream_url }}{% add_current_params %}{% endcaptureas %}
 	{% captureas label %}{% if user.is_authenticated %}{% trans "My Stream" %}{% else %}{% trans "Public Stream" %}{% endif %}{% endcaptureas %}
 	{% captureas active %}{% if request.path == my_stream_url %}True{% endif %}{% endcaptureas %}
-	{% captureas classes %}{% if all_streams %}fine-space{% else %}regular-space{% endif %}{% endcaptureas %}
+	{% captureas classes %}fine-space{% endcaptureas %}
     {% if user.is_authenticated %}{% captureas unseen_count %}{{ COSINNUS_STREAM_UNSEEN_COUNT }}{% endcaptureas %}{% endif %}
 	{% include "cosinnus/leftnav_button.html" with extra_classes=classes active=active icon="fa-paper-plane-o" icon_content=unseen_count label=label href=href %}
+	
+	{% url 'cosinnus:stream_public' as public_stream_url %}
+	{% captureas href %}{{ public_stream_url }}?show_public=1{% endcaptureas %}
+	{% captureas label %}{% if user.is_authenticated %}{% trans "My Stream in all Portals" %}{% else %}{% trans "Public Stream in all Portals" %}{% endif %}{% endcaptureas %}
+	{% captureas active %}{% if request.path == public_stream_url %}True{% endif %}{% endcaptureas %}
+	{% captureas classes %}regular-space{% endcaptureas %}
+    {% if user.is_authenticated %}{% captureas unseen_count %}{{ COSINNUS_STREAM_UNSEEN_COUNT }}{% endcaptureas %}{% endif %}
+	{% include "cosinnus/leftnav_button.html" with extra_classes=classes active=active icon="fa-paper-plane-o" icon_content=unseen_count label=label href=href %}
+	
 	
 	{% for stream in all_streams %}
 	    {% url 'cosinnus:stream' slug=stream.slug as stream_url %}

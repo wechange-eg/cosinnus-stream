@@ -40,6 +40,12 @@
 	                    
 					    <!-- a box with semi transparent background -->
 					    <div class="content-box">
+					    	
+					    	{% if user.is_authenticated %}
+					    	<div>
+								<a href=".?show_public={% if request.GET.show_public == "1" %}0{% else %}1{% endif %}" class="pull-right" style="padding-bottom: 10px;"><input id="checkbox_show_public" type="checkbox" name="deactivated_apps" {% if request.GET.show_public == "1" %}checked="true"{% endif %} /> {% trans "Include public items outside of your groups" %}</a>
+					    	</div>
+					    	{% endif %}
 					        
 					        {% for obj in stream_objects %}
 					            {% if user.is_authenticated and not obj.creator == user and obj.created.date > last_seen.date or not obj.creator == user and obj.created.date == last_seen.date and obj.created.time > last_seen.time %}

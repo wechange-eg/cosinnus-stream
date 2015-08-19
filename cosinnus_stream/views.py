@@ -15,7 +15,7 @@ from django.http.response import HttpResponseRedirect
 from django.core.urlresolvers import reverse_lazy, reverse
 from cosinnus.templatetags.cosinnus_tags import has_write_access
 from cosinnus.core.decorators.views import redirect_to_403
-from cosinnus.models.group import CosinnusGroup
+from cosinnus.models.group import CosinnusGroup, CosinnusPortal
 from cosinnus.views.widget import DashboardWidgetMixin
 from django.shortcuts import get_object_or_404
 
@@ -52,12 +52,18 @@ class StreamDetailView(DashboardWidgetMixin, DetailView):
                 self.object = get_object_or_404(self.model, slug=self.kwargs.get(self.slug_url_kwarg), creator=self.request.user)
             
         if not hasattr(self, 'object'):
-            # no object supplied means we want to access the "MyStream"
-            # for guests, return a virtual stream
-            if not self.request.user.is_authenticated():
-                self.object = self.model(is_my_stream=True)
+            # no object supplied means we want to access the "MyStream".
+            # decide if we want the all-portal or a portal-specific Stream by URL kwargs
+            if self.kwargs.get('is_all_portals', False):
+                portals = ''
             else:
-                self.object = self.model._default_manager.get_my_stream_for_user(self.request.user)
+                portals = str(CosinnusPortal.get_current().id)
+            
+            if not self.request.user.is_authenticated():
+                # for guests, return a virtual stream
+                self.object = self.model(is_my_stream=True, portals=portals)
+            else:
+                self.object = self.model._default_manager.get_my_stream_for_user(self.request.user, portals=portals)
         return self.object
     
     def get_streams(self):
@@ -74,7 +80,8 @@ class StreamDetailView(DashboardWidgetMixin, DetailView):
         self.object = self.get_object()
         self.check_permissions()
         
-        self.objects = self.object.get_stream_objects_for_user(self.request.user)
+        self.objects = self.object.get_stream_objects_for_user(self.request.user, \
+                           include_public=bool(int(request.GET.get('show_public', "0"))))
         self.streams = self.get_streams()
         
         # save last_seen date and set it to current
