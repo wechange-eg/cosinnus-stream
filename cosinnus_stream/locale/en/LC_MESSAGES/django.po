@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-24 16:29+0100\n"
+"POT-Creation-Date: 2015-08-19 16:07+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,101 +18,102 @@ msgstr ""
 
 #: .\cosinnus_app.py:13 .\models.py:35
 msgid "Stream"
-msgstr ""
+msgstr "Activites"
 
 #: .\cosinnus_app.py:20
 msgctxt "the_app"
 msgid "stream"
-msgstr "Streams"
+msgstr "Activites"
 
 #: .\dashboard.py:27
 msgid "My Streams"
-msgstr ""
+msgstr "Activites"
 
 #: .\models.py:36 .\templates\cosinnus_stream\base.html.py:5
 #: .\templates\cosinnus_stream\base.html.py:12
+#: .\templates\cosinnus_stream\stream_detail.html.py:15
 msgid "Streams"
-msgstr ""
+msgstr "Activites"
 
-#: .\models.py:39
+#: .\models.py:40
 msgid "Models"
 msgstr ""
 
-#: .\models.py:41
+#: .\models.py:42
 msgid "Last seen"
 msgstr ""
 
-#: .\views.py:50
+#: .\views.py:71
 msgid "You do not have permission to access this stream."
-msgstr ""
+msgstr "You do not have permission to access this activity stream."
 
-#: .\views.py:138
+#: .\views.py:159
 msgid "Your stream was added successfully."
-msgstr ""
+msgstr "Your activity stream was added successfully."
 
-#: .\views.py:142 .\views.py:157 .\views.py:179
+#: .\views.py:163 .\views.py:178 .\views.py:200
 msgid "Please log in to access this page."
 msgstr ""
 
-#: .\views.py:153
+#: .\views.py:174
 msgid "Your stream was updated successfully."
-msgstr ""
+msgstr "Your activity stream was updated successfully."
 
-#: .\views.py:175
+#: .\views.py:196
 msgid "Your stream was deleted successfully."
-msgstr ""
+msgstr "Your activity stream was deleted successfully."
 
-#: .\views.py:187
+#: .\views.py:208
 msgid "You cannot delete the default stream!"
-msgstr ""
+msgstr "You cannot delete the default activity stream!"
 
 #: .\templates\cosinnus_stream\leftnav.html.py:6
-#: .\templates\cosinnus_stream\stream_detail.html.py:8
+#: .\templates\cosinnus_stream\stream_detail.html.py:17
 #: .\templates\cosinnus_stream\widgets\my_streams.html.py:11
 msgid "My Stream"
-msgstr ""
+msgstr "Activities"
 
 #: .\templates\cosinnus_stream\leftnav.html.py:6
-#: .\templates\cosinnus_stream\stream_detail.html.py:8
+#: .\templates\cosinnus_stream\stream_detail.html.py:17
 msgid "Public Stream"
-msgstr ""
+msgstr "Public Activities"
 
 #: .\templates\cosinnus_stream\leftnav.html.py:24
 msgid "Edit this Stream"
-msgstr ""
+msgstr "Edit this Activity Stream"
 
 #: .\templates\cosinnus_stream\leftnav.html.py:30
 msgid "Delete this Stream"
-msgstr ""
+msgstr "Delete this Activity Stream"
 
 #: .\templates\cosinnus_stream\leftnav.html.py:33
 msgid "Do you really want to delete this stream?"
-msgstr ""
+msgstr "Do you really want to delete this activity stream?"
 
 #: .\templates\cosinnus_stream\leftnav.html.py:34
 msgid "Delete Stream"
-msgstr ""
+msgstr "Delete Activity Stream"
 
 #: .\templates\cosinnus_stream\leftnav.html.py:42
 #: .\templates\cosinnus_stream\stream_form.html.py:6
 #: .\templates\cosinnus_stream\stream_form.html.py:15
 #: .\templates\cosinnus_stream\widgets\my_streams.html.py:40
 msgid "Create Stream"
-msgstr ""
+msgstr "Create Activity Stream"
 
 #: .\templates\cosinnus_stream\stream_form.html.py:8
 #: .\templates\cosinnus_stream\stream_form.html.py:15
 #, python-format
 msgid "Edit stream \"%(stream_name)s\""
-msgstr ""
+msgstr "Edit activity stream \"%(stream_name)s\""
 
 #: .\templates\cosinnus_stream\stream_form.html.py:40
 msgid "Enter a title for the stream."
-msgstr ""
+msgstr "Enter a title for the activity stream."
 
 #: .\templates\cosinnus_stream\stream_form.html.py:53
 msgid "Apply filters for the stream"
-msgstr ""
+msgstr "Apply filters for the activity stream"
 
 #: .\templates\cosinnus_stream\stream_form.html.py:55
 msgid "Filter by Group/Project?"
