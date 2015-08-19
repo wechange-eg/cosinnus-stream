@@ -1,0 +1,143 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: wechange RU\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-07-30 15:40+0200\n"
+"PO-Revision-Date: 2015-08-12 16:10+0200\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ru\n"
+"X-Generator: Poedit 1.8.4\n"
+
+#: .\cosinnus_app.py:13 .\models.py:35
+msgid "Stream"
+msgstr "Поток "
+
+#: .\cosinnus_app.py:20
+msgctxt "the_app"
+msgid "stream"
+msgstr "поток "
+
+#: .\dashboard.py:27
+msgid "My Streams"
+msgstr "Мои потоки"
+
+#: .\models.py:36 .\templates\cosinnus_stream\base.html.py:5
+#: .\templates\cosinnus_stream\base.html.py:12
+#: .\templates\cosinnus_stream\stream_detail.html.py:15
+msgid "Streams"
+msgstr "Потоки"
+
+#: .\models.py:40
+msgid "Models"
+msgstr "Модели"
+
+#: .\models.py:42
+msgid "Last seen"
+msgstr "Недавно просмотренные"
+
+#: .\views.py:71
+msgid "You do not have permission to access this stream."
+msgstr "У Вас нет разрешения для доступа к этому потоку."
+
+#: .\views.py:159
+msgid "Your stream was added successfully."
+msgstr "Ваш поток был успешно добавлен."
+
+#: .\views.py:163 .\views.py:178 .\views.py:200
+msgid "Please log in to access this page."
+msgstr "Пожалуйста, войдите, чтобы открыть эту страницу."
+
+#: .\views.py:174
+msgid "Your stream was updated successfully."
+msgstr "Ваш поток был успешно обновлен."
+
+#: .\views.py:196
+msgid "Your stream was deleted successfully."
+msgstr "Ваш поток был успешно удален."
+
+#: .\views.py:208
+msgid "You cannot delete the default stream!"
+msgstr "Поток по умолчанию удалить нельзя!"
+
+#: .\templates\cosinnus_stream\leftnav.html.py:6
+#: .\templates\cosinnus_stream\stream_detail.html.py:17
+#: .\templates\cosinnus_stream\widgets\my_streams.html.py:11
+msgid "My Stream"
+msgstr "Мой поток"
+
+#: .\templates\cosinnus_stream\leftnav.html.py:6
+#: .\templates\cosinnus_stream\stream_detail.html.py:17
+msgid "Public Stream"
+msgstr "Публичный Поток"
+
+#: .\templates\cosinnus_stream\leftnav.html.py:24
+msgid "Edit this Stream"
+msgstr "Редактировать этот поток"
+
+#: .\templates\cosinnus_stream\leftnav.html.py:30
+msgid "Delete this Stream"
+msgstr "Удалить этот поток"
+
+#: .\templates\cosinnus_stream\leftnav.html.py:33
+msgid "Do you really want to delete this stream?"
+msgstr "Вы действительно хотите удалить этот поток?"
+
+#: .\templates\cosinnus_stream\leftnav.html.py:34
+msgid "Delete Stream"
+msgstr "Удалить Поток"
+
+#: .\templates\cosinnus_stream\leftnav.html.py:42
+#: .\templates\cosinnus_stream\stream_form.html.py:6
+#: .\templates\cosinnus_stream\stream_form.html.py:15
+#: .\templates\cosinnus_stream\widgets\my_streams.html.py:40
+msgid "Create Stream"
+msgstr "Создать Поток"
+
+#: .\templates\cosinnus_stream\stream_form.html.py:8
+#: .\templates\cosinnus_stream\stream_form.html.py:15
+#, python-format
+msgid "Edit stream \"%(stream_name)s\""
+msgstr "Редактировать поток \"%(stream_name)s\""
+
+#: .\templates\cosinnus_stream\stream_form.html.py:40
+msgid "Enter a title for the stream."
+msgstr "Введите название для потока."
+
+#: .\templates\cosinnus_stream\stream_form.html.py:53
+msgid "Apply filters for the stream"
+msgstr "Применить фильтры для потока"
+
+#: .\templates\cosinnus_stream\stream_form.html.py:55
+msgid "Filter by Group/Project?"
+msgstr "Фильтровать по группе/проекту?"
+
+#: .\templates\cosinnus_stream\stream_form.html.py:64
+msgid "Select Group/Project"
+msgstr "Выберите Группу/Проект"
+
+#: .\templates\cosinnus_stream\stream_form.html.py:75
+msgid "Filter by authors, tags or other tagged properties?"
+msgstr "Фильтровать по авторам, тэгам или другим свойствам с тэгами?"
+
+#: .\templates\cosinnus_stream\stream_form.html.py:80
+msgid "Filter by item types?"
+msgstr "Фильтровать по типам элементов?"
+
+#: .\templates\cosinnus_stream\stream_form.html.py:105
+msgid "Create"
+msgstr "Создать"
+
+#: .\templates\cosinnus_stream\stream_form.html.py:107
+msgid "Edit"
+msgstr "Редактировать"
