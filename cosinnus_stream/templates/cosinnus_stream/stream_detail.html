@@ -43,7 +43,7 @@
 					    	
 					    	{% if user.is_authenticated %}
 					    	<div>
-								<a href=".?show_public={% if request.GET.show_public == "1" %}0{% else %}1{% endif %}" class="pull-right" style="padding-bottom: 10px;"><input id="checkbox_show_public" type="checkbox" name="deactivated_apps" {% if request.GET.show_public == "1" %}checked="true"{% endif %} /> {% trans "Include public items outside of your groups" %}</a>
+								<a href=".?show_public={% if request.GET.show_public == "1" %}0{% else %}1{% endif %}" class="pull-right" style="padding-bottom: 10px;">{% if request.GET.show_public == "1" %}{% trans "Hide public items outside of your groups" %}{% else %}{% trans "Show public items outside of your groups" %}{% endif %}</a>
 					    	</div>
 					    	{% endif %}
 					        
