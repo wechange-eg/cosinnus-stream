@@ -108,6 +108,14 @@ class StreamDetailView(DashboardWidgetMixin, DetailView):
 stream_detail = StreamDetailView.as_view()
 
 
+class StreamFilterForUserMixin(object):
+    """ Filters the queryset for only streams of the current user """
+    
+    def get_queryset(self):
+        qs = super(StreamFilterForUserMixin, self).get_queryset()
+        qs = qs.filter(creator=self.request.user)
+        return qs
+
 class StreamFormMixin(object):
     
     form_class = StreamForm
@@ -175,7 +183,7 @@ class StreamCreateView(UserFormKwargsMixin, StreamFormMixin, CreateView):
 stream_create = StreamCreateView.as_view()
 
 
-class StreamUpdateView(UserFormKwargsMixin, StreamFormMixin, UpdateView):
+class StreamUpdateView(UserFormKwargsMixin, StreamFilterForUserMixin, StreamFormMixin, UpdateView):
 
     form_view = "edit"
     message_success = _('Your stream was updated successfully.')
@@ -197,7 +205,7 @@ stream_update = StreamUpdateView.as_view()
 
 
 
-class StreamDeleteView(UserFormKwargsMixin, DeleteView):
+class StreamDeleteView(UserFormKwargsMixin, StreamFilterForUserMixin, DeleteView):
 
     model = Stream
     message_success = _('Your stream was deleted successfully.')
