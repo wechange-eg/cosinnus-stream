@@ -18,22 +18,22 @@ msgstr ""
 
 #: .\cosinnus_app.py:13 .\models.py:46
 msgid "Stream"
-msgstr "Activites"
+msgstr "Activities"
 
 #: .\cosinnus_app.py:20
 msgctxt "the_app"
 msgid "stream"
-msgstr "Activites"
+msgstr "Activities"
 
 #: .\dashboard.py:27
 msgid "My Streams"
-msgstr "Activites"
+msgstr "Activities"
 
 #: .\models.py:47 .\templates\cosinnus_stream\base.html.py:5
 #: .\templates\cosinnus_stream\base.html.py:12
 #: .\templates\cosinnus_stream\stream_detail.html.py:15
 msgid "Streams"
-msgstr "Activites"
+msgstr "Activities"
 
 #: .\models.py:51
 msgid "Models"
