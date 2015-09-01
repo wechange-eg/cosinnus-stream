@@ -178,17 +178,16 @@ class StreamManagerMixin(object):
     def unread_count(self):
         if not hasattr(self, 'creator'):
             return 0
+        # object cache, will be able to retrieved after object stored in django cache
         if hasattr(self, 'last_unread_count'):
             return self.last_unread_count
-        if not hasattr(self, 'stream_querysets'):
-            self.stream_querysets = self._get_querysets_for_stream(self, self.creator)
         
         total_count = 0
-        for queryset in self.stream_querysets:
-            count = queryset.queryset = queryset.exclude(creator=self.creator).filter(created__gte=self.last_seen_safe).count()
+        for queryset in self._get_querysets_for_stream(self, self.creator):
+            count = queryset.exclude(creator=self.creator).filter(created__gte=self.last_seen_safe).count()
             total_count += count
         
         self.last_unread_count = total_count
-        # TODO: fixme: this should be called to fully cache this stream, but Etherpad is not pickleable
-        #self.update_cache(self.creator)
+        self.update_cache(self.creator)
         return total_count
+    
