@@ -67,6 +67,8 @@ class Stream(StreamManagerMixin, BaseTaggableObjectModel):
         self.last_seen = when or now()
         if self.pk:
             self.save()
+            # re-calculate unread count
+            self.unread_count(force=True)
     
     @property
     def last_seen_safe(self):
