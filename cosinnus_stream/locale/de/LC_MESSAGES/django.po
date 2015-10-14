@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-25 17:02+0200\n"
+"POT-Creation-Date: 2015-10-03 13:40+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -52,23 +52,23 @@ msgstr "Zuletzt angesehen"
 msgid "You do not have permission to access this stream."
 msgstr "Du hast keine Berechtigung diesen Aktivitäten-Feed anzuschauen."
 
-#: .\views.py:166
+#: .\views.py:174
 msgid "Your stream was added successfully."
 msgstr "Dein Aktivitäten-Feed wurde erfolgreich hinzugefügt."
 
-#: .\views.py:170 .\views.py:185 .\views.py:207
+#: .\views.py:178 .\views.py:193 .\views.py:215
 msgid "Please log in to access this page."
 msgstr "Bitte log dich ein um diese Seite aufzurufen!"
 
-#: .\views.py:181
+#: .\views.py:189
 msgid "Your stream was updated successfully."
 msgstr "Dein Aktivitäten-Feed wurde erfolgreich geändert."
 
-#: .\views.py:203
+#: .\views.py:211
 msgid "Your stream was deleted successfully."
 msgstr "Dein Aktivitäten-Feed wurde erfolgreich gelöscht."
 
-#: .\views.py:215
+#: .\views.py:223
 msgid "You cannot delete the default stream!"
 msgstr "Du kannst den Standard-Aktivitäten-Feed nicht löschen!"
 
