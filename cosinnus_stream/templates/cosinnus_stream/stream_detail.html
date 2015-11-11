@@ -33,7 +33,7 @@
 	        {% endblock override_leftnav %}
 	        
 	        
-	        <div class="col-lg-8 col-md-8 pull-right col-xs-12"><!-- right column -->
+	        <div class="col-lg-8 col-md-8 pull-right col-xs-12 large-space"><!-- right column -->
 	            <div class="row">
 	                <div class="col-xs-12">
 	                    {% include 'cosinnus/messages.html' %}
@@ -45,6 +45,7 @@
 					    	<div>
 								<a href=".?show_public={% if request.GET.show_public == "1" %}0{% else %}1{% endif %}" class="pull-right" style="padding-bottom: 10px;">{% if request.GET.show_public == "1" %}{% trans "Hide public items outside of your groups" %}{% else %}{% trans "Show public items outside of your groups" %}{% endif %}</a>
 					    	</div>
+					    	<div class="clearfix"></div>
 					    	{% endif %}
 					        
 					        {% for obj in stream_objects %}
@@ -55,6 +56,8 @@
 					            {% if user.is_authenticated and not obj.creator == user and obj.created.date > last_seen.date or not obj.creator == user and obj.created.date == last_seen.date and obj.created.time > last_seen.time %}
 					                </div>
 					            {% endif %}
+					        {% empty %}
+					        	<p>{% trans "There are no news posts yet" %}</p>
 					        {% endfor %}
 					    
 					    </div><!-- content-box -->
