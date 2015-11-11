@@ -3,158 +3,160 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-10-22 13:42+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2015-11-11 10:42+0200\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: uk\n"
+"X-Generator: Poedit 1.8.6\n"
 
 #: .\cosinnus_app.py:13 .\models.py:46
 msgid "Stream"
-msgstr ""
+msgstr "Діяльність"
 
 #: .\cosinnus_app.py:20
 msgctxt "the_app"
 msgid "stream"
-msgstr ""
+msgstr "Діяльність"
 
 #: .\dashboard.py:27
 msgid "My Streams"
-msgstr ""
+msgstr "Діяльність"
 
 #: .\models.py:47 .\templates\cosinnus_stream\base.html.py:5
 #: .\templates\cosinnus_stream\base.html.py:12
 #: .\templates\cosinnus_stream\stream_detail.html.py:15
 msgid "Streams"
-msgstr ""
+msgstr "Діяльність"
 
 #: .\models.py:51
 msgid "Models"
-msgstr ""
+msgstr "Типи даних"
 
 #: .\models.py:53
 msgid "Portal IDs"
-msgstr ""
+msgstr "Ідентифікатори порталу"
 
 #: .\models.py:55
 msgid "Last seen"
-msgstr ""
+msgstr "Востаннє побачене"
 
 #: .\views.py:77
 msgid "You do not have permission to access this stream."
-msgstr ""
+msgstr "У вас немає права доступу до цього потоку діяльності."
 
 #: .\views.py:174
 msgid "Your stream was added successfully."
-msgstr ""
+msgstr "Ваш потік діяльності успішно додано."
 
 #: .\views.py:178 .\views.py:193 .\views.py:215
 msgid "Please log in to access this page."
-msgstr ""
+msgstr "Будь ласка, увійдіть у систему, щоб отримати доступ до цієї сторінки."
 
 #: .\views.py:189
 msgid "Your stream was updated successfully."
-msgstr ""
+msgstr "Ваш потік діяльності успішно змінено."
 
 #: .\views.py:211
 msgid "Your stream was deleted successfully."
-msgstr ""
+msgstr "Ваш потік діяльності успішно видалено."
 
 #: .\views.py:223
 msgid "You cannot delete the default stream!"
-msgstr ""
+msgstr "Ви не можете видалити стандартний потік діяльності!"
 
 #: .\templates\cosinnus_stream\leftnav.html.py:6
 #: .\templates\cosinnus_stream\stream_detail.html.py:17
 #: .\templates\cosinnus_stream\widgets\my_streams.html.py:11
 msgid "My Stream"
-msgstr ""
+msgstr "Діяльність"
 
 #: .\templates\cosinnus_stream\leftnav.html.py:6
 #: .\templates\cosinnus_stream\stream_detail.html.py:17
 msgid "Public Stream"
-msgstr ""
+msgstr "Публічна діяльність"
 
 #: .\templates\cosinnus_stream\leftnav.html.py:14
 msgid "My Stream in all Portals"
-msgstr ""
+msgstr "Діяльність на всіх порталах"
 
 #: .\templates\cosinnus_stream\leftnav.html.py:14
 msgid "Public Stream in all Portals"
-msgstr ""
+msgstr "Публічна діяльність на всіх порталах"
 
 #: .\templates\cosinnus_stream\leftnav.html.py:33
 msgid "Edit this Stream"
-msgstr ""
+msgstr "Редагувати потік діяльності «%(stream_name)s»"
 
 #: .\templates\cosinnus_stream\leftnav.html.py:39
 msgid "Delete this Stream"
-msgstr ""
+msgstr "Видалити потік діяльності"
 
 #: .\templates\cosinnus_stream\leftnav.html.py:42
 msgid "Do you really want to delete this stream?"
-msgstr ""
+msgstr "Ви дійсно бажаєте видалити цей потік діяльності?"
 
 #: .\templates\cosinnus_stream\leftnav.html.py:43
 msgid "Delete Stream"
-msgstr ""
+msgstr "Видалити потік діяльності"
 
 #: .\templates\cosinnus_stream\leftnav.html.py:51
 #: .\templates\cosinnus_stream\stream_form.html.py:6
 #: .\templates\cosinnus_stream\stream_form.html.py:15
 #: .\templates\cosinnus_stream\widgets\my_streams.html.py:40
 msgid "Create Stream"
-msgstr ""
+msgstr "Створити потік діяльності"
 
 #: .\templates\cosinnus_stream\stream_detail.html.py:46
 msgid "Hide public items outside of your groups"
-msgstr ""
+msgstr "Приховати публічні дописи, що не стосуються ваших проектів/спільнот"
 
 #: .\templates\cosinnus_stream\stream_detail.html.py:46
 msgid "Show public items outside of your groups"
-msgstr ""
+msgstr "Показати публічні дописи, що не стосуються ваших проектів/спільнот"
 
 #: .\templates\cosinnus_stream\stream_form.html.py:8
 #: .\templates\cosinnus_stream\stream_form.html.py:15
 #, python-format
 msgid "Edit stream \"%(stream_name)s\""
-msgstr ""
+msgstr "Редагувати потік діяльності «%(stream_name)s»"
 
 #: .\templates\cosinnus_stream\stream_form.html.py:40
 msgid "Enter a title for the stream."
-msgstr ""
+msgstr "Уведіть назву для потоку діяльності."
 
 #: .\templates\cosinnus_stream\stream_form.html.py:53
 msgid "Apply filters for the stream"
-msgstr ""
+msgstr "Вибрати фільтр для потоку діяльності"
 
 #: .\templates\cosinnus_stream\stream_form.html.py:55
 msgid "Filter by Group/Project?"
-msgstr ""
+msgstr "Фільтрувати за спільнотою або проектом?"
 
 #: .\templates\cosinnus_stream\stream_form.html.py:64
 msgid "Select Group/Project"
-msgstr ""
+msgstr "Вибрати спільноту/проект"
 
 #: .\templates\cosinnus_stream\stream_form.html.py:75
 msgid "Filter by authors, tags or other tagged properties?"
-msgstr ""
+msgstr "Фільтрувати за автором, ключовими словами або іншими ознаками?"
 
 #: .\templates\cosinnus_stream\stream_form.html.py:80
 msgid "Filter by item types?"
-msgstr ""
+msgstr "Фільтрувати за типом об'єкту?"
 
 #: .\templates\cosinnus_stream\stream_form.html.py:105
 msgid "Create"
-msgstr ""
+msgstr "Створити"
 
 #: .\templates\cosinnus_stream\stream_form.html.py:107
 msgid "Edit"
-msgstr ""
+msgstr "Редагувати"
