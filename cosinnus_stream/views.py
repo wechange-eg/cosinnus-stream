@@ -129,11 +129,11 @@ class StreamFormMixin(object):
         qs = self.model._default_manager.filter(creator__id=self.request.user.id, is_my_stream__exact=False)
         return qs
     
-    def get_form(self, form_class):
+    def get_form(self, *args, **kwargs):
         """
         Filter the groups displayed to the user to be his groups/public groups.
         """
-        form = super(StreamFormMixin, self).get_form(form_class)
+        form = super(StreamFormMixin, self).get_form( *args, **kwargs)
         form.forms['obj'].fields['group'].queryset = CosinnusGroup.objects.filter(\
                 id__in=CosinnusGroup.objects.get_for_user_pks(self.request.user, include_public=True))
         return form
