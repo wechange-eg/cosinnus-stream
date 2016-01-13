@@ -44,7 +44,7 @@ class StreamDetailView(DashboardWidgetMixin, DetailView):
     
     def get_object(self, queryset=None):
         """ Allow queries without slug or pk """
-        if self.request.user.is_authenticated() and self.pk_url_kwarg in self.kwargs or self.slug_url_kwarg in self.kwargs:
+        if self.request.user.is_authenticated() and (self.pk_url_kwarg in self.kwargs or self.slug_url_kwarg in self.kwargs):
             queryset = queryset or self.model.objects.all()
             if self.pk_url_kwarg in self.kwargs:
                 self.object = get_object_or_404(self.model, id=self.kwargs.get(self.pk_url_kwarg))
