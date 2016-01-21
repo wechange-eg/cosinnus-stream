@@ -5,10 +5,10 @@ from copy import copy
 from django.db.models import get_model, Q
 
 from cosinnus.core.registries import attached_object_registry as aor
-from cosinnus.models.group import CosinnusGroup
 from cosinnus.models.tagged import BaseHierarchicalTaggableObjectModel,\
     BaseTagObject
 from cosinnus.utils.permissions import filter_tagged_object_queryset_for_user
+from cosinnus.utils.group import get_cosinnus_group_model
 
 
 class StreamManagerMixin(object):
@@ -125,7 +125,7 @@ class StreamManagerMixin(object):
         if stream.is_my_stream:
             # objects only from user-groups for My-Stream
             if user.is_authenticated():
-                self.stream_user_group_ids = getattr(self, 'user_group_ids', CosinnusGroup.objects.get_for_user_pks(user))
+                self.stream_user_group_ids = getattr(self, 'user_group_ids', get_cosinnus_group_model().objects.get_for_user_pks(user))
                 filter_q = Q(group__pk__in=self.stream_user_group_ids)
                 # if the switch is on, also include public posts from all portals
                 if include_public:
