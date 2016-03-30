@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-30 11:52+0200\n"
+"POT-Creation-Date: 2016-03-30 18:21+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -117,11 +117,11 @@ msgid "Apply filters for the stream"
 msgstr "Filter für den Aktivitäten-Feed auswählen"
 
 #: .\templates\cosinnus_stream\stream_form.html:55
-msgid "Filter by Group/Project?"
+msgid "Filter by Team?"
 msgstr "Nach Gruppe oder Projekt filtern?"
 
 #: .\templates\cosinnus_stream\stream_form.html:64
-msgid "Select Group/Project"
+msgid "Select Team"
 msgstr "Gruppe oder Projekt auswählen"
 
 #: .\templates\cosinnus_stream\stream_form.html:75

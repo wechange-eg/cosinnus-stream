@@ -52,7 +52,7 @@
             <fieldset>
                 <legend>{% trans "Apply filters for the stream" %}</legend>
 	                        
-	            <label>{% trans "Filter by Group/Project?" %}</label>
+	            <label>{% trans "Filter by Team?" %}</label>
 	            <div type="button" class="btn btn-default regular-space w100">
 	                <ul class="media-list">
 	                    <li class="media">
@@ -61,7 +61,7 @@
 	                        </a>
 	                        <div class="media-body">
 	                            
-	                            <select id="id_group" name="group" class="w100 user-selector" data-placeholder="{% trans "Select Group/Project" %}">
+	                            <select id="id_group" name="group" class="w100 user-selector" data-placeholder="{% trans "Select Team" %}">
                                     <option value="" default>-------</option>
                                     {% for group in form.forms.obj.group.field.choices.queryset %}
                                        <option {% if form.forms.obj.group.value == group.pk %}selected{% endif %} value="{{ group.pk }}">{{ group.name }}{% if group.is_foreign_portal %} ({{ group.portal.name }}){% endif %}</option>
