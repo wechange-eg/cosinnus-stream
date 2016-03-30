@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-03 13:40+0200\n"
+"POT-Creation-Date: 2016-03-30 11:52+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,9 +29,9 @@ msgstr "Activities"
 msgid "My Streams"
 msgstr "Activities"
 
-#: .\models.py:47 .\templates\cosinnus_stream\base.html.py:5
-#: .\templates\cosinnus_stream\base.html.py:12
-#: .\templates\cosinnus_stream\stream_detail.html.py:15
+#: .\models.py:47 .\templates\cosinnus_stream\base.html:5
+#: .\templates\cosinnus_stream\base.html:12
+#: .\templates\cosinnus_stream\stream_detail.html:15
 msgid "Streams"
 msgstr "Activities"
 
@@ -45,6 +45,99 @@ msgstr ""
 
 #: .\models.py:55
 msgid "Last seen"
+msgstr ""
+
+#: .\templates\cosinnus_stream\leftnav.html:6
+#: .\templates\cosinnus_stream\stream_detail.html:17
+#: .\templates\cosinnus_stream\widgets\my_streams.html:11
+msgid "My Stream"
+msgstr "Activities"
+
+#: .\templates\cosinnus_stream\leftnav.html:6
+#: .\templates\cosinnus_stream\stream_detail.html:17
+msgid "Public Stream"
+msgstr "Public Activities"
+
+#: .\templates\cosinnus_stream\leftnav.html:14
+msgid "My Stream in all Portals"
+msgstr ""
+
+#: .\templates\cosinnus_stream\leftnav.html:14
+#, fuzzy
+msgid "Public Stream in all Portals"
+msgstr "Public Activities"
+
+#: .\templates\cosinnus_stream\leftnav.html:33
+msgid "Edit this Stream"
+msgstr "Edit this activity feed"
+
+#: .\templates\cosinnus_stream\leftnav.html:39
+msgid "Delete this Stream"
+msgstr "Delete this activity feed"
+
+#: .\templates\cosinnus_stream\leftnav.html:42
+msgid "Do you really want to delete this stream?"
+msgstr "Do you really want to delete this activity feed?"
+
+#: .\templates\cosinnus_stream\leftnav.html:43
+msgid "Delete Stream"
+msgstr "Delete activity feed"
+
+#: .\templates\cosinnus_stream\leftnav.html:51
+#: .\templates\cosinnus_stream\stream_form.html:6
+#: .\templates\cosinnus_stream\stream_form.html:15
+#: .\templates\cosinnus_stream\widgets\my_streams.html:40
+msgid "Create Stream"
+msgstr "Create activity feed"
+
+#: .\templates\cosinnus_stream\stream_detail.html:46
+msgid "Hide public items outside of your groups"
+msgstr ""
+
+#: .\templates\cosinnus_stream\stream_detail.html:46
+msgid "Show public items outside of your groups"
+msgstr ""
+
+#: .\templates\cosinnus_stream\stream_detail.html:60
+msgid "There are no news posts yet"
+msgstr ""
+
+#: .\templates\cosinnus_stream\stream_form.html:8
+#: .\templates\cosinnus_stream\stream_form.html:15
+#, python-format
+msgid "Edit stream \"%(stream_name)s\""
+msgstr "Edit activity feed \"%(stream_name)s\""
+
+#: .\templates\cosinnus_stream\stream_form.html:40
+msgid "Enter a title for the stream."
+msgstr "Enter a title for the activity feed."
+
+#: .\templates\cosinnus_stream\stream_form.html:53
+msgid "Apply filters for the stream"
+msgstr "Apply filters for the activity feed"
+
+#: .\templates\cosinnus_stream\stream_form.html:55
+msgid "Filter by Group/Project?"
+msgstr ""
+
+#: .\templates\cosinnus_stream\stream_form.html:64
+msgid "Select Group/Project"
+msgstr ""
+
+#: .\templates\cosinnus_stream\stream_form.html:75
+msgid "Filter by authors, tags or other tagged properties?"
+msgstr ""
+
+#: .\templates\cosinnus_stream\stream_form.html:80
+msgid "Filter by item types?"
+msgstr ""
+
+#: .\templates\cosinnus_stream\stream_form.html:105
+msgid "Create"
+msgstr ""
+
+#: .\templates\cosinnus_stream\stream_form.html:107
+msgid "Edit"
 msgstr ""
 
 #: .\views.py:77
@@ -70,92 +163,3 @@ msgstr "Your activity feed was deleted successfully."
 #: .\views.py:223
 msgid "You cannot delete the default stream!"
 msgstr "You cannot delete the default activity feed!"
-
-#: .\templates\cosinnus_stream\leftnav.html.py:6
-#: .\templates\cosinnus_stream\stream_detail.html.py:17
-#: .\templates\cosinnus_stream\widgets\my_streams.html.py:11
-msgid "My Stream"
-msgstr "Activities"
-
-#: .\templates\cosinnus_stream\leftnav.html.py:6
-#: .\templates\cosinnus_stream\stream_detail.html.py:17
-msgid "Public Stream"
-msgstr "Public Activities"
-
-#: .\templates\cosinnus_stream\leftnav.html.py:14
-msgid "My Stream in all Portals"
-msgstr ""
-
-#: .\templates\cosinnus_stream\leftnav.html.py:14
-#, fuzzy
-msgid "Public Stream in all Portals"
-msgstr "Public Activities"
-
-#: .\templates\cosinnus_stream\leftnav.html.py:33
-msgid "Edit this Stream"
-msgstr "Edit this activity feed"
-
-#: .\templates\cosinnus_stream\leftnav.html.py:39
-msgid "Delete this Stream"
-msgstr "Delete this activity feed"
-
-#: .\templates\cosinnus_stream\leftnav.html.py:42
-msgid "Do you really want to delete this stream?"
-msgstr "Do you really want to delete this activity feed?"
-
-#: .\templates\cosinnus_stream\leftnav.html.py:43
-msgid "Delete Stream"
-msgstr "Delete activity feed"
-
-#: .\templates\cosinnus_stream\leftnav.html.py:51
-#: .\templates\cosinnus_stream\stream_form.html.py:6
-#: .\templates\cosinnus_stream\stream_form.html.py:15
-#: .\templates\cosinnus_stream\widgets\my_streams.html.py:40
-msgid "Create Stream"
-msgstr "Create activity feed"
-
-#: .\templates\cosinnus_stream\stream_detail.html.py:46
-msgid "Hide public items outside of your groups"
-msgstr ""
-
-#: .\templates\cosinnus_stream\stream_detail.html.py:46
-msgid "Show public items outside of your groups"
-msgstr ""
-
-#: .\templates\cosinnus_stream\stream_form.html.py:8
-#: .\templates\cosinnus_stream\stream_form.html.py:15
-#, python-format
-msgid "Edit stream \"%(stream_name)s\""
-msgstr "Edit activity feed \"%(stream_name)s\""
-
-#: .\templates\cosinnus_stream\stream_form.html.py:40
-msgid "Enter a title for the stream."
-msgstr "Enter a title for the activity feed."
-
-#: .\templates\cosinnus_stream\stream_form.html.py:53
-msgid "Apply filters for the stream"
-msgstr "Apply filters for the activity feed"
-
-#: .\templates\cosinnus_stream\stream_form.html.py:55
-msgid "Filter by Group/Project?"
-msgstr ""
-
-#: .\templates\cosinnus_stream\stream_form.html.py:64
-msgid "Select Group/Project"
-msgstr ""
-
-#: .\templates\cosinnus_stream\stream_form.html.py:75
-msgid "Filter by authors, tags or other tagged properties?"
-msgstr ""
-
-#: .\templates\cosinnus_stream\stream_form.html.py:80
-msgid "Filter by item types?"
-msgstr ""
-
-#: .\templates\cosinnus_stream\stream_form.html.py:105
-msgid "Create"
-msgstr ""
-
-#: .\templates\cosinnus_stream\stream_form.html.py:107
-msgid "Edit"
-msgstr ""
