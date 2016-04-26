@@ -13,6 +13,8 @@ from cosinnus.models.tagged import BaseTaggableObjectModel
 from cosinnus_stream.mixins import StreamManagerMixin
 from django.core.cache import cache
 from cosinnus.models.group import CosinnusPortal
+from django.db.models.signals import post_save
+from django.utils.encoding import force_text
 
 USER_STREAM_SHORT_CACHE_KEY = 'cosinnus/stream/portals_%s/user/%d/short_stream'
 
@@ -54,6 +56,10 @@ class Stream(StreamManagerMixin, BaseTaggableObjectModel):
        blank=True, null=False, max_length=255, default="") 
     last_seen = django_models.DateTimeField(_('Last seen'), default=None, blank=True, null=True)
     
+    is_special = django_models.BooleanField(_('Special Stream'), default=False)
+    special_groups = django_models.CommaSeparatedIntegerField(_('Special Group IDs'), 
+       blank=True, null=False, max_length=255, default="") 
+    
     objects = StreamManager()
     
     @property
@@ -93,6 +99,26 @@ Stream._meta.get_field('creator').null = False
 Stream._meta.unique_together = (('creator', 'slug'),)
 
     
+def create_special_streams_profile(sender, instance, created, **kwargs):
+    """
+    Creates hardcoded special streams for a new user, taken from settings.
+    """
+    if created and getattr(settings, 'COSINNUS_STREAM_SPECIAL_STREAMS'): 
+        user = instance
+        for special_stream in settings.COSINNUS_STREAM_SPECIAL_STREAMS:
+            # create all special hardcoded streams
+            Stream.objects.get_or_create(
+                 creator=user, 
+                 is_special=True, 
+                 special_groups=','.join([force_text(gid) for gid in special_stream['group_ids']]),
+                 defaults={
+                    'models': special_stream['app_models'],
+                    'title': special_stream['title'],
+                 },
+            )
+
+post_save.connect(create_special_streams_profile, sender=settings.AUTH_USER_MODEL,
+    dispatch_uid='cosinnus_user_profile_post_save_streams')
 
 
 import django

@@ -20,7 +20,16 @@ from cosinnus.views.widget import DashboardWidgetMixin
 from django.shortcuts import get_object_or_404
 
 
-class StreamDetailView(DashboardWidgetMixin, DetailView):
+class StreamsMixin(object):
+        
+    def get_streams(self):
+        if not self.request.user.is_authenticated():
+            return self.model._default_manager.none()
+        qs = self.model._default_manager.filter(creator__id=self.request.user.id, is_my_stream__exact=False).order_by('-is_special')
+        return qs
+
+
+class StreamDetailView(DashboardWidgetMixin, StreamsMixin, DetailView):
     model = Stream
     template_name = 'cosinnus_stream/stream_detail.html'
     
@@ -65,12 +74,6 @@ class StreamDetailView(DashboardWidgetMixin, DetailView):
             else:
                 self.object = self.model._default_manager.get_my_stream_for_user(self.request.user, portals=portals)
         return self.object
-    
-    def get_streams(self):
-        if not self.request.user.is_authenticated():
-            return self.model._default_manager.none()
-        qs = self.model._default_manager.filter(creator__id=self.request.user.id, is_my_stream__exact=False)
-        return qs
     
     def check_permissions(self):
         if self.object and hasattr(self.object, 'creator') and not self.object.creator == self.request.user:
@@ -122,13 +125,6 @@ class StreamFormMixin(object):
     model = Stream
     template_name = 'cosinnus_stream/stream_form.html'
     
-    
-    def get_streams(self):
-        if not self.request.user.is_authenticated():
-            return self.model._default_manager.none()
-        qs = self.model._default_manager.filter(creator__id=self.request.user.id, is_my_stream__exact=False)
-        return qs
-    
     def get_form(self, *args, **kwargs):
         """
         Filter the groups displayed to the user to be his groups/public groups.
@@ -168,7 +164,7 @@ class StreamFormMixin(object):
         return self.object.get_absolute_url()
     
 
-class StreamCreateView(UserFormKwargsMixin, StreamFormMixin, CreateView):
+class StreamCreateView(UserFormKwargsMixin, StreamsMixin, StreamFormMixin, CreateView):
 
     form_view = "add"
     message_success = _('Your stream was added successfully.')
@@ -183,7 +179,7 @@ class StreamCreateView(UserFormKwargsMixin, StreamFormMixin, CreateView):
 stream_create = StreamCreateView.as_view()
 
 
-class StreamUpdateView(UserFormKwargsMixin, StreamFilterForUserMixin, StreamFormMixin, UpdateView):
+class StreamUpdateView(UserFormKwargsMixin, StreamFilterForUserMixin, StreamsMixin, StreamFormMixin, UpdateView):
 
     form_view = "edit"
     message_success = _('Your stream was updated successfully.')

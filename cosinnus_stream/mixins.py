@@ -138,6 +138,12 @@ class StreamManagerMixin(object):
             # filter by group if set in stream
             if stream.group:
                 queryset = queryset.filter(group__pk=stream.group.pk)
+            
+            # filter special streams group_ids
+            if stream.special_groups:
+                group_ids = [int(gid) for gid in stream.special_groups.split(',')]
+                queryset = queryset.filter(group__pk__in=group_ids)
+            
             if stream.media_tag:
                 if stream.media_tag.topics:
                     q = None

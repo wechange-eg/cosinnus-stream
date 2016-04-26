@@ -23,7 +23,7 @@
 		{% captureas href %}{{ stream_url }}{% add_current_params %}{% endcaptureas %}
 		{% captureas label %}{{ stream.title }}{% endcaptureas %}
 		{% captureas active %}{% if request.path == stream_url %}True{% endif %}{% endcaptureas %}
-		{% captureas classes %}{% if forloop.last %}large-space{% else %}fine-space{% endif %}{% endcaptureas %}
+		{% captureas classes %}{% if forloop.last or stream.is_special %}large-space{% else %}fine-space{% endif %}{% endcaptureas %}
 		{% captureas unseen_count %}{{ stream.unread_count }}{% endcaptureas %}
 		{% include "cosinnus/leftnav_button.html" with extra_classes=classes active=active icon_content=unseen_count label=label href=href %}
     {% endfor %}
