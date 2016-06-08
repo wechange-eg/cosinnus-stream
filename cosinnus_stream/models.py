@@ -16,6 +16,9 @@ from cosinnus.models.group import CosinnusPortal
 from django.db.models.signals import post_save
 from django.utils.encoding import force_text
 
+import logging
+logger = logging.getLogger('cosinnus')
+
 USER_STREAM_SHORT_CACHE_KEY = 'cosinnus/stream/portals_%s/user/%d/short_stream'
 
 class StreamManager(django_models.Manager):
@@ -86,8 +89,13 @@ class Stream(StreamManagerMixin, BaseTaggableObjectModel):
         return reverse('cosinnus:stream', kwargs=kwargs)
     
     def update_cache(self, user):
-        cache.set(USER_STREAM_SHORT_CACHE_KEY % (self.portals, user.id if user.is_authenticated() else 0), \
+        try:
+            cache.set(USER_STREAM_SHORT_CACHE_KEY % (self.portals, user.id if user.is_authenticated() else 0), \
                       self, settings.COSINNUS_STREAM_SHORT_CACHE_TIMEOUT)
+        except Exception, e:
+            # sometimes we cannot pickle the deep cache and it throws errors, we don't want to let this bubble up
+            logger.warning('Could not save the user stream into the cache because of an exception! (in extra)', extra={'exception': force_text(e)})
+            
     
     # def unread_count() is in the StreamManagerMixin!
     
