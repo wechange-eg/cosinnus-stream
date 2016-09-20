@@ -3,164 +3,128 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-30 18:21+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"POT-Creation-Date: 2016-09-20 13:27+0200\n"
+"PO-Revision-Date: 2016-09-20 15:02+0200\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: de\n"
+"X-Generator: Poedit 1.8.4\n"
 
-#: .\cosinnus_app.py:13 .\models.py:46
 msgid "Stream"
 msgstr "Aktivitäten"
 
-#: .\cosinnus_app.py:20
 msgctxt "the_app"
 msgid "stream"
 msgstr "Aktivitäten"
 
-#: .\dashboard.py:27
 msgid "My Streams"
 msgstr "Aktivitäten"
 
-#: .\models.py:47 .\templates\cosinnus_stream\base.html:5
-#: .\templates\cosinnus_stream\base.html:12
-#: .\templates\cosinnus_stream\stream_detail.html:15
 msgid "Streams"
 msgstr "Aktivitäten"
 
-#: .\models.py:51
 msgid "Models"
 msgstr "Datentypen"
 
-#: .\models.py:53
 msgid "Portal IDs"
-msgstr ""
+msgstr "Portal IDs"
 
-#: .\models.py:55
 msgid "Last seen"
 msgstr "Zuletzt angesehen"
 
-#: .\templates\cosinnus_stream\leftnav.html:6
-#: .\templates\cosinnus_stream\stream_detail.html:17
-#: .\templates\cosinnus_stream\widgets\my_streams.html:11
+msgid "Special Stream"
+msgstr "Spezial-Stream"
+
+msgid "Special Group IDs"
+msgstr "Special Group IDs"
+
 msgid "My Stream"
 msgstr "Aktivitäten"
 
-#: .\templates\cosinnus_stream\leftnav.html:6
-#: .\templates\cosinnus_stream\stream_detail.html:17
 msgid "Public Stream"
 msgstr "Öffentliche Aktivitäten"
 
-#: .\templates\cosinnus_stream\leftnav.html:14
 msgid "My Stream in all Portals"
 msgstr "Aktivitäten in allen Portalen"
 
-#: .\templates\cosinnus_stream\leftnav.html:14
 msgid "Public Stream in all Portals"
 msgstr "Öffentliche Aktivitäten in allen Portalen"
 
-#: .\templates\cosinnus_stream\leftnav.html:33
 msgid "Edit this Stream"
 msgstr "Diesen Aktivitäten-Feed bearbeiten"
 
-#: .\templates\cosinnus_stream\leftnav.html:39
 msgid "Delete this Stream"
 msgstr "Diesen Aktivitäten-Feed löschen"
 
-#: .\templates\cosinnus_stream\leftnav.html:42
 msgid "Do you really want to delete this stream?"
 msgstr "Willst du diesen Aktivitäten-Feed wirklich löschen?"
 
-#: .\templates\cosinnus_stream\leftnav.html:43
 msgid "Delete Stream"
 msgstr "Aktivitäten-Feed löschen"
 
-#: .\templates\cosinnus_stream\leftnav.html:51
-#: .\templates\cosinnus_stream\stream_form.html:6
-#: .\templates\cosinnus_stream\stream_form.html:15
-#: .\templates\cosinnus_stream\widgets\my_streams.html:40
 msgid "Create Stream"
 msgstr "Aktivitäten-Feed erstellen"
 
-#: .\templates\cosinnus_stream\stream_detail.html:46
 msgid "Hide public items outside of your groups"
 msgstr "Öffentliche Posts von außerhalb deiner Projekte/Gruppen ausblenden"
 
-#: .\templates\cosinnus_stream\stream_detail.html:46
 msgid "Show public items outside of your groups"
 msgstr "Öffentliche Posts von außerhalb deiner Projekte/Gruppen anzeigen"
 
-#: .\templates\cosinnus_stream\stream_detail.html:60
 msgid "There are no news posts yet"
-msgstr ""
+msgstr "Es gibt noch keine Posts"
 
-#: .\templates\cosinnus_stream\stream_form.html:8
-#: .\templates\cosinnus_stream\stream_form.html:15
 #, python-format
 msgid "Edit stream \"%(stream_name)s\""
 msgstr "\"%(stream_name)s\" bearbeiten"
 
-#: .\templates\cosinnus_stream\stream_form.html:40
 msgid "Enter a title for the stream."
 msgstr "Gib einen Titel für den Aktivitäten-Feed ein"
 
-#: .\templates\cosinnus_stream\stream_form.html:53
 msgid "Apply filters for the stream"
 msgstr "Filter für den Aktivitäten-Feed auswählen"
 
-#: .\templates\cosinnus_stream\stream_form.html:55
 msgid "Filter by Team?"
 msgstr "Nach Gruppe oder Projekt filtern?"
 
-#: .\templates\cosinnus_stream\stream_form.html:64
 msgid "Select Team"
 msgstr "Gruppe oder Projekt auswählen"
 
-#: .\templates\cosinnus_stream\stream_form.html:75
 msgid "Filter by authors, tags or other tagged properties?"
 msgstr "Nach Ersteller, Tags oder anderen Eigenschaften filtern?"
 
-#: .\templates\cosinnus_stream\stream_form.html:80
 msgid "Filter by item types?"
 msgstr "Nach Objekttyp filtern?"
 
-#: .\templates\cosinnus_stream\stream_form.html:105
 msgid "Create"
 msgstr "Erstellen"
 
-#: .\templates\cosinnus_stream\stream_form.html:107
 msgid "Edit"
 msgstr "Bearbeiten"
 
-#: .\views.py:77
 msgid "You do not have permission to access this stream."
 msgstr "Du hast keine Berechtigung diesen Aktivitäten-Feed anzuschauen."
 
-#: .\views.py:174
 msgid "Your stream was added successfully."
 msgstr "Dein Aktivitäten-Feed wurde erfolgreich hinzugefügt."
 
-#: .\views.py:178 .\views.py:193 .\views.py:215
 msgid "Please log in to access this page."
 msgstr "Bitte log dich ein um diese Seite aufzurufen!"
 
-#: .\views.py:189
 msgid "Your stream was updated successfully."
 msgstr "Dein Aktivitäten-Feed wurde erfolgreich geändert."
 
-#: .\views.py:211
 msgid "Your stream was deleted successfully."
 msgstr "Dein Aktivitäten-Feed wurde erfolgreich gelöscht."
 
-#: .\views.py:223
 msgid "You cannot delete the default stream!"
 msgstr "Du kannst den Standard-Aktivitäten-Feed nicht löschen!"
 
