@@ -1,4 +1,4 @@
-# SOME DESCRIPTIVE TITLE.
+﻿# SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
@@ -102,7 +102,7 @@ msgstr "Показать публичные посты вне вашего пр�
 
 #: .\templates\cosinnus_stream\stream_detail.html:60
 msgid "There are no news posts yet"
-msgstr ""
+msgstr "Пока новостей нет"
 
 #: .\templates\cosinnus_stream\stream_form.html:8
 #: .\templates\cosinnus_stream\stream_form.html:15
