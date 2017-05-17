@@ -1,12 +1,14 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+import inspect
+
 from copy import copy
 from django.db.models import get_model, Q
 
 from cosinnus.core.registries import attached_object_registry as aor
 from cosinnus.models.tagged import BaseHierarchicalTaggableObjectModel,\
-    BaseTagObject
+    BaseTagObject, BaseTaggableObjectModel
 from cosinnus.utils.permissions import filter_tagged_object_queryset_for_user
 from cosinnus.utils.group import get_cosinnus_group_model
 
@@ -15,7 +17,7 @@ class StreamManagerMixin(object):
     
     def _get_querysets_for_stream(self, stream, user, include_public=False):
         """ Returns all (still-lazy) querysets for models that will appear 
-            in the current stream """
+            in the current stream. Only works for classes inheriting BaseTaggableObjectModel. """
         querysets = []
         # [u'cosinnus_etherpad.Etherpad', u'cosinnus_event.Event', u'cosinnus_file.FileEntry', 'cosinnus_todo.TodoEntry']
         for registered_model in aor:
@@ -29,10 +31,12 @@ class StreamManagerMixin(object):
             model_class = get_model(app_label, model_name)
             
             # get base collection of models for that type
-            if BaseHierarchicalTaggableObjectModel in model_class.__bases__:
+            if BaseHierarchicalTaggableObjectModel in inspect.getmro(model_class):
                 queryset = model_class._default_manager.filter(is_container=False)
-            else:
+            elif BaseTaggableObjectModel in inspect.getmro(model_class):
                 queryset = model_class._default_manager.all()
+            else:
+                continue
             
             # filter for read permissions for user
             queryset = filter_tagged_object_queryset_for_user(queryset, user)
