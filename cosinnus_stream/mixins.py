@@ -11,6 +11,7 @@ from cosinnus.models.tagged import BaseHierarchicalTaggableObjectModel,\
     BaseTagObject, BaseTaggableObjectModel
 from cosinnus.utils.permissions import filter_tagged_object_queryset_for_user
 from cosinnus.utils.group import get_cosinnus_group_model
+from cosinnus.utils.filters import exclude_special_folders
 
 
 class StreamManagerMixin(object):
@@ -33,6 +34,7 @@ class StreamManagerMixin(object):
             # get base collection of models for that type
             if BaseHierarchicalTaggableObjectModel in inspect.getmro(model_class):
                 queryset = model_class._default_manager.filter(is_container=False)
+                queryset = exclude_special_folders(queryset)
             elif BaseTaggableObjectModel in inspect.getmro(model_class):
                 queryset = model_class._default_manager.all()
             else:
