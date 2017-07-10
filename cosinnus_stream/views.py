@@ -139,6 +139,9 @@ class StreamFormMixin(object):
         
         model_selection = []
         for model_name in aor:
+            # skip non-cosinnus app models
+            if not model_name.startswith('cosinnus'):
+                continue
             # label for the checkbox is the app identifier translation
             app = model_name.split('.')[0].split('_')[-1]
             model_selection.append({
