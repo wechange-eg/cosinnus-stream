@@ -12,6 +12,8 @@ from cosinnus.models.tagged import BaseHierarchicalTaggableObjectModel,\
 from cosinnus.utils.permissions import filter_tagged_object_queryset_for_user
 from cosinnus.utils.group import get_cosinnus_group_model
 from cosinnus.utils.filters import exclude_special_folders
+from cosinnus.conf import settings
+from cosinnus.views.mixins.reflected_objects import MixReflectedObjectsMixin
 
 
 class StreamManagerMixin(object):
@@ -40,10 +42,17 @@ class StreamManagerMixin(object):
             else:
                 continue
             
-            # filter for read permissions for user
-            queryset = filter_tagged_object_queryset_for_user(queryset, user)
             # filter for stream
             queryset = self._filter_queryset_for_stream(queryset, stream, user, include_public=include_public)
+            
+            # mix in reflected objects
+            if registered_model.lower() in settings.COSINNUS_REFLECTABLE_OBJECTS and \
+                        BaseTaggableObjectModel in inspect.getmro(model_class):
+                mixin = MixReflectedObjectsMixin()
+                queryset = mixin.mix_queryset(queryset, model_class, None, user)
+            
+            # filter for read permissions for user
+            queryset = filter_tagged_object_queryset_for_user(queryset, user)
             # sorting
             queryset = self._sort_queryset(queryset, stream)
             querysets.append(queryset)
