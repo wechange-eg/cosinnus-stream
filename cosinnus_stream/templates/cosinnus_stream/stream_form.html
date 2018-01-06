@@ -22,98 +22,85 @@
 
 {% block content %}
 
+<form method="POST" action="" class="form-horizontal">{% csrf_token %}
+    {{ form.forms.obj.non_field_errors }}
+    {{ form.forms.media_tag.non_field_errors }}
+    
     <!-- a box with semi transparent background -->
     <div class="content-box">
-       <form method="POST" action="">{% csrf_token %}
-            
-            <div type="button" class="btn btn-default w100 regular-space">
-                <ul class="media-list">
-                    <li class="media">
-                        <a class="pull-left btn-emphasized" href="#">
-                            <i class="fa fa-plus"></i>
-                        </a>
-                        <div class="media-body media-body-form-control">
-                            {{ form.forms.obj.non_field_errors }}
-                            {{ form.forms.media_tag.non_field_errors }}
-                            
-                            {{ form.forms.obj.title.errors }}
-                            {% captureas placeholder %}{% trans "Enter a title for the stream." %}{% endcaptureas %}
-                            {% if request.GET.title %}
-                                {% render_field form.forms.obj.title class+="form-control" placeholder=placeholder value=request.GET.title %}
-                            {% else %}
-                                {% render_field form.forms.obj.title class+="form-control" placeholder=placeholder %}
-                            {% endif %}
-                            
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            
-            <fieldset>
-                <legend>{% trans "Apply filters for the stream" %}</legend>
-	                        
-	            <label>{% trans "Filter by Team?" %}</label>
-	            <div type="button" class="btn btn-default regular-space w100">
-	                <ul class="media-list">
-	                    <li class="media">
-	                        <a class="pull-left" href="#">
-	                            <i class="fa fa-globe"></i>
-	                        </a>
-	                        <div class="media-body">
-	                            
-	                            <select id="id_group" name="group" class="w100 user-selector" data-placeholder="{% trans "Select Team" %}">
-                                    <option value="" default>-------</option>
-                                    {% for group in form.forms.obj.group.field.choices.queryset %}
-                                       <option {% if form.forms.obj.group.value == group.pk %}selected{% endif %} value="{{ group.pk }}">{{ group.name }}{% if group.is_foreign_portal %} ({{ group.portal.name }}){% endif %}</option>
-                                    {% endfor %}
-                                </select>
-	                        </div>
-	                    </li>
-	                </ul>
-	            </div>
-	            
-	            <label>{% trans "Filter by authors, tags or other tagged properties?" %}</label>
-	            <div class="regular-space">
-	                {% include 'cosinnus/media_tags.html' %}
-	            </div>
-	            
-	            <label>{% trans "Filter by item types?" %}</label>
-	            <div class="regular-space">
-	                <ol class="input-area">
-					    <li class= "w100" style="white-space:normal;">
-					        {% for model_option in stream_model_selection %}
-					            {% captureas cosinnus_css_class %}{% if model_option.app == 'todo' %}app-todos{% elif model_option.app == 'note' %}app-main{% elif model_option.app == 'file' %}app-files{% elif model_option.app == 'event' %}app-calendar{% elif model_option.app %}app-{{ model_option.app }}{% else %}app-main{% endif %}{% endcaptureas %}
-					            <span class="pull-left inline-list nowrap {{ cosinnus_css_class }}">
-							        <a class="app-background small-padding"><input id="checkbox_{{ model_option.app }}_{{ forloop.counter }}" type="checkbox" name="models" {% if model_option.checked == True %}checked="true"{% endif %} value="{{ model_option.model_name }}" /></a
-							        ><span class="app-background-light dark-color small-padding" onclick="$('#checkbox_{{ model_option.app }}_{{ forloop.counter }}').prop('checked', !($('#checkbox_{{ model_option.app }}_{{ forloop.counter }}').prop('checked')));">
-							            {{ model_option.label }}
-							        </span>
-							    </span>
-					        {% endfor %}
-					    </li>
-					</ol>
-	            </div>
-	            
-	            <button type="submit" class="btn btn-emphasized" id="createDoodleButton">
-	                <ul class="media-list">
-	                    <li class="media">
-	                        <a class="pull-left" href="#">
-	                            <i class="fa fa-pencil"></i>
-	                        </a>
-	                        <div class="media-body">
-	                            {% if form_view == "add" %}
-	                              {% trans "Create" %}
-	                            {% elif form_view == "edit" %}
-	                              {% trans "Edit" %}
-	                            {% endif %}
-	                        </div>
-	                    </li>
-	                </ul>
-	            </button>
-	            
-            </fieldset>
-        </form>
     
+          
+        {% trans "Title" as title_legend %}
+        {% trans "Enter a title for the stream." as title_label %}
+        {% captureas title_html %}
+                {% if request.GET.title %}
+                    {% render_field form.forms.obj.title class+="form-control" placeholder=title_label value=request.GET.title %}
+                {% else %}
+                    {% render_field form.forms.obj.title class+="form-control" placeholder=title_label %}
+                {% endif %}
+        {% endcaptureas %}
+        {% include 'cosinnus/fields/default_field.html' with field=form.forms.obj.title legend=title_legend label=title_label field_html=title_html first=True %}
+        
+            
+        {# Regular field with custom HTML #}
+		{% trans "Apply filters for the stream" as groupsel_legend %}
+		{% trans "Filter by Team?" as groupsel_label %}
+		{% captureas groupsel_html %}
+		    <div style="padding: 8px 0 0 5px;">
+			    <select id="id_group" name="group" class="w100 user-selector" data-placeholder="{% trans "Select Team" %}">
+	                <option value="" default>-------</option>
+	                {% for group in form.forms.obj.group.field.choices.queryset %}
+	                   <option {% if form.forms.obj.group.value == group.pk %}selected{% endif %} value="{{ group.pk }}">{{ group.name }}{% if group.is_foreign_portal %} ({{ group.portal.name }}){% endif %}</option>
+	                {% endfor %}
+	            </select>
+            </div>
+		{% endcaptureas %}
+		{% include 'cosinnus/fields/default_field.html' with field=form.forms.obj.group field_html=groupsel_html legend=groupsel_legend label=groupsel_label %}
+		            
+            
+        
+        {% trans "Additional filters" as media_tags_legend %}
+        {% trans "Filter by authors, tags or other tagged properties?" as media_tags_label %}
+        {% include 'cosinnus/media_tags.html' with media_tags_legend=media_tags_legend media_tags_label=media_tags_label %}
+        
+        
+        {# Item types selector fields #}                          
+        {% trans "Filter by item types?" as types_label %}
+        {% captureas types_html %}
+            <div class="input-area" style="padding: 5px;">
+		        {% for model_option in stream_model_selection %}
+		            {% captureas cosinnus_css_class %}{% if model_option.app == 'todo' %}app-todos{% elif model_option.app == 'note' %}app-main{% elif model_option.app == 'file' %}app-files{% elif model_option.app == 'event' %}app-calendar{% elif model_option.app %}app-{{ model_option.app }}{% else %}app-main{% endif %}{% endcaptureas %}
+		            <span class="pull-left inline-list nowrap {{ cosinnus_css_class }}">
+				        <a class="app-background small-padding"><input id="checkbox_{{ model_option.app }}_{{ forloop.counter }}" type="checkbox" name="models" {% if model_option.checked == True %}checked="true"{% endif %} value="{{ model_option.model_name }}" /></a
+				        ><span class="app-background-light dark-color small-padding" onclick="$('#checkbox_{{ model_option.app }}_{{ forloop.counter }}').prop('checked', !($('#checkbox_{{ model_option.app }}_{{ forloop.counter }}').prop('checked')));">
+				            {{ model_option.label }}
+				        </span>
+				    </span>
+		        {% endfor %}
+            </div>
+        {% endcaptureas %}
+        {% include 'cosinnus/fields/default_field.html' with extra_html=types_html label=types_label large_field=True %}
+            
     </div><!-- content-box -->
+            
+    <button type="submit" class="btn btn-emphasized" id="createDoodleButton">
+        <ul class="media-list">
+            <li class="media">
+                <span class="pull-left" href="#">
+                    <i class="fa fa-pencil"></i>
+                </span>
+                <div class="media-body">
+                    {% if form_view == "add" %}
+                      {% trans "Create" %}
+                    {% elif form_view == "edit" %}
+                      {% trans "Edit" %}
+                    {% endif %}
+                </div>
+            </li>
+        </ul>
+    </button>
+	            
+</form>
+    
     
 {% endblock content %}
