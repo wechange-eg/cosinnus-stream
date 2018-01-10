@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-02 11:31+0100\n"
+"POT-Creation-Date: 2018-01-10 16:48+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -87,6 +87,9 @@ msgstr ""
 msgid "Edit stream \"%(stream_name)s\""
 msgstr "Edit activity feed \"%(stream_name)s\""
 
+msgid "Title"
+msgstr ""
+
 msgid "Enter a title for the stream."
 msgstr "Enter a title for the activity feed."
 
@@ -97,6 +100,9 @@ msgid "Filter by Team?"
 msgstr ""
 
 msgid "Select Team"
+msgstr ""
+
+msgid "Additional filters"
 msgstr ""
 
 msgid "Filter by authors, tags or other tagged properties?"

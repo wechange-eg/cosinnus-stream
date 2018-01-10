@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-02 11:31+0100\n"
-"PO-Revision-Date: 2016-09-20 15:02+0200\n"
+"POT-Creation-Date: 2018-01-10 16:48+0100\n"
+"PO-Revision-Date: 2018-01-10 17:14+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -86,6 +86,9 @@ msgstr "Es gibt noch keine Posts"
 msgid "Edit stream \"%(stream_name)s\""
 msgstr "\"%(stream_name)s\" bearbeiten"
 
+msgid "Title"
+msgstr "Titel"
+
 msgid "Enter a title for the stream."
 msgstr "Gib einen Titel für den Aktivitäten-Feed ein"
 
@@ -97,6 +100,9 @@ msgstr "Nach Gruppe oder Projekt filtern?"
 
 msgid "Select Team"
 msgstr "Gruppe oder Projekt auswählen"
+
+msgid "Additional filters"
+msgstr "Zusätzliche Filter"
 
 msgid "Filter by authors, tags or other tagged properties?"
 msgstr "Nach Ersteller, Tags oder anderen Eigenschaften filtern?"
