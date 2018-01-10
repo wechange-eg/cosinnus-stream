@@ -22,7 +22,7 @@
 
 {% block content %}
 
-<form method="POST" action="" class="form-horizontal">{% csrf_token %}
+<form method="POST" action="" class="cosinnus-form form-horizontal">{% csrf_token %}
     {{ form.forms.obj.non_field_errors }}
     {{ form.forms.media_tag.non_field_errors }}
     
@@ -30,8 +30,8 @@
     <div class="content-box">
     
           
-        {% trans "Title" as title_legend %}
-        {% trans "Enter a title for the stream." as title_label %}
+        {% trans "Title" as title_label %}
+        {% trans "Enter a title for the stream." as title_legend %}
         {% captureas title_html %}
                 {% if request.GET.title %}
                     {% render_field form.forms.obj.title class+="form-control" placeholder=title_label value=request.GET.title %}
@@ -41,9 +41,9 @@
         {% endcaptureas %}
         {% include 'cosinnus/fields/default_field.html' with field=form.forms.obj.title legend=title_legend label=title_label field_html=title_html first=True %}
         
+		<h3>{% trans "Apply filters for the stream" %}</h3>
             
         {# Regular field with custom HTML #}
-		{% trans "Apply filters for the stream" as groupsel_legend %}
 		{% trans "Filter by Team?" as groupsel_label %}
 		{% captureas groupsel_html %}
 		    <div style="padding: 8px 0 0 5px;">
@@ -55,12 +55,12 @@
 	            </select>
             </div>
 		{% endcaptureas %}
-		{% include 'cosinnus/fields/default_field.html' with field=form.forms.obj.group field_html=groupsel_html legend=groupsel_legend label=groupsel_label %}
+		{% include 'cosinnus/fields/default_field.html' with field=form.forms.obj.group field_html=groupsel_html label=groupsel_label %}
 		            
             
         
-        {% trans "Additional filters" as media_tags_legend %}
-        {% trans "Filter by authors, tags or other tagged properties?" as media_tags_label %}
+        {% trans "Additional filters" as media_tags_label %}
+        {% trans "Filter by authors, tags or other tagged properties?" as media_tags_legend %}
         {% include 'cosinnus/media_tags.html' with media_tags_legend=media_tags_legend media_tags_label=media_tags_label %}
         
         
