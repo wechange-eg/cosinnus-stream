@@ -26,7 +26,12 @@ class StreamManager(django_models.Manager):
     def my_stream_unread_count(self, user):
         if not user.is_authenticated:
             return 0
-        stream = self.get_my_stream_for_user(user, portals=str(CosinnusPortal.get_current().id))
+        try:
+            stream = self.get_my_stream_for_user(user, portals=str(CosinnusPortal.get_current().id))
+        except Exception, e:
+            extra = {'exception': force_text(e), 'user': user}
+            logger.error('Error when trying to get MyStream for stream unread count. Exception in extra.', extra=extra)
+            return 0
         return stream.unread_count()
     
     def get_my_stream_for_user(self, user, portals=""):
