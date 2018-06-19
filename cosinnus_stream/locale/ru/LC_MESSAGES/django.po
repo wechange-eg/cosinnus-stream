@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wechange RU\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-05 13:08+0100\n"
-"PO-Revision-Date: 2018-02-01 00:22+0100\n"
+"POT-Creation-Date: 2018-06-19 14:36+0200\n"
+"PO-Revision-Date: 2018-06-17 23:53+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -15,14 +15,14 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "Language: ru\n"
-"X-Generator: Poedit 2.0.3\n"
+"X-Generator: Poedit 2.0.6\n"
 
 msgid "Stream"
 msgstr "Лента"
 
 msgctxt "the_app"
 msgid "stream"
-msgstr "Лента"
+msgstr "лента"
 
 msgid "My Streams"
 msgstr "Мои ленты"
@@ -89,10 +89,10 @@ msgid "There was an error in one of the fields you entered. Please correct it be
 msgstr ""
 
 msgid "Title"
-msgstr "Заголовок"
+msgstr "Название"
 
 msgid "Enter a title for the stream."
-msgstr "Введите название ленты"
+msgstr "Введите название ленты."
 
 msgid "Apply filters for the stream"
 msgstr "Применить фильтры для ленты"
@@ -119,19 +119,19 @@ msgid "Edit"
 msgstr "Редактировать"
 
 msgid "You do not have permission to access this stream."
-msgstr "У Вас нет разрешения для доступа к этой ленте"
+msgstr "У Вас нет разрешения для доступа к этой ленте."
 
 msgid "Your stream was added successfully."
-msgstr "Ваша лента добавлена"
+msgstr "Ваша лента добавлена."
 
 msgid "Please log in to access this page."
-msgstr "Пожалуйста, войдите в систему, чтобы открыть эту страницу"
+msgstr "Пожалуйста, войдите в систему, чтобы открыть эту страницу."
 
 msgid "Your stream was updated successfully."
-msgstr "Ваша лента обновлена"
+msgstr "Ваша лента обновлена."
 
 msgid "Your stream was deleted successfully."
-msgstr "Ваша лента удалена"
+msgstr "Ваша лента удалена."
 
 msgid "You cannot delete the default stream!"
 msgstr "Вы не можете удалить ленту, установленную по умолчанию!"
