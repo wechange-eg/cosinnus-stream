@@ -15,7 +15,8 @@ from django.http.response import HttpResponseRedirect
 from django.core.urlresolvers import reverse_lazy, reverse
 from cosinnus.templatetags.cosinnus_tags import has_write_access
 from cosinnus.core.decorators.views import redirect_to_403
-from cosinnus.models.group import CosinnusGroup, CosinnusPortal
+from cosinnus.models.group import CosinnusGroup, CosinnusPortal,\
+    CosinnusPortalMembership, MEMBER_STATUS
 from cosinnus.views.widget import DashboardWidgetMixin
 from django.shortcuts import get_object_or_404
 
@@ -130,8 +131,17 @@ class StreamFormMixin(object):
         Filter the groups displayed to the user to be his groups/public groups.
         """
         form = super(StreamFormMixin, self).get_form( *args, **kwargs)
-        form.forms['obj'].fields['group'].queryset = CosinnusGroup.objects.filter(\
-                id__in=CosinnusGroup.objects.get_for_user_pks(self.request.user, include_public=True))
+        group_qs = CosinnusGroup.objects.filter(\
+                id__in=CosinnusGroup.objects.get_for_user_pks(self.request.user, include_public=True)).\
+                order_by('public')
+        group_qs = group_qs.filter(portal=CosinnusPortal.get_current())
+        
+        # enable this to show groups from all portals the user is a member in!
+        #user_portals = list(CosinnusPortalMembership.objects.filter(user=self.request.user, status__in=MEMBER_STATUS).values_list('group__id', flat=True))
+        #group_qs = group_qs.filter(portal__id__in=user_portals)
+        
+        form.forms['obj'].fields['group'].queryset = group_qs
+        
         return form
     
     def get_context_data(self, **kwargs):

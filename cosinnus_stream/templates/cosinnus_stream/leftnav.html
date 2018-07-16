@@ -6,7 +6,7 @@
 	{% captureas label %}{% if user.is_authenticated %}{% trans "My Stream" %}{% else %}{% trans "Public Stream" %}{% endif %}{% endcaptureas %}
 	{% captureas active %}{% if request.path == my_stream_url %}True{% endif %}{% endcaptureas %}
 	{% captureas classes %}fine-space{% endcaptureas %}
-    {% if user.is_authenticated %}{% captureas unseen_count %}{{ COSINNUS_STREAM_UNSEEN_COUNT }}{% endcaptureas %}{% endif %}
+    {% if user.is_authenticated %}{% captureas unseen_count %}{{ COSINNUS_STREAM_UNSEEN_COUNT|truncatenumber }}{% endcaptureas %}{% endif %}
 	{% include "cosinnus/leftnav_button.html" with extra_classes=classes active=active icon="fa-paper-plane-o" icon_content=unseen_count label=label href=href %}
 	
 	{% url 'cosinnus:stream_public' as public_stream_url %}
@@ -14,7 +14,7 @@
 	{% captureas label %}{% if user.is_authenticated %}{% trans "My Stream in all Portals" %}{% else %}{% trans "Public Stream in all Portals" %}{% endif %}{% endcaptureas %}
 	{% captureas active %}{% if request.path == public_stream_url %}True{% endif %}{% endcaptureas %}
 	{% captureas classes %}regular-space{% endcaptureas %}
-    {% if user.is_authenticated %}{% captureas unseen_count %}{{ COSINNUS_STREAM_UNSEEN_COUNT }}{% endcaptureas %}{% endif %}
+    {% if user.is_authenticated %}{% captureas unseen_count %}{{ COSINNUS_STREAM_UNSEEN_COUNT|truncatenumber }}{% endcaptureas %}{% endif %}
 	{% include "cosinnus/leftnav_button.html" with extra_classes=classes active=active icon="fa-paper-plane-o" icon_content=unseen_count label=label href=href %}
 	
 	
@@ -24,7 +24,7 @@
 		{% captureas label %}{{ stream.title }}{% endcaptureas %}
 		{% captureas active %}{% if request.path == stream_url %}True{% endif %}{% endcaptureas %}
 		{% captureas classes %}{% if forloop.last or stream.is_special %}large-space{% else %}fine-space{% endif %}{% endcaptureas %}
-		{% captureas unseen_count %}{{ stream.unread_count }}{% endcaptureas %}
+		{% captureas unseen_count %}{{ stream.unread_count|truncatenumber }}{% endcaptureas %}
 		{% include "cosinnus/leftnav_button.html" with extra_classes=classes active=active icon_content=unseen_count label=label href=href %}
     {% endfor %}
 {% endwith %}

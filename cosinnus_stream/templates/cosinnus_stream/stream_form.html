@@ -57,7 +57,7 @@
 			    <select id="id_group" name="group" class="w100 user-selector" data-placeholder="{% trans "Select Team" %}">
 	                <option value="" default>-------</option>
 	                {% for group in form.forms.obj.group.field.choices.queryset %}
-	                   <option {% if form.forms.obj.group.value == group.pk %}selected{% endif %} value="{{ group.pk }}">{{ group.name }}{% if group.is_foreign_portal %} ({{ group.portal.name }}){% endif %}</option>
+	                   <option {% if form.forms.obj.group.value == group.pk %}selected{% endif %} value="{{ group.pk }}">{{ group.name }}{% if group.is_foreign_portal %} ({{ group.portal.name }}){% endif %} {% if group.public %} ({% trans "Public" %}){% endif %}</option>
 	                {% endfor %}
 	            </select>
             </div>
