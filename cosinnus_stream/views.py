@@ -147,11 +147,17 @@ class StreamFormMixin(object):
     def get_context_data(self, **kwargs):
         context = super(StreamFormMixin, self).get_context_data(**kwargs)
         
+        used_renderers = []
         model_selection = []
         for model_name in aor:
             # skip non-cosinnus app models
             if not model_name.startswith('cosinnus'):
                 continue
+            # skip secondary sub-objects in an app that use the same renderer 
+            # as a model already included in the options (as they would be redundant)
+            if aor[model_name] in used_renderers:
+                continue
+            
             # label for the checkbox is the app identifier translation
             app = model_name.split('.')[0].split('_')[-1]
             model_selection.append({
@@ -160,7 +166,8 @@ class StreamFormMixin(object):
                 'label': pgettext_lazy('the_app', app),
                 'checked': True if (not self.object or not self.object.models) else model_name in self.object.models,
             })
-            
+            used_renderers.append(aor[model_name])
+        
         context.update({
             'stream_model_selection': model_selection,
             'streams': self.get_streams(),
