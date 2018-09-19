@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+from builtins import str
 import datetime
 
 from django.core.urlresolvers import reverse
@@ -28,7 +29,7 @@ class StreamManager(django_models.Manager):
             return 0
         try:
             stream = self.get_my_stream_for_user(user, portals=str(CosinnusPortal.get_current().id))
-        except Exception, e:
+        except Exception as e:
             extra = {'exception': force_text(e), 'user': user}
             logger.error('Error when trying to get MyStream for stream unread count. Exception in extra.', extra=extra)
             return 0
@@ -72,7 +73,7 @@ class Stream(StreamManagerMixin, BaseTaggableObjectModel):
     
     @property
     def portal_list(self):
-        return map(lambda portal_str: int(portal_str.strip()), [portal for portal in self.portals.split(',') if portal])
+        return [int(portal_str.strip()) for portal_str in [portal for portal in self.portals.split(',') if portal]]
     
     def set_last_seen(self, when=None):
         """ Set the last seen datetime for this stream. 
@@ -97,7 +98,7 @@ class Stream(StreamManagerMixin, BaseTaggableObjectModel):
         try:
             cache.set(USER_STREAM_SHORT_CACHE_KEY % (self.portals, user.id if user.is_authenticated() else 0), \
                       self, settings.COSINNUS_STREAM_SHORT_CACHE_TIMEOUT)
-        except Exception, e:
+        except Exception as e:
             # sometimes we cannot pickle the deep cache and it throws errors, we don't want to let this bubble up
             logger.warning('Could not save the user stream into the cache because of an exception! (in extra)', extra={'exception': force_text(e)})
             

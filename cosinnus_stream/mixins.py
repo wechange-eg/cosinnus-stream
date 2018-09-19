@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+from builtins import object
 import inspect
 
 from copy import copy
@@ -95,7 +96,7 @@ class StreamManagerMixin(object):
         
         while count < limit:
             first_items = {}
-            for key, cur_set in copy(setlist).items():
+            for key, cur_set in list(copy(setlist).items()):
                 # if obj list in set is empty, sample new items from qs
                 if not cur_set['objs']:
                     from_index = cur_set['offset']
@@ -114,7 +115,7 @@ class StreamManagerMixin(object):
             
             # sort the list of each queryset's first item to get the very first
             # remove it from the set and add it to the final items
-            first_item = sorted(first_items.iteritems(), key=get_sort_key, reverse=True)[0]
+            first_item = sorted(iter(first_items.items()), key=get_sort_key, reverse=True)[0]
             setlist[first_item[0]]['objs'].pop(0)
             objects.append(first_item[1])
             

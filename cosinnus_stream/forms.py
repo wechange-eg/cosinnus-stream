@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
+from builtins import object
 from cosinnus.forms.tagged import BaseTaggableObjectForm
 from cosinnus.forms.user import UserKwargModelFormMixin
 from cosinnus.forms.tagged import get_form
@@ -8,7 +9,7 @@ from cosinnus_stream.models import Stream
 
 class _StreamForm(UserKwargModelFormMixin, BaseTaggableObjectForm):
 
-    class Meta:
+    class Meta(object):
         model = Stream
         fields = ('title', 'group', 'models',)
         
