@@ -5,7 +5,8 @@ from builtins import object
 import inspect
 
 from copy import copy
-from django.db.models import get_model, Q
+from django.apps import apps
+from django.db.models import Q
 
 from cosinnus.core.registries import attached_object_registry as aor
 from cosinnus.models.tagged import BaseHierarchicalTaggableObjectModel,\
@@ -32,7 +33,7 @@ class StreamManagerMixin(object):
                 continue
             
             app_label, model_name = registered_model.split('.')
-            model_class = get_model(app_label, model_name)
+            model_class = apps.get_model(app_label, model_name)
             
             # get base collection of models for that type
             if BaseHierarchicalTaggableObjectModel in inspect.getmro(model_class):
