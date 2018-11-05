@@ -16,6 +16,7 @@ from django.core.cache import cache
 from cosinnus.models.group import CosinnusPortal
 from django.db.models.signals import post_save
 from django.utils.encoding import force_text
+from django.core.validators import validate_comma_separated_integer_list
 
 import logging
 logger = logging.getLogger('cosinnus')
@@ -61,13 +62,13 @@ class Stream(StreamManagerMixin, BaseTaggableObjectModel):
     
     models = django_models.CharField(_('Models'), blank=True, null=True, max_length=255)
     is_my_stream = django_models.BooleanField(default=False)
-    portals = django_models.CommaSeparatedIntegerField(_('Portal IDs'), 
-       blank=True, null=False, max_length=255, default="") 
+    portals = django_models.CharField(_('Portal IDs'), 
+       blank=True, null=False, max_length=255, default="", validators=[validate_comma_separated_integer_list])
     last_seen = django_models.DateTimeField(_('Last seen'), default=None, blank=True, null=True)
     
     is_special = django_models.BooleanField(_('Special Stream'), default=False)
-    special_groups = django_models.CommaSeparatedIntegerField(_('Special Group IDs'), 
-       blank=True, null=False, max_length=255, default="") 
+    special_groups = django_models.CharField(_('Special Group IDs'), 
+       blank=True, null=False, max_length=255, default="", validators=[validate_comma_separated_integer_list])
     
     objects = StreamManager()
     
