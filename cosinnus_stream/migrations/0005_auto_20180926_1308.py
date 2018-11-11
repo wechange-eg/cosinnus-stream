@@ -15,6 +15,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='stream',
             name='group',
-            field=models.ForeignKey(verbose_name='Team', blank=True, null=True, related_name='cosinnus_stream_stream_set', to=settings.COSINNUS_GROUP_OBJECT_MODEL),
+            field=models.ForeignKey(verbose_name='Team', blank=True, null=True, related_name='cosinnus_stream_stream_set', to=settings.COSINNUS_GROUP_OBJECT_MODEL, on_delete=models.CASCADE),
         ),
     ]

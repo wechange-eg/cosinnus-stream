@@ -26,8 +26,8 @@ class Migration(migrations.Migration):
                 ('portals', models.CommaSeparatedIntegerField(default='', max_length=255, verbose_name='Portal IDs', blank=True)),
                 ('last_seen', models.DateTimeField(default=None, null=True, verbose_name='Last seen', blank=True)),
                 ('attached_objects', models.ManyToManyField(to='cosinnus.AttachedObject', null=True, blank=True)),
-                ('creator', models.ForeignKey(related_name='cosinnus_stream_stream_set', verbose_name='Creator', to=settings.AUTH_USER_MODEL)),
-                ('group', models.ForeignKey(related_name='cosinnus_stream_stream_set', verbose_name='Group', blank=True, to='cosinnus.CosinnusGroup', null=True)),
+                ('creator', models.ForeignKey(related_name='cosinnus_stream_stream_set', verbose_name='Creator', to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE)),
+                ('group', models.ForeignKey(related_name='cosinnus_stream_stream_set', verbose_name='Group', blank=True, to='cosinnus.CosinnusGroup', null=True, on_delete=models.CASCADE)),
             ],
             options={
                 'ordering': ['created'],
