@@ -5,6 +5,8 @@ from django.conf.urls import url
 from cosinnus.templatetags.cosinnus_tags import is_integrated_portal
 from cosinnus_stream import views
 
+app_name = 'stream'
+
 # user management not allowed in integrated mode
 if not is_integrated_portal():
     cosinnus_root_patterns = [
