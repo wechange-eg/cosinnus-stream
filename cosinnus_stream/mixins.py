@@ -141,7 +141,7 @@ class StreamManagerMixin(object):
         
         if stream.is_my_stream:
             # objects only from user-groups for My-Stream
-            if user.is_authenticated():
+            if user.is_authenticated:
                 self.stream_user_group_ids = getattr(self, 'user_group_ids', get_cosinnus_group_model().objects.get_for_user_pks(user))
                 filter_q = Q(group__pk__in=self.stream_user_group_ids)
                 # if the switch is on, also include public posts from all portals

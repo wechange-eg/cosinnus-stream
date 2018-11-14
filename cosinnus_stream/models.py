@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 from builtins import str
 import datetime
 
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.db import models as django_models
 from django.utils.translation import ugettext_lazy as _
 from django.utils.timezone import now
@@ -97,7 +97,7 @@ class Stream(StreamManagerMixin, BaseTaggableObjectModel):
     
     def update_cache(self, user):
         try:
-            cache.set(USER_STREAM_SHORT_CACHE_KEY % (self.portals, user.id if user.is_authenticated() else 0), \
+            cache.set(USER_STREAM_SHORT_CACHE_KEY % (self.portals, user.id if user.is_authenticated else 0), \
                       self, settings.COSINNUS_STREAM_SHORT_CACHE_TIMEOUT)
         except Exception as e:
             # sometimes we cannot pickle the deep cache and it throws errors, we don't want to let this bubble up

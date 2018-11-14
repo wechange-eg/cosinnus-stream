@@ -9,7 +9,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from cosinnus.utils.dashboard import DashboardWidget, DashboardWidgetForm
 from cosinnus_stream.models import Stream
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.core.exceptions import ImproperlyConfigured
 
 

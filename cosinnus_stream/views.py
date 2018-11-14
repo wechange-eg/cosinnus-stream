@@ -14,7 +14,7 @@ from cosinnus_stream.forms import StreamForm
 from django.contrib import messages
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.http.response import HttpResponseRedirect
-from django.core.urlresolvers import reverse_lazy, reverse
+from django.urls import reverse_lazy, reverse
 from cosinnus.templatetags.cosinnus_tags import has_write_access
 from cosinnus.core.decorators.views import redirect_to_403
 from cosinnus.models.group import CosinnusGroup, CosinnusPortal,\
@@ -26,7 +26,7 @@ from django.shortcuts import get_object_or_404
 class StreamsMixin(object):
         
     def get_streams(self):
-        if not self.request.user.is_authenticated():
+        if not self.request.user.is_authenticated:
             return self.model._default_manager.none()
         qs = self.model._default_manager.filter(creator__id=self.request.user.id, is_my_stream__exact=False).order_by('-is_special')
         return qs
@@ -49,14 +49,14 @@ class StreamDetailView(DashboardWidgetMixin, StreamsMixin, DetailView):
         """ Submit the user id so queryset elements can be filtered for that user. """
         
         # anonymous users do not see any widgets
-        if not self.request.user.is_authenticated():
+        if not self.request.user.is_authenticated:
             return {'id': -1}
         
         return {'user_id': self.request.user.pk}
     
     def get_object(self, queryset=None):
         """ Allow queries without slug or pk """
-        if self.request.user.is_authenticated() and (self.pk_url_kwarg in self.kwargs or self.slug_url_kwarg in self.kwargs):
+        if self.request.user.is_authenticated and (self.pk_url_kwarg in self.kwargs or self.slug_url_kwarg in self.kwargs):
             queryset = queryset or self.model.objects.all()
             if self.pk_url_kwarg in self.kwargs:
                 self.object = get_object_or_404(self.model, id=self.kwargs.get(self.pk_url_kwarg))
@@ -71,7 +71,7 @@ class StreamDetailView(DashboardWidgetMixin, StreamsMixin, DetailView):
             else:
                 portals = str(CosinnusPortal.get_current().id)
             
-            if not self.request.user.is_authenticated():
+            if not self.request.user.is_authenticated:
                 # for guests, return a virtual stream
                 self.object = self.model(is_my_stream=True, portals=portals)
             else:
@@ -92,7 +92,7 @@ class StreamDetailView(DashboardWidgetMixin, StreamsMixin, DetailView):
         
         # save last_seen date and set it to current
         self.last_seen = self.object.last_seen_safe
-        if request.user.is_authenticated():
+        if request.user.is_authenticated:
             self.object.set_last_seen()
         
         context = self.get_context_data(object=self.object)
@@ -192,7 +192,7 @@ class StreamCreateView(UserFormKwargsMixin, StreamsMixin, StreamFormMixin, Creat
     message_success = _('Your stream was added successfully.')
     
     def dispatch(self, request, *args, **kwargs):
-        if not request.user.is_authenticated():
+        if not request.user.is_authenticated:
             messages.error(request, _('Please log in to access this page.'))
             return HttpResponseRedirect(reverse_lazy('login') + '?next=' + request.path)
         return super(StreamCreateView, self).dispatch(request, *args, **kwargs)
@@ -207,7 +207,7 @@ class StreamUpdateView(UserFormKwargsMixin, StreamFilterForUserMixin, StreamsMix
     message_success = _('Your stream was updated successfully.')
     
     def dispatch(self, request, *args, **kwargs):
-        if not request.user.is_authenticated():
+        if not request.user.is_authenticated:
             messages.error(request, _('Please log in to access this page.'))
             return HttpResponseRedirect(reverse_lazy('login') + '?next=' + request.path)
         elif not has_write_access(request.user, self.get_object()):
@@ -229,7 +229,7 @@ class StreamDeleteView(UserFormKwargsMixin, StreamFilterForUserMixin, DeleteView
     message_success = _('Your stream was deleted successfully.')
     
     def dispatch(self, request, *args, **kwargs):
-        if not request.user.is_authenticated():
+        if not request.user.is_authenticated:
             messages.error(request, _('Please log in to access this page.'))
             return HttpResponseRedirect(reverse_lazy('login') + '?next=' + request.path)
         
