@@ -63,7 +63,7 @@ class StreamManagerMixin(object):
     
     def _get_stream_objectset(self, querysets):
         def get_sort_key(item):
-            return item[1].sort_key
+            return item[1].stream_sort_key if hasattr(item[1], 'stream_sort_key') else item[1].sort_key
 
         limit = 30
         count = 0
