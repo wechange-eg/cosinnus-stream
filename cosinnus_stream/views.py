@@ -20,7 +20,8 @@ from cosinnus.core.decorators.views import redirect_to_403
 from cosinnus.models.group import CosinnusGroup, CosinnusPortal,\
     CosinnusPortalMembership, MEMBER_STATUS
 from cosinnus.views.widget import DashboardWidgetMixin
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, redirect
+from cosinnus.conf import settings
 
 
 class StreamsMixin(object):
@@ -43,6 +44,10 @@ class StreamDetailView(DashboardWidgetMixin, StreamsMixin, DetailView):
     
     
     def dispatch(self, request, *args, **kwargs):
+        if getattr(settings, 'COSINNUS_USE_V2_DASHBOARD', False) or \
+            (getattr(settings, 'COSINNUS_USE_V2_DASHBOARD_ADMIN_ONLY', False) and self.request.user.is_superuser):
+            return redirect('cosinnus:user-dashboard')
+        
         return super(StreamDetailView, self).dispatch(request, *args, **kwargs)
     
     def get_filter(self):
