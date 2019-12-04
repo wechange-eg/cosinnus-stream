@@ -3,139 +3,139 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-03 17:47+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"POT-Creation-Date: 2019-09-05 13:50+0200\n"
+"PO-Revision-Date: 2019-09-22 19:02+0200\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"X-Generator: Poedit 2.2.3\n"
 
 msgid "Stream"
-msgstr ""
+msgstr "Stream"
 
 msgctxt "the_app"
 msgid "stream"
-msgstr ""
+msgstr "stream"
 
 msgid "My Streams"
-msgstr ""
+msgstr "Mijn streams"
 
 msgid "Streams"
-msgstr ""
+msgstr "Streams"
 
 msgid "Models"
-msgstr ""
+msgstr "Modellen"
 
 msgid "Portal IDs"
-msgstr ""
+msgstr "Portal IDs"
 
 msgid "Last seen"
-msgstr ""
+msgstr "Laatst gezien"
 
 msgid "Special Stream"
-msgstr ""
+msgstr "Speciale Stream"
 
 msgid "Special Group IDs"
-msgstr ""
+msgstr "Speciale Groep IDs"
 
 msgid "My Stream"
-msgstr ""
+msgstr "Mijn Stream"
 
 msgid "Public Stream"
-msgstr ""
+msgstr "Openbare Stream"
 
 msgid "My Stream in all Portals"
-msgstr ""
+msgstr "Mijn Stream in alle Portalen"
 
 msgid "Public Stream in all Portals"
-msgstr ""
+msgstr "Openbare Stream in alle Portalen"
 
 msgid "Edit this Stream"
-msgstr ""
+msgstr "Wijzig deze Stream"
 
 msgid "Delete this Stream"
-msgstr ""
+msgstr "Verwijder deze Stream"
 
 msgid "Do you really want to delete this stream?"
-msgstr ""
+msgstr "Weet u zeker dat u deze stream wilt verwijderen?"
 
 msgid "Delete Stream"
-msgstr ""
+msgstr "Verwijder Stream"
 
 msgid "Create Stream"
-msgstr ""
+msgstr "Maak Stream aan"
 
 msgid "Hide public items outside of your groups"
-msgstr ""
+msgstr "Verberg openbare items buiten je groepen"
 
 msgid "Show public items outside of your groups"
-msgstr ""
+msgstr "Toon openbare items buiten uw groepen"
 
 msgid "There are no news posts yet"
-msgstr ""
+msgstr "Er zijn nog geen nieuwsberichten"
 
 #, python-format
 msgid "Edit stream \"%(stream_name)s\""
-msgstr ""
+msgstr "Wijzig stream “%(stream_name)s”"
 
 msgid "There was an error in one of the fields you entered. Please correct it before saving!"
-msgstr ""
+msgstr "Er is een fout opgetreden in een van de velden die u heeft ingevoerd. Corrigeer dit voordat u opslaat!"
 
 msgid "Title"
-msgstr ""
+msgstr "Titel"
 
 msgid "Enter a title for the stream."
-msgstr ""
+msgstr "Voer een titel in voor de stream."
 
 msgid "Apply filters for the stream"
-msgstr ""
+msgstr "Pas filters toe voor de stream"
 
 msgid "Filter by Team?"
-msgstr ""
+msgstr "Filter door Team?"
 
 msgid "Select Team"
-msgstr ""
+msgstr "Selecteer team"
 
 msgid "Public"
-msgstr ""
+msgstr "Openbaar"
 
 msgid "Additional filters"
-msgstr ""
+msgstr "Aanvullende filters"
 
 msgid "Filter by authors, tags or other tagged properties?"
-msgstr ""
+msgstr "Filteren op auteurs, tags of andere getagde eigenschappen?"
 
 msgid "Filter by item types?"
-msgstr ""
+msgstr "Filteren op itemtypen?"
 
 msgid "Create"
-msgstr ""
+msgstr "Maak aan"
 
 msgid "Edit"
-msgstr ""
+msgstr "Wijzig"
 
 msgid "You do not have permission to access this stream."
-msgstr ""
+msgstr "U heeft geen toestemming om deze stream te openen."
 
 msgid "Your stream was added successfully."
-msgstr ""
+msgstr "Uw stream is succesvol toegevoegd."
 
 msgid "Please log in to access this page."
-msgstr ""
+msgstr "Log alstublieft in om toegang te krijgen tot deze pagina."
 
 msgid "Your stream was updated successfully."
-msgstr ""
+msgstr "Uw stream is succesvol bijgewerkt."
 
 msgid "Your stream was deleted successfully."
-msgstr ""
+msgstr "Uw stream is succesvol verwijderd."
 
 msgid "You cannot delete the default stream!"
-msgstr ""
+msgstr "U kunt de standaardstream niet verwijderen!"
