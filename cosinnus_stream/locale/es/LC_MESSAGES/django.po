@@ -3,139 +3,139 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-02 16:09+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"POT-Creation-Date: 2020-04-22 13:06+0200\n"
+"PO-Revision-Date: 2020-04-22 12:36+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es_CO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.5.4\n"
 
 msgid "Stream"
-msgstr ""
+msgstr "Secuencia"
 
 msgctxt "the_app"
 msgid "stream"
-msgstr ""
+msgstr "secuencia"
 
 msgid "My Streams"
-msgstr ""
+msgstr "Mis Streams"
 
 msgid "Streams"
-msgstr ""
+msgstr "Secuencias"
 
 msgid "Models"
-msgstr ""
+msgstr "Modelos"
 
 msgid "Portal IDs"
-msgstr ""
+msgstr "Portal de identificación"
 
 msgid "Last seen"
-msgstr ""
+msgstr "Visto por última vez"
 
 msgid "Special Stream"
-msgstr ""
+msgstr "Secuencia especial"
 
 msgid "Special Group IDs"
-msgstr ""
+msgstr "Cuentas especiales para grupos"
 
 msgid "My Stream"
-msgstr ""
+msgstr "Mi secuencia"
 
 msgid "Public Stream"
-msgstr ""
+msgstr "Secuencia pública"
 
 msgid "My Stream in all Portals"
-msgstr ""
+msgstr "Mi secuencia en todos los portales"
 
 msgid "Public Stream in all Portals"
-msgstr ""
+msgstr "Secuencia pública en todos los portales"
 
 msgid "Edit this Stream"
-msgstr ""
+msgstr "Editar esta secuencia"
 
 msgid "Delete this Stream"
-msgstr ""
+msgstr "Eliminar esta secuencia"
 
 msgid "Do you really want to delete this stream?"
-msgstr ""
+msgstr "¿Deseas realmente eliminar esta secuencia?"
 
 msgid "Delete Stream"
-msgstr ""
+msgstr "Eliminar esta secuencia"
 
 msgid "Create Stream"
-msgstr ""
+msgstr "Crear una Secuencia"
 
 msgid "Hide public items outside of your groups"
-msgstr ""
+msgstr "Ocultar elementos públicos fuera de tus grupos"
 
 msgid "Show public items outside of your groups"
-msgstr ""
+msgstr "Mostrar elementos públicos fuera de tus grupos"
 
 msgid "There are no news posts yet"
-msgstr ""
+msgstr "No hay nuevas entradas todavía"
 
 #, python-format
 msgid "Edit stream \"%(stream_name)s\""
-msgstr ""
+msgstr "Editar secuencia \"%(stream_name)s\""
 
 msgid "There was an error in one of the fields you entered. Please correct it before saving!"
-msgstr ""
+msgstr "Hubo un error en uno de los campos que entraste. Por favor corrígelo antes de guardar!"
 
 msgid "Title"
-msgstr ""
+msgstr "Título"
 
 msgid "Enter a title for the stream."
-msgstr ""
+msgstr "Ingresa un título para la secuencia."
 
 msgid "Apply filters for the stream"
-msgstr ""
+msgstr "Aplicar filtros para la secuencia"
 
 msgid "Filter by Team?"
-msgstr ""
+msgstr "Filtrar por equipos?"
 
 msgid "Select Team"
-msgstr ""
+msgstr "Selecciona el equipo"
 
 msgid "Public"
-msgstr ""
+msgstr "Püblico"
 
 msgid "Additional filters"
-msgstr ""
+msgstr "Filtros adicionales"
 
 msgid "Filter by authors, tags or other tagged properties?"
-msgstr ""
+msgstr "Filtro por autores, etiquetas u otras propiedades etiquetadas?"
 
 msgid "Filter by item types?"
-msgstr ""
+msgstr "Filtrar por tipo de artículo?"
 
 msgid "Create"
-msgstr ""
+msgstr "Crear"
 
 msgid "Edit"
-msgstr ""
+msgstr "Editar"
 
 msgid "You do not have permission to access this stream."
-msgstr ""
+msgstr "No tienes permiso para acceder a esta secuencia."
 
 msgid "Your stream was added successfully."
-msgstr ""
+msgstr "tu secuencia se añadió exitosamente."
 
 msgid "Please log in to access this page."
-msgstr ""
+msgstr "Por favor, identifícate para acceder a esta página."
 
 msgid "Your stream was updated successfully."
-msgstr ""
+msgstr "tu secuencia se añadió exitosamente."
 
 msgid "Your stream was deleted successfully."
-msgstr ""
+msgstr "Tu secuencia se eliminó exitosamente."
 
 msgid "You cannot delete the default stream!"
-msgstr ""
+msgstr "No se puede eliminar esta secuencia predeterminada!"
