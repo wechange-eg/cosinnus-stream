@@ -18,7 +18,8 @@ from django.urls import reverse_lazy, reverse
 from cosinnus.templatetags.cosinnus_tags import has_write_access
 from cosinnus.core.decorators.views import redirect_to_403
 from cosinnus.models.group import CosinnusGroup, CosinnusPortal,\
-    CosinnusPortalMembership, MEMBER_STATUS
+    CosinnusPortalMembership
+from cosinnus.models import MEMBER_STATUS
 from cosinnus.views.widget import DashboardWidgetMixin
 from django.shortcuts import get_object_or_404, redirect
 from cosinnus.conf import settings
