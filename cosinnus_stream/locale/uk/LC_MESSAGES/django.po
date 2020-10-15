@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-10-06 16:06+0200\n"
-"PO-Revision-Date: 2019-07-02 14:10+0200\n"
+"PO-Revision-Date: 2020-10-13 20:19+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: uk\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 2.4.1\n"
 
 msgid "Stream"
 msgstr "Діяльність"
@@ -26,10 +26,10 @@ msgid "stream"
 msgstr "діяльність"
 
 msgid "My Streams"
-msgstr "Мої потоки діяльності"
+msgstr "Мої трансляції"
 
 msgid "Streams"
-msgstr "Потоки діяльності"
+msgstr "Трансляції"
 
 msgid "Models"
 msgstr "Моделі"
@@ -38,71 +38,71 @@ msgid "Portal IDs"
 msgstr "ID порталу"
 
 msgid "Last seen"
-msgstr "Недавно переглянуті"
+msgstr "Нещодавно переглянуті"
 
 msgid "Special Stream"
-msgstr "Особливий потік діяльності"
+msgstr "Особлива трансляція"
 
 msgid "Special Group IDs"
 msgstr "ID особливих груп"
 
 msgid "My Stream"
-msgstr "Мій потік діяльності"
+msgstr "Моя Трансляція"
 
 msgid "Public Stream"
-msgstr "Публічна діяльність"
+msgstr "Публічна Трансляція"
 
 msgid "My Stream in all Portals"
-msgstr "Діяльність на всіх порталах"
+msgstr "Мої Трансляції на всіх порталах"
 
 msgid "Public Stream in all Portals"
-msgstr "Публічна діяльність на всіх порталах"
+msgstr "Загальнодоступна Трансляція на всіх Порталах"
 
 msgid "Edit this Stream"
-msgstr "Редагувати цю діяльність"
+msgstr "Редагувати Трансляцію"
 
 msgid "Delete this Stream"
-msgstr "Видалити потік діяльності"
+msgstr "Видалити Трансляцію"
 
 msgid "Do you really want to delete this stream?"
-msgstr "Ви дійсно бажаєте видалити цей потік діяльності?"
+msgstr "Ви справді бажаєте видалити цю трансляцію?"
 
 msgid "Delete Stream"
-msgstr "Видалити потік діяльності"
+msgstr "Видалити Трансляцію"
 
 msgid "Create Stream"
-msgstr "Створити потік діяльності"
+msgstr "Створити Трансляцію"
 
 msgid "Hide public items outside of your groups"
-msgstr "Приховати публічні дописи, що не стосуються ваших проектів/спільнот"
+msgstr "Приховати публічні дописи, що не стосуються ваших проєктів/груп"
 
 msgid "Show public items outside of your groups"
-msgstr "Показати публічні дописи, що не стосуються ваших проектів/спільнот"
+msgstr "Показати публічні дописи, що не стосуються ваших проєктів/груп"
 
 msgid "There are no news posts yet"
 msgstr "Новин поки немає"
 
 #, python-format
 msgid "Edit stream \"%(stream_name)s\""
-msgstr "Редагувати потік діяльності «%(stream_name)s»"
+msgstr "Редагувати трансляцію «%(stream_name)s»"
 
 msgid "There was an error in one of the fields you entered. Please correct it before saving!"
-msgstr "В одному з заповнених полів сталася помилка. Будь ласка, виправ її перед збереженням!"
+msgstr "В одному з заповнених полів сталася помилка. Будь ласка, виправте її перед збереженням!"
 
 msgid "Title"
 msgstr "Назва"
 
 msgid "Enter a title for the stream."
-msgstr "Уведіть назву для потоку діяльності."
+msgstr "Уведіть назву для трансляції."
 
 msgid "Apply filters for the stream"
-msgstr "Вибрати фільтр для потоку діяльності"
+msgstr "Вибрати фільтр для трансляції"
 
 msgid "Filter by Team?"
-msgstr "Фільтрувати за спільнотою або проектом?"
+msgstr "Фільтрувати за командою?"
 
 msgid "Select Team"
-msgstr "Вибрати спільноту/проект"
+msgstr "Вибрати команду"
 
 msgid "Public"
 msgstr "Публічно"
@@ -111,7 +111,7 @@ msgid "Additional filters"
 msgstr "Додаткові фільтри"
 
 msgid "Filter by authors, tags or other tagged properties?"
-msgstr "Фільтрувати за автором, ключовими словами або іншими ознаками?"
+msgstr "Фільтрувати за автором, тегами або іншими ознаками?"
 
 msgid "Filter by item types?"
 msgstr "Фільтрувати за типом об'єкту?"
@@ -123,19 +123,19 @@ msgid "Edit"
 msgstr "Редагувати"
 
 msgid "You do not have permission to access this stream."
-msgstr "У вас немає права доступу до цього потоку діяльності."
+msgstr "У вас немає права доступу до цієї трансляції."
 
 msgid "Your stream was added successfully."
-msgstr "Ваш потік діяльності успішно додано."
+msgstr "Вашу трансляцію успішно додано."
 
 msgid "Please log in to access this page."
 msgstr "Будь ласка, увійдіть у систему, щоб отримати доступ до цієї сторінки."
 
 msgid "Your stream was updated successfully."
-msgstr "Ваш потік діяльності успішно змінено."
+msgstr "Ваш трансляцію успішно змінено."
 
 msgid "Your stream was deleted successfully."
-msgstr "Ваш потік діяльності успішно видалено."
+msgstr "Вашу трансляцію успішно видалено."
 
 msgid "You cannot delete the default stream!"
-msgstr "Ви не можете видалити стандартний потік діяльності!"
+msgstr "Ви не можете видалити трансляцію, яка має налаштування «за замовчуванням»!"
