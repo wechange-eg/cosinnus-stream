@@ -1,0 +1,141 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-08-27 09:46+0200\n"
+"PO-Revision-Date: 2020-09-23 21:15+0200\n"
+"Language: cs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"X-Generator: Poedit 2.4.1\n"
+
+msgid "Stream"
+msgstr "Stream"
+
+msgctxt "the_app"
+msgid "stream"
+msgstr "stream"
+
+msgid "My Streams"
+msgstr "Moje streamy"
+
+msgid "Streams"
+msgstr "Streamy"
+
+msgid "Models"
+msgstr "Modely"
+
+msgid "Portal IDs"
+msgstr "ID portálu"
+
+msgid "Last seen"
+msgstr "Naposledy zhlédnuto"
+
+msgid "Special Stream"
+msgstr "Speciální stream"
+
+msgid "Special Group IDs"
+msgstr "ID speciálních skupin"
+
+msgid "My Stream"
+msgstr "Můj stream"
+
+msgid "Public Stream"
+msgstr "Veřejný stream"
+
+msgid "My Stream in all Portals"
+msgstr "Můj stream na všech portálech"
+
+msgid "Public Stream in all Portals"
+msgstr "Veřejný stream na všech portálech"
+
+msgid "Edit this Stream"
+msgstr "Upravit tento stream"
+
+msgid "Delete this Stream"
+msgstr "Smazat tento stream"
+
+msgid "Do you really want to delete this stream?"
+msgstr "Opravdu chcete tento stream smazat?"
+
+msgid "Delete Stream"
+msgstr "Smazat stream"
+
+msgid "Create Stream"
+msgstr "Vytvořit stream"
+
+msgid "Hide public items outside of your groups"
+msgstr "Skrýt veřejné položky mimo vaše skupiny"
+
+msgid "Show public items outside of your groups"
+msgstr "Zobrazit veřejné položky mimo vaše skupiny"
+
+msgid "There are no news posts yet"
+msgstr "Zatím nejsou žádné novinky"
+
+#, python-format
+msgid "Edit stream \"%(stream_name)s\""
+msgstr "Upravit stream \"%(stream_name)s\""
+
+msgid "There was an error in one of the fields you entered. Please correct it before saving!"
+msgstr "V jednom z polí, která jste zadali, došlo k chybě. Před uložením to prosím opravte!"
+
+msgid "Title"
+msgstr "Název"
+
+msgid "Enter a title for the stream."
+msgstr "Zadejte název streamu."
+
+msgid "Apply filters for the stream"
+msgstr "Použít filtry pro stream"
+
+msgid "Filter by Team?"
+msgstr "Filtrovat podle týmu?"
+
+msgid "Select Team"
+msgstr "Vybrat tým"
+
+msgid "Public"
+msgstr "Veřejné"
+
+msgid "Additional filters"
+msgstr "Další filtry"
+
+msgid "Filter by authors, tags or other tagged properties?"
+msgstr "Filtrovat podle autorů, značek nebo jiných označených vlastností?"
+
+msgid "Filter by item types?"
+msgstr "Filtrovat podle typů položek?"
+
+msgid "Create"
+msgstr "Vytvořit"
+
+msgid "Edit"
+msgstr "Upravit"
+
+msgid "You do not have permission to access this stream."
+msgstr "Nemáte oprávnění k přístupu na tento stream."
+
+msgid "Your stream was added successfully."
+msgstr "Váš stream byl úspěšně přidán."
+
+msgid "Please log in to access this page."
+msgstr "Pro přístup na tuto stránku se prosím přihlaste."
+
+msgid "Your stream was updated successfully."
+msgstr "Váš stream byl úspěšně aktualizován."
+
+msgid "Your stream was deleted successfully."
+msgstr "Váš stream byl úspěšně smazán."
+
+msgid "You cannot delete the default stream!"
+msgstr "Výchozí stream nelze odstranit!"
