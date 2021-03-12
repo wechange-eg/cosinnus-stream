@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-23 18:24+0100\n"
-"PO-Revision-Date: 2019-09-22 19:02+0200\n"
+"POT-Creation-Date: 2021-03-12 17:55+0100\n"
+"PO-Revision-Date: 2021-02-18 19:43+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -16,93 +16,95 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.2.3\n"
+"X-Generator: Poedit 2.4.1\n"
 
+# What is this app about?
+# Translation: Stream or Activiteiten?
 msgid "Stream"
-msgstr "Stream"
+msgstr "Activiteiten"
 
 msgctxt "the_app"
 msgid "stream"
-msgstr "stream"
+msgstr "activiteiten"
 
 msgid "My Streams"
-msgstr "Mijn streams"
+msgstr "Mijn activiteiten"
 
 msgid "Streams"
-msgstr "Streams"
+msgstr "Activiteiten"
 
 msgid "Models"
 msgstr "Modellen"
 
 msgid "Portal IDs"
-msgstr "Portal IDs"
+msgstr "Portal ID's"
 
 msgid "Last seen"
 msgstr "Laatst gezien"
 
 msgid "Special Stream"
-msgstr "Speciale Stream"
+msgstr "Special Stream"
 
 msgid "Special Group IDs"
-msgstr "Speciale Groep IDs"
+msgstr "Special Group IDs"
 
 msgid "My Stream"
-msgstr "Mijn Stream"
+msgstr "Mijn activiteiten"
 
 msgid "Public Stream"
-msgstr "Openbare Stream"
+msgstr "Openbare activiteiten"
 
 msgid "My Stream in all Portals"
-msgstr "Mijn Stream in alle Portalen"
+msgstr "Mijn activiteiten in alle portals"
 
 msgid "Public Stream in all Portals"
-msgstr "Openbare Stream in alle Portalen"
+msgstr "Openbare activiteiten in alle portals"
 
 msgid "Edit this Stream"
-msgstr "Wijzig deze Stream"
+msgstr "Deze activiteiten-feed bewerken"
 
 msgid "Delete this Stream"
-msgstr "Verwijder deze Stream"
+msgstr "Deze activiteiten-feed verwijderen"
 
 msgid "Do you really want to delete this stream?"
-msgstr "Weet u zeker dat u deze stream wilt verwijderen?"
+msgstr "Weet je zeker dat je deze activiteiten-feed wilt verwijderen?"
 
 msgid "Delete Stream"
-msgstr "Verwijder Stream"
+msgstr "Activiteiten-feed verwijderen"
 
 msgid "Create Stream"
-msgstr "Maak Stream aan"
+msgstr "Activiteiten-feed aanmaken"
 
 msgid "Hide public items outside of your groups"
-msgstr "Verberg openbare items buiten je groepen"
+msgstr "Openbare items buiten je groepen verbergen"
 
 msgid "Show public items outside of your groups"
-msgstr "Toon openbare items buiten uw groepen"
+msgstr "Openbare items buiten je groepen tonen"
 
 msgid "There are no news posts yet"
 msgstr "Er zijn nog geen nieuwsberichten"
 
 #, python-format
 msgid "Edit stream \"%(stream_name)s\""
-msgstr "Wijzig stream “%(stream_name)s”"
+msgstr "“%(stream_name)s” wijzigen"
 
 msgid "There was an error in one of the fields you entered. Please correct it before saving!"
-msgstr "Er is een fout opgetreden in een van de velden die u heeft ingevoerd. Corrigeer dit voordat u opslaat!"
+msgstr "Er is een fout opgetreden in een van de velden die je hebt ingevoerd. Corrigeer dit voordat je opslaat!"
 
 msgid "Title"
 msgstr "Titel"
 
 msgid "Enter a title for the stream."
-msgstr "Voer een titel in voor de stream."
+msgstr "Titel invoeren voor de activiteiten-feed."
 
 msgid "Apply filters for the stream"
-msgstr "Pas filters toe voor de stream"
+msgstr "Filters toepassen op de activiteiten-feed"
 
 msgid "Filter by Team?"
-msgstr "Filter door Team?"
+msgstr "Filteren op team?"
 
 msgid "Select Team"
-msgstr "Selecteer team"
+msgstr "Team selecteren"
 
 msgid "Public"
 msgstr "Openbaar"
@@ -114,28 +116,28 @@ msgid "Filter by authors, tags or other tagged properties?"
 msgstr "Filteren op auteurs, tags of andere getagde eigenschappen?"
 
 msgid "Filter by item types?"
-msgstr "Filteren op itemtypen?"
+msgstr "Filteren op itemtypes?"
 
 msgid "Create"
-msgstr "Maak aan"
+msgstr "Aanmaken"
 
 msgid "Edit"
-msgstr "Wijzig"
+msgstr "Wijzigen"
 
 msgid "You do not have permission to access this stream."
-msgstr "U heeft geen toestemming om deze stream te openen."
+msgstr "Je hebt geen toestemming om deze activiteiten-feed te openen."
 
 msgid "Your stream was added successfully."
-msgstr "Uw stream is succesvol toegevoegd."
+msgstr "Je activiteiten-feed is succesvol toegevoegd."
 
 msgid "Please log in to access this page."
-msgstr "Log alstublieft in om toegang te krijgen tot deze pagina."
+msgstr "Log in om toegang te krijgen tot deze pagina."
 
 msgid "Your stream was updated successfully."
-msgstr "Uw stream is succesvol bijgewerkt."
+msgstr "Je activiteiten-feed is succesvol bijgewerkt."
 
 msgid "Your stream was deleted successfully."
-msgstr "Uw stream is succesvol verwijderd."
+msgstr "Je activiteiten-feed is succesvol verwijderd."
 
 msgid "You cannot delete the default stream!"
-msgstr "U kunt de standaardstream niet verwijderen!"
+msgstr "Je kunt de default activiteiten-feed niet verwijderen!"

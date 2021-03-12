@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-23 18:24+0100\n"
-"PO-Revision-Date: 2020-09-29 18:04+0100\n"
+"POT-Creation-Date: 2021-03-12 17:55+0100\n"
+"PO-Revision-Date: 2021-03-09 00:32+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: he\n"
@@ -16,14 +16,14 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 2.4.2\n"
 
 msgid "Stream"
-msgstr "השידור שלי"
+msgstr "שידור"
 
 msgctxt "the_app"
 msgid "stream"
-msgstr ""
+msgstr "סטרים"
 
 msgid "My Streams"
 msgstr "השידורים שלי"
@@ -35,7 +35,7 @@ msgid "Models"
 msgstr "דגמים"
 
 msgid "Portal IDs"
-msgstr ""
+msgstr "מזהי פורטל"
 
 msgid "Last seen"
 msgstr "נראה לאחרונה"
@@ -44,19 +44,19 @@ msgid "Special Stream"
 msgstr "שידור מיוחד"
 
 msgid "Special Group IDs"
-msgstr ""
+msgstr "תעודות זהות קבוצתיות מיוחדות"
 
 msgid "My Stream"
 msgstr "השידור שלי"
 
 msgid "Public Stream"
-msgstr "שידור ציבורי"
+msgstr "שידור"
 
 msgid "My Stream in all Portals"
-msgstr ""
+msgstr "השידור שלי בכל הפורטלים"
 
 msgid "Public Stream in all Portals"
-msgstr ""
+msgstr "שידור ציבורי בכל הפורטלים"
 
 msgid "Edit this Stream"
 msgstr "ערוך שידור זה"
@@ -74,26 +74,26 @@ msgid "Create Stream"
 msgstr "צור שידור"
 
 msgid "Hide public items outside of your groups"
-msgstr ""
+msgstr "הסתר פריטים ציבוריים מחוץ לקבוצות שלי"
 
 msgid "Show public items outside of your groups"
-msgstr ""
+msgstr "הראה פריטים ציבוריים מחוץ לקבוצות שלי"
 
 msgid "There are no news posts yet"
-msgstr ""
+msgstr "אין עדיין פוסטים"
 
 #, python-format
 msgid "Edit stream \"%(stream_name)s\""
-msgstr ""
+msgstr "ערוך את השידור \"%(stream_name)s\""
 
 msgid "There was an error in one of the fields you entered. Please correct it before saving!"
-msgstr ""
+msgstr "אירעה שגיאה באחד השדות שהזנת. אנא תקן אותו לפני השמירה!"
 
 msgid "Title"
 msgstr "כותרת"
 
 msgid "Enter a title for the stream."
-msgstr "הזן כותרת לשידור"
+msgstr "הזן כותרת לשידור."
 
 msgid "Apply filters for the stream"
 msgstr "החל סננים עבור השידור"
@@ -111,10 +111,10 @@ msgid "Additional filters"
 msgstr "פילטרים נוספים"
 
 msgid "Filter by authors, tags or other tagged properties?"
-msgstr ""
+msgstr "לסנן לפי מחברים, תגים או מאפיינים מתויגים אחרים?"
 
 msgid "Filter by item types?"
-msgstr ""
+msgstr "לסנן לפי סוגי פריטים?"
 
 msgid "Create"
 msgstr "צור"
@@ -126,16 +126,16 @@ msgid "You do not have permission to access this stream."
 msgstr "אין לך הרשאה לגשת לשידור זה."
 
 msgid "Your stream was added successfully."
-msgstr ""
+msgstr "השידור שלך נוסף בהצלחה."
 
 msgid "Please log in to access this page."
-msgstr "התחבר על מנת לעבור לדף המבוקש."
+msgstr "התחברו על מנת לעבור לדף המבוקש."
 
 msgid "Your stream was updated successfully."
-msgstr ""
+msgstr "השידור שלך עודכן בהצלחה."
 
 msgid "Your stream was deleted successfully."
-msgstr ""
+msgstr "השידור שלך נמחק בהצלחה."
 
 msgid "You cannot delete the default stream!"
-msgstr ""
+msgstr "אינך יכול למחוק את שידור ברירת המחדל!"
