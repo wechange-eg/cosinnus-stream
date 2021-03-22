@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-12 17:55+0100\n"
+"POT-Creation-Date: 2021-02-23 18:24+0100\n"
 "PO-Revision-Date: 2020-07-02 20:58+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -46,7 +46,7 @@ msgid "Special Group IDs"
 msgstr "ID Grup Specjalnych"
 
 msgid "My Stream"
-msgstr "Aktualności"
+msgstr "Mój Stream"
 
 msgid "Public Stream"
 msgstr "Stream Publiczny"
@@ -79,14 +79,14 @@ msgid "Show public items outside of your groups"
 msgstr "Pokaż elementy publiczne spoza Twoich grup"
 
 msgid "There are no news posts yet"
-msgstr "Nie ma jeszcze wpisów"
+msgstr "Nie ma jeszcze nowych wpisów"
 
 #, python-format
 msgid "Edit stream \"%(stream_name)s\""
 msgstr "Edytuj stream \"%(stream_name)s\""
 
 msgid "There was an error in one of the fields you entered. Please correct it before saving!"
-msgstr "W jednym z wypełnionych pól wystąpił błąd. Popraw go przed zapisaniem!"
+msgstr "W jednym z wypełnionych pól jest błąd. Popraw go przed zapisaniem!"
 
 msgid "Title"
 msgstr "Tytuł"
@@ -104,7 +104,7 @@ msgid "Select Team"
 msgstr "Wybierz Zespół"
 
 msgid "Public"
-msgstr "Publiczny/a"
+msgstr "Publiczny/-a"
 
 msgid "Additional filters"
 msgstr "Filtry dodatkowe"
