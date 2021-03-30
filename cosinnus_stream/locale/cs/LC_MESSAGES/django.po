@@ -3,32 +3,33 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-03-30 19:15+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2021-03-30 19:15+0200\n"
+"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"X-Generator: Poedit 2.0.6\n"
 
 msgid "Stream"
-msgstr "Activities"
+msgstr ""
 
 msgctxt "the_app"
 msgid "stream"
-msgstr "Activities"
+msgstr ""
 
 msgid "My Streams"
-msgstr "Activities"
+msgstr ""
 
 msgid "Streams"
-msgstr "Activities"
+msgstr ""
 
 msgid "Models"
 msgstr ""
@@ -39,41 +40,38 @@ msgstr ""
 msgid "Last seen"
 msgstr ""
 
-#, fuzzy
-#| msgid "Delete Stream"
 msgid "Special Stream"
-msgstr "Delete activity feed"
+msgstr ""
 
 msgid "Special Group IDs"
 msgstr ""
 
 msgid "My Stream"
-msgstr "Activities"
+msgstr ""
 
 msgid "Public Stream"
-msgstr "Public Activities"
+msgstr ""
 
 msgid "My Stream in all Portals"
 msgstr ""
 
-#, fuzzy
 msgid "Public Stream in all Portals"
-msgstr "Public Activities"
+msgstr ""
 
 msgid "Edit this Stream"
-msgstr "Edit this activity feed"
+msgstr ""
 
 msgid "Delete this Stream"
-msgstr "Delete this activity feed"
+msgstr ""
 
 msgid "Do you really want to delete this stream?"
-msgstr "Do you really want to delete this activity feed?"
+msgstr ""
 
 msgid "Delete Stream"
-msgstr "Delete activity feed"
+msgstr ""
 
 msgid "Create Stream"
-msgstr "Create activity feed"
+msgstr ""
 
 msgid "Hide public items outside of your groups"
 msgstr ""
@@ -86,7 +84,7 @@ msgstr ""
 
 #, python-format
 msgid "Edit stream \"%(stream_name)s\""
-msgstr "Edit activity feed \"%(stream_name)s\""
+msgstr ""
 
 msgid "There was an error in one of the fields you entered. Please correct it before saving!"
 msgstr ""
@@ -95,10 +93,10 @@ msgid "Title"
 msgstr ""
 
 msgid "Enter a title for the stream."
-msgstr "Enter a title for the activity feed."
+msgstr ""
 
 msgid "Apply filters for the stream"
-msgstr "Apply filters for the activity feed"
+msgstr ""
 
 msgid "Filter by Team?"
 msgstr ""
@@ -106,10 +104,8 @@ msgstr ""
 msgid "Select Team"
 msgstr ""
 
-#, fuzzy
-#| msgid "Public Stream"
 msgid "Public"
-msgstr "Public Activities"
+msgstr ""
 
 msgid "Additional filters"
 msgstr ""
@@ -127,19 +123,19 @@ msgid "Edit"
 msgstr ""
 
 msgid "You do not have permission to access this stream."
-msgstr "You do not have permission to access this activity feed."
+msgstr ""
 
 msgid "Your stream was added successfully."
-msgstr "Your activity feed was added successfully."
+msgstr ""
 
 msgid "Please log in to access this page."
 msgstr ""
 
 msgid "Your stream was updated successfully."
-msgstr "Your activity feed was updated successfully."
+msgstr ""
 
 msgid "Your stream was deleted successfully."
-msgstr "Your activity feed was deleted successfully."
+msgstr ""
 
 msgid "You cannot delete the default stream!"
-msgstr "You cannot delete the default activity feed!"
+msgstr ""
