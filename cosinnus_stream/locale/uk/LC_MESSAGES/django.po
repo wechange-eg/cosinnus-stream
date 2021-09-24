@@ -7,135 +7,188 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-14 15:23+0200\n"
+"POT-Creation-Date: 2021-08-04 09:41+0200\n"
 "PO-Revision-Date: 2020-10-13 20:19+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Poedit 2.4.1\n"
 
+#: cosinnus_app.py:17 models.py:58
 msgid "Stream"
-msgstr "Діяльність"
+msgstr "Стрім"
 
+#: cosinnus_app.py:24
 msgctxt "the_app"
 msgid "stream"
-msgstr "діяльність"
+msgstr "стрім"
 
+#: dashboard.py:27
 msgid "My Streams"
-msgstr "Мої трансляції"
+msgstr "Мої стріми"
 
+#: models.py:59 templates/cosinnus_stream/base.html:5
+#: templates/cosinnus_stream/base.html:12
+#: templates/cosinnus_stream/stream_detail.html:15
 msgid "Streams"
-msgstr "Трансляції"
+msgstr "стріми"
 
+#: models.py:63
 msgid "Models"
 msgstr "Моделі"
 
+#: models.py:65
 msgid "Portal IDs"
 msgstr "ID порталу"
 
+#: models.py:67
 msgid "Last seen"
 msgstr "Нещодавно переглянуті"
 
+#: models.py:69
 msgid "Special Stream"
-msgstr "Особлива трансляція"
+msgstr "Особливі стріми"
 
+#: models.py:70
 msgid "Special Group IDs"
 msgstr "ID особливих груп"
 
+#: templates/cosinnus_stream/leftnav.html:6
+#: templates/cosinnus_stream/stream_detail.html:17
+#: templates/cosinnus_stream/widgets/my_streams.html:11
 msgid "My Stream"
-msgstr "Моя Трансляція"
+msgstr "Мій стрім"
 
+#: templates/cosinnus_stream/leftnav.html:6
+#: templates/cosinnus_stream/stream_detail.html:17
 msgid "Public Stream"
-msgstr "Публічна Трансляція"
+msgstr "Публічний стрім"
 
+#: templates/cosinnus_stream/leftnav.html:14
 msgid "My Stream in all Portals"
-msgstr "Мої Трансляції на всіх порталах"
+msgstr "Мої стріми на всіх порталах"
 
+#: templates/cosinnus_stream/leftnav.html:14
 msgid "Public Stream in all Portals"
-msgstr "Загальнодоступна Трансляція на всіх Порталах"
+msgstr "Загальнодоступна стріми на всіх порталах"
 
+#: templates/cosinnus_stream/leftnav.html:33
 msgid "Edit this Stream"
-msgstr "Редагувати Трансляцію"
+msgstr "Редагувати цей стрім"
 
+#: templates/cosinnus_stream/leftnav.html:39
 msgid "Delete this Stream"
-msgstr "Видалити Трансляцію"
+msgstr "Видалити цей стрім"
 
+#: templates/cosinnus_stream/leftnav.html:42
 msgid "Do you really want to delete this stream?"
-msgstr "Ви справді бажаєте видалити цю трансляцію?"
+msgstr "Ви справді бажаєте видалити цей стрім?"
 
+#: templates/cosinnus_stream/leftnav.html:43
 msgid "Delete Stream"
-msgstr "Видалити Трансляцію"
+msgstr "Видалити стрім"
 
+#: templates/cosinnus_stream/leftnav.html:51
+#: templates/cosinnus_stream/stream_form.html:6
+#: templates/cosinnus_stream/stream_form.html:15
+#: templates/cosinnus_stream/widgets/my_streams.html:40
 msgid "Create Stream"
-msgstr "Створити Трансляцію"
+msgstr "Створити стрім"
 
+#: templates/cosinnus_stream/stream_detail.html:46
 msgid "Hide public items outside of your groups"
-msgstr "Приховати публічні дописи, що не стосуються ваших проєктів/груп"
+msgstr "Приховати публічні дописи, що не стосуються ваших груп"
 
+#: templates/cosinnus_stream/stream_detail.html:46
 msgid "Show public items outside of your groups"
-msgstr "Показати публічні дописи, що не стосуються ваших проєктів/груп"
+msgstr "Показати публічні дописи, що не стосуються ваших груп"
 
+#: templates/cosinnus_stream/stream_detail.html:60
 msgid "There are no news posts yet"
-msgstr "Новин поки немає"
+msgstr "Немає поки новин"
 
+#: templates/cosinnus_stream/stream_form.html:8
+#: templates/cosinnus_stream/stream_form.html:15
 #, python-format
 msgid "Edit stream \"%(stream_name)s\""
-msgstr "Редагувати трансляцію «%(stream_name)s»"
+msgstr "Редагувати стрім «%(stream_name)s»"
 
-msgid "There was an error in one of the fields you entered. Please correct it before saving!"
-msgstr "В одному з заповнених полів сталася помилка. Будь ласка, виправте її перед збереженням!"
+#: templates/cosinnus_stream/stream_form.html:28
+msgid ""
+"There was an error in one of the fields you entered. Please correct it "
+"before saving!"
+msgstr "В одному із заповнюваних Вами полів сталася помилка. Будь ласка, виправте це перед збереженням!"
 
+#: templates/cosinnus_stream/stream_form.html:40
 msgid "Title"
 msgstr "Назва"
 
+#: templates/cosinnus_stream/stream_form.html:41
 msgid "Enter a title for the stream."
-msgstr "Уведіть назву для трансляції."
+msgstr "Уведіть назву для стріму."
 
+#: templates/cosinnus_stream/stream_form.html:51
 msgid "Apply filters for the stream"
-msgstr "Вибрати фільтр для трансляції"
+msgstr "Вибрати фільтр для стріму"
 
+#: templates/cosinnus_stream/stream_form.html:54
 msgid "Filter by Team?"
 msgstr "Фільтрувати за командою?"
 
+#: templates/cosinnus_stream/stream_form.html:57
 msgid "Select Team"
 msgstr "Вибрати команду"
 
+#: templates/cosinnus_stream/stream_form.html:60
 msgid "Public"
-msgstr "Публічно"
+msgstr "Загальнодоступний"
 
+#: templates/cosinnus_stream/stream_form.html:69
 msgid "Additional filters"
 msgstr "Додаткові фільтри"
 
+#: templates/cosinnus_stream/stream_form.html:70
 msgid "Filter by authors, tags or other tagged properties?"
 msgstr "Фільтрувати за автором, тегами або іншими ознаками?"
 
+#: templates/cosinnus_stream/stream_form.html:75
 msgid "Filter by item types?"
 msgstr "Фільтрувати за типом об'єкту?"
 
+#: templates/cosinnus_stream/stream_form.html:101
 msgid "Create"
 msgstr "Створити"
 
+#: templates/cosinnus_stream/stream_form.html:103
 msgid "Edit"
 msgstr "Редагувати"
 
+#: views.py:89
 msgid "You do not have permission to access this stream."
-msgstr "У вас немає права доступу до цієї трансляції."
+msgstr "У вас немає права доступу до цього стріму."
 
+#: views.py:198
 msgid "Your stream was added successfully."
-msgstr "Вашу трансляцію успішно додано."
+msgstr "Ваш стрім успішно додано."
 
+#: views.py:202 views.py:217 views.py:239
 msgid "Please log in to access this page."
 msgstr "Будь ласка, увійдіть у систему, щоб отримати доступ до цієї сторінки."
 
+#: views.py:213
 msgid "Your stream was updated successfully."
-msgstr "Ваш трансляцію успішно змінено."
+msgstr "Ваш стрім успішно змінено."
 
+#: views.py:235
 msgid "Your stream was deleted successfully."
-msgstr "Вашу трансляцію успішно видалено."
+msgstr "Ваш стрім успішно видалено."
 
+#: views.py:247
 msgid "You cannot delete the default stream!"
 msgstr "Ви не можете видалити трансляцію, яка має налаштування «за замовчуванням»!"
+
