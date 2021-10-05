@@ -18,9 +18,9 @@
     <button type="button" class="btn btn-emphasized w100" href="{{ stream.get_absolute_url }}">
         <ul class="media-list {% if forloop.last %}regular-space{% else %}fine-space{% endif %}">
             <li class="media">
-                <a class="pull-left" href="#">
+                <span class="pull-left">
                     {{ stream.unread_count }}
-                </a>
+                </span>
                 <div class="media-body">
                     {{ stream.title }}
                 </div>
@@ -33,9 +33,9 @@
 <button type="button" class="btn btn-emphasized w100" href="{% url 'cosinnus:create_stream' %}">
     <ul class="media-list">
         <li class="media">
-            <a class="pull-left" href="#">
+            <span class="pull-left">
                 <i class="fa fa-plus"></i>
-            </a>
+            </span>
             <div class="media-body">
                 {% trans "Create Stream" %}
             </div>
