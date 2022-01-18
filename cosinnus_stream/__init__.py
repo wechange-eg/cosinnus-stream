@@ -5,8 +5,6 @@ from __future__ import unicode_literals
 from builtins import str
 VERSION = (0, 5, 0, 'alpha', 0)
 
-default_app_config = 'cosinnus_stream.apps.CosinnusStreamAppConfig'
-
 
 def get_version(full=True):
     """Derives a PEP386-compliant version number from VERSION.
